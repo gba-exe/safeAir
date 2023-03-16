@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");/*importar letra*/
 
 * {
   margin: 0;
@@ -6,12 +6,12 @@
   box-sizing: border-box;
   font-family: "Noto Sans";
 }
-.bold {
+.bold { /*todos os textos em negrito tem essa class*/
   font-weight: bold;
   break-after: none;
 }
 
-#divLogin {
+#divCalculadora {/*div geral que ocupa toda tela*/
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -27,9 +27,9 @@
   background: #a4b096;
   justify-content: center;
   flex-direction: column;
-  gap: 30px; /*espaçamento entre os objetos*/
+  gap: 30px; /*espaçamento entre os objetos (de pai para filho*/
 }
-#divVoltar{
+#divVoltar{/*div com o botão para voltar ao menu*/
     display: flex;
     justify-content: flex-start;
     width: 80%;
@@ -37,7 +37,7 @@
     color: #072953;
     font-weight: 900;
 }
-#divTexto {
+#divTexto {/*tem a desc e o titulo da esquerda*/
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -45,13 +45,12 @@
   font-size: 20px;
   gap: 20px;
 }
-#divDesc {
+#divDesc {/*apenas descrição debaixo do título*/
   width: 80%;
   font-size: 30px;
   gap: 20px;
   color: #072953;
 }
-
 #titulo {
   font-weight: 900;
   font-size: 35px;
@@ -66,16 +65,7 @@
   width: 50%;
   height: 100%;
   background: #c7c6b4;
-
-/* 
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-items: center; */
-/* padding: 0px 0px 11px; */
-/* gap: 50px; */
 }
-
 #divContent {
   display: flex;
   flex-direction: column;
@@ -90,13 +80,11 @@ align-items: center; */
   flex-direction: column;
   width: 100%;
 }
-
 .txtInput {
   font-size: 20px;
   font-weight: bold;
   color: #072953;
 }
-
 .input {
   width: 100%;
   height: 50px;
@@ -106,13 +94,12 @@ align-items: center; */
   padding: 10px;
   background: #d5d4c6;  
 }
-
 .input::placeholder{
     color: #0000005d;
     font-size: 15px;
     font-weight: bold;
 }
-#btnCalcular{
+#btnCalcular{/*botão para calcular a taxa*/
     width: 100%;
     height: 50px;
     background: #A4B096;
@@ -122,11 +109,10 @@ align-items: center; */
     font-size: 20px;
     font-weight: bold;
 }
-
-#pTexto{
+#pTexto{/*texto dentro a telinha branca*/
     font-size: 25px;
 }
-#btnModal{
+#btnModal{/*botão para fechar a telinha branca*/
     position: absolute;
     top:42%;
     left: 68%;
@@ -138,7 +124,7 @@ align-items: center; */
     border: none;
     border-radius: 6px;
 }
-#divModal{
+#divModal{/*tela preto claro*/
     width: 100%;
     height: 100%;
     display: none;
@@ -147,7 +133,7 @@ align-items: center; */
     align-items: center;
     justify-content: center;
 }
-#divMiniModal{
+#divMiniModal{/*telinha branca*/
     display: flex;
     align-items: center;
     justify-content: center;
