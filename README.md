@@ -1,17 +1,31 @@
 # SafeAir Projeto PI
 Projeto de climatização para empresas
 
+### Colaboradores:
+
+- Bárbara: @babi-barbato
+
+- Gabriel: @gba-exe
+
+- Giovanna: @giomenezes
+
+- Lucas:
+
+- Ana:
+
+- Otávio:
+
 ### Feito por:
-- @AndreyR05
+- Bárbara: @babi-barbato
 
-- @babi-barbato
+- Gabriel: @gba-exe
 
-- @gba-exe
+- Nicolas: @npz12
 
-- @Hideki19
+- Andrei: @AndreyR05
 
-- @KauanCursino
+- Vitor: @Hideki19
 
-- @npz12
+- Kauan: @KauanCursino
 
-- @sofhiautaka
+- Sofhia: @sofhiautaka
