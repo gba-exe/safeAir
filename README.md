@@ -11,7 +11,7 @@ Projeto de climatização para empresas
 
 - Lucas:
 
-- Ana:
+- Ana: @anabueno25 
 
 - Otávio:
 
