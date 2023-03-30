@@ -9,7 +9,7 @@ Projeto de climatização para empresas
 
 - Giovanna: @giomenezes
 
-- Lucas:
+- Lucas: @LucasAuGarcia
 
 - Ana: @anabueno25 
 
