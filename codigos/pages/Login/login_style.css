@@ -1,0 +1,113 @@
+* {
+    font-family: Arial;
+    color: #072953;
+}
+body {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+
+.corpo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+
+    width: 100%;
+    height: 1000px;
+}
+
+.ls {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+
+    background: #A4B096;
+
+}
+
+.voltar {
+    align-self: flex-start;
+    font-weight: 700;
+    font-size: 22px;
+    text-indent: 1px;
+    margin-left: 23px;
+}
+
+.mensagem {
+    margin-bottom: 90px;
+    font-size: 33px;
+    text-indent: 1px;
+    color: #072953;
+}
+
+.rs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px 11px;
+    gap: 50px;
+
+    width: 50%;
+    height: 100%;
+
+    background: #C7C6B4;
+}
+
+.login {
+    font-family: Arial;
+    color: #072953;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 722px;
+    height: 319px;
+}
+
+
+.botao {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0px;
+
+    width: 622px;
+    height: 61px;
+
+    background: #A4B096;
+    border: 2px solid rgba(0, 0, 0, 0.44);
+    border-radius: 15px;
+
+}
+
+.input {
+    box-sizing: border-box;
+
+    width: 622px;
+    height: 65px;
+
+    background: #D5D4C6;
+    border: 2px solid #072953;
+    border-radius: 15px;
+    font-family: Arial;
+}
+.container {
+    width: 90%;
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rs .login .formulario p {
+    font-family: Arial;
+    color: #072953;
+}
