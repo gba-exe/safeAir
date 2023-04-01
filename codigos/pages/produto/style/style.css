@@ -91,6 +91,7 @@ body {
 }
 .divTexto h1{
     width: 100%;
+    font-size: 45px;
     color: #000000;
 }
 .divTexto li{
