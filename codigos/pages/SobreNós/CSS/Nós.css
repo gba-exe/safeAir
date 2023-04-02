@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&family=Noto+Sans:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#divMenu img {
+    /*logo que esta no menu*/
+    padding-left: 20px;
+    width: 150px;
+}
+
+#divMenu {
+    /*menu*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px;
+    gap: 50px;
+    position: relative;
+    width: 100%;
+    height: 80px;
+    background: #A4B096;
+    align-items: center;
+}
+
+ul {
+    /*UL do menu*/
+    font-family: Noto Sans;
+    color: #072953;
+    font-size: 23px;
+    gap: 30px;
+    display: flex;
+    justify-content: row;
+    list-style: none;
+    font-weight: 900;
+    align-items: center;
+}
+
+.btnLoginIn {
+    background-color: #A4B096;
+    padding: 5px;
+    font-size: 20px;
+    border: 3px solid #072953;
+    border-radius: 100px;
+    color: #072953;
+    font-weight: 500;
+}
+
+.btnSingUp {
+    background-color: #072953;
+    border: 3px solid #072953;
+    border-radius: 100px;
+    color: #A4B096;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.liZoom {
+    transition: all 0.5s;
+}
+
+.liZoom:hover {
+    transform: scale(1.2);
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Inicio do corpo (Esquerda) */
+
+.divCorpo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 100%;
+    height: 780px;
+}
+
+.ls {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    background: #A4B096;
+}
+
+.divVoltar {
+    font-family: Noto Sans;
+    align-self: flex-start;
+    font-weight: 700;
+    font-size: 22px;
+    text-indent: 1px;
+    margin-left: 23px;
+    margin-top: 0px;
+    margin-bottom: 60px;
+}
+
+.mensagem {
+    font-family: Noto Sans;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 22px;
+    text-indent: 1px;
+    color: #072953;
+    border-left: 20px;
+    text-align: justify;
+}
+
+.rs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px 11px;
+    gap: 50px;
+    width: 50%;
+    height: 100%;
+    background: #C7C6B4;
+}
+
+/* Fim do corpo (Esquerda) */
+
+
+/* Inicio do corpo (Direita) */
+
+.divPessoas {
+    font-family: Noto Sans;
+    background-color: #C7C6B4;
+    width: 50%;
+    height: 780px;
+}
+
+.divComponentesDireita {
+    width: 644px;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 30px;
+    margin-right: 30px;
+    justify-content: end;
+}
+
+.divComponentesEsquerda {
+    width: 644px;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 30px;
+    margin-top: 30px;
+    justify-content: start;
+}
+
+.divPessoas img {
+    height: 80px;
+    border-radius: 50px;
+
+}
+
+.divPessoas .divLinha {
+    background-color: #0419324d;
+    width: 614px;
+    height: 2px;
+    margin-top: 10px;
+    margin-left: 30px;
+
+}
+
+/* Fim do corpo (Direita) */
+
+/* Inicio do Footer */
+
+.divFooter {
+    font-family: Noto Sans;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #ACAB90;
+    width: 100%;
+    height: 292px;
+    gap: 50px;
+}
+
+.divLogoEmpresa {
+    text-align: center;
+}
+
+.divFooter p {
+    font-size: 22px;
+}
+
+.divColunas {
+    flex-direction: column;
+}
+
+.divLinha {
+    width: 5px;
+    height: 240px;
+    background: #0419324d;
+}
+
+/* Fim do Footer */
