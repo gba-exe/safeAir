@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Calculadora de Prejuízo</title>
+        <link rel="stylesheet" href="calcPrejuizo.css" />
+    </head>
+    <body>
+        <div id="divModal"><!--Por enquanto isso está invisivel-->
+            <div id="divMiniModal">
+                <button id="btnModal" onclick="fecharModal()"><b>X</b></button>
+                <p id="pTexto" class="txtInput"></p>
+            </div>
+        </div>
+        <div id="divCalculadora"><!--Tela em si já visível-->
+            <div id="divEsquerda">
+                <a id="divVoltar"> < Voltar ao menu </a>
+                <div id="divTexto">
+                <h1 id="titulo">Descubra quanto está perdendo!</h1>
+                    <div id="divDesc">
+                        <p>Venha calcular a média de absenteísmo da sua empresa e descubra quanto está perdendo com isso!</p>
+                    </div>
+                </div>  
+            </div>
+            <div id="divDireita">
+                <div id="divContent">
+                    <div class="divInput">
+                        <p class="txtInput">Digite o rendimento líquido anual da sua empresa:</p>
+                        <input class="input" id="iptRendimento" placeholder="Rendimento Líquido Anualmente"/>
+                    </div>
+                    <div class="divInput">
+                        <p class="txtInput">Digite a quantidade de dias úteis perdidos anualmente:</p>
+                        <input class="input" id="iptDiasPerdidos" placeholder="Dias Úteis Perdidos"/>
+                    </div>
+                    <div class="divInput">
+                        <p class="txtInput">Digite a quantidade de dias úteis da sua empresa anualmente:</p>
+                        <input class="input" id="iptDiasTotal" placeholder="Dias Úteis"/>
+                    </div>
+                    <button onclick="calcular()" id="btnCalcular"><p>Calcular Prejuízo</p></button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<script src="calcPrejuizo.js" type="text/javascript"></script>
