@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="empresa-style.css">
+    <link rel="icon" href="logoClaro.jpeg" type="image/x-icon">
+    <script src="empresa-function.js"></script>
+
+</head>
+
+<body>
+    <div class="div_pai">
+        <div class="container-1">
+            <div class="div_menu">
+                <a href="">
+                    < Voltar a home </a>
+            </div>
+            <div class="div_textos">
+                <h2>Cadastro Interno da SafeAir</h2>
+                <sub>Aqui os representantes da SafeAir cadastram novas empresas que terão acesso ao Dashboard.</sub>
+            </div>
+        </div>
+
+        <div class="space-1"></div>
+
+        <div class="container-2">
+            <div class="ipts">
+                <div class="div_empresa">
+                    Nome da empresa:
+                    <input type="text" id="ipt_empresa" placeholder="Nome">
+                </div>
+                <div class="div_cliente">
+                    Nome da do cliente:
+                    <input type="text" id="ipt_cliente" placeholder="Nome do Cliente">
+                </div>
+                <div class="div_email">
+                    E-mail:
+                    <input type="text" id="ipt_email" placeholder="E-mail">
+                </div>
+                <div class="div_cnpj">
+                    CNPJ:
+                    <input type="text" id="ipt_cnpj" placeholder="CNPJ">
+                </div>
+                <div class="div_senha">
+                    Senha:
+                    <input type="password" id="ipt_senha" placeholder="Senha">
+                </div>
+                <div class="div_confirmacao">
+                    Confirmação de senha:
+                    <input type="password" id="ipt_confirmacao" placeholder="Conf. senha">
+                </div>
+                <div class="div_btn">
+                    <button onclick="criar()" class="btn">Criar conta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
