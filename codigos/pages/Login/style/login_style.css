@@ -9,86 +9,7 @@ a {
     text-decoration: none;
 }
 
-.corpo {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-
-    width: 100%;
-    height: 1000px;
-}
-
-.ls {
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-
-    background: #A4B096;
-
-}
-
-.voltar {
-    align-self: flex-start;
-    font-weight: 700;
-    font-size: 22px;
-    text-indent: 1px;
-    margin-left: 23px;
-}
-
-.mensagem {
-    margin-bottom: 90px;
-    font-size: 33px;
-    text-indent: 1px;
-    color: #072953;
-}
-
-.rs {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 0px 11px;
-    gap: 50px;
-
-    width: 50%;
-    height: 100%;
-
-    background: #C7C6B4;
-}
-
-.login {
-    font-family: Arial;
-    color: #072953;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 722px;
-    height: 319px;
-}
-
-
-.botao {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0px;
-
-    width: 622px;
-    height: 61px;
-
-    background: #A4B096;
-    border: 2px solid rgba(0, 0, 0, 0.44);
-    border-radius: 15px;
-
-}
-
-.input {
+input {
     box-sizing: border-box;
 
     width: 622px;
@@ -99,15 +20,104 @@ a {
     border-radius: 15px;
     font-family: Arial;
 }
-.container {
-    width: 90%;
+
+button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0px;
+
+    width: 622px;
+    height: 61px;
+    font-size: 33px;
+
+    background: #A4B096;
+    border: 2px solid rgba(0, 0, 0, 0.44);
+    border-radius: 15px;
+
+
+}
+
+.divEsq {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+
+    width: 100%;
+    height: 1000px;
+}
+
+.divConteudo1 {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+
+    background: #A4B096;
+
+}
+
+.divFilho2 {
+    align-self: flex-start;
+    font-weight: 700;
+    font-size: 15px;
+    text-indent: 1px;
+    margin-left: 23px;
+}
+
+.divFilho3 {
+    margin-bottom: 90px;
+    font-size: 20px;
+    text-indent: 1px;
+    color: #072953;
+}
+
+.divDir {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #C7C6B4;
+    
+    
+    padding: 0px 0px 11px;
+    gap: 50px;
+    width: 50%;
+    height: 100%;
+}
+
+.divConteudo2 {
+    justify-content: center;
+    font-family: Arial;
+    color: #072953;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+}
+
+.divFilho1 {
+    width: 80%;
     height: 100%;
     flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.rs .login .formulario p {
+.divDir .divConteudo .divFilho4 p {
     font-family: Arial;
     color: #072953;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+#placeholder-text {
+    border: 10px;
+    
 }
