@@ -6,12 +6,22 @@
     box-sizing: border-box;
 }
 
-body {
+body{
     height: 100vh;
     display: flex;
     flex-direction: row;
     margin: 0;
 }
+
+input {
+    width: 100%;
+    height: 50px;
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: #072953;
+    padding: 10px;
+    background: #d5d4c6;  
+  }
 
 
 /* Textos */
@@ -19,15 +29,15 @@ body {
     font-size: 25px;
 }
 .pParagrafo{
+    font-weight: 500;
     font-size: 20px;
 }
 .pSub{
     font-size: 25px;
 }
 .pPequeno{
-    font-size: 15px;
-}
-.pBtn{
+    margin-top: 25px;
+    font-weight: 600;
     font-size: 15px;
 }
 /* /Textos */
@@ -65,6 +75,42 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: auto;
+}
+.divDireita .divContent {
+    align-items: start;
+    justify-content: center;
 }
 
 /* /Direita */
+
+/* Botões */
+
+.btnVerde{
+    width: 100%;
+    height: 50px;
+    background: #A4B096;
+    border: 3px solid #0000005d;
+    border-radius: 10px;
+    color: #072953;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnAzul{
+    width: 100%;
+    height: 50px;
+    background: #072953;
+    border: 3px solid #0000005d;
+    border-radius: 10px;
+    color: #C7C6B4;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+/* /Botões */

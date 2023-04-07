@@ -5,39 +5,39 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
   <title>Cadastro de funcionários</title>
-  <link rel="stylesheet" href="style/cadastro.css">
+  <link rel="stylesheet" href="../../style/style.css">
 </head>
 
 <body>
-  <div class="cadastro">
-    <div class="container1">
-      <h6 class="h6"><a href> Voltar ao menu</h6></a>
-      <h1 class="h1"> Cadastre-se já!</h1>
+  <div class="divEsquerda">
+    <div class="divContent">
+        <a class="pPequeno"> < Voltar ao menu </a>
+        <div id="divTexto">
+            <h1>Cadastre-se já!!</h1>
+            <div>
+                <p class="pParagrafo">Faça o cadastro de novos usuários para que eles tenham acesso a seu Dashboard sem utilizar seu login.</p>
+            </div>
+        </div>  
+    </div>  
+  </div>
+<div class="divDireita">
+  <div class="divContent">
+      <p class="pPequeno">Nome Completo</p>
+      <input id="ipt_nome" placeholder="Nome">
+      <p class="pPequeno">E-mail</p>
+      <input id="ipt_email" placeholder="E-mail">
+      <p class="pPequeno">Telefone</p>
+      <input id="ipt_telefone" placeholder="N° de telefone">
+      <p class="pPequeno">Senha</p>
+      <input id="ipt_senha" placeholder="Senha">
+      <p class="pPequeno">Confirmação de senha</p>
+      <input id="ipt_confirmacao" placeholder="Confirmação de senha">
       <br>
-      <p>Faça o cadastro de novos usuários</p>
-      <p>para que eles tenham acesso a seu</p>
-      <p> Dashboard sem utilizar seu login.</p>
-    </div>
+      <button onclick="criar()" class="btnVerde">Criar Conta</button>  
   </div>
-
-  <div class="cadastro2">
-    <div class="container2">
-      <h6 class="h6">Nome Completo</h6>
-      <input class="input" placeholder="Nome">
-      <h6 class="h6">E-mail</h6>
-      <input class="input" placeholder="E-mail">
-      <h6 class="h6">Telefone</h6>
-      <input class="input" placeholder="Nº de telefone">
-      <h6 class="h6">Senha</h6>
-      <input class="input" placeholder="Senha">
-      <h6 class="h6">Confirmação senha</h6>
-      <input class="input" placeholder="Conf senha">
-      <br><br>
-      <button>Criar conta</button>
-    </div>
-  </div>
-  </div>
+</div>
 </body>
 
 </html>
