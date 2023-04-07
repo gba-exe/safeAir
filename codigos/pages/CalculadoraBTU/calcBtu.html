@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caculadora BTU</title>
+    <link rel="stylesheet" href="calcBtu.css" />
+    <link rel="stylesheet" href="calcBtu.js">
+    <script src="calcBtu.js"></script>
+</head>
+
+<body>
+    <div id="divLogin">
+        <div id="divEsquerda">
+            <a id="divVoltar">
+                < Voltar ao menu </a>
+                    <div id="divTexto">
+                        <h1 id="titulo">Entre agora!</h1>
+                        <div id="divDesc">
+                            <p>Calcule seu orçamento com prontidão e junte-se a nós</p>
+
+
+                        </div>
+                    </div>
+        </div>
+        <div id="divDireita">
+            <div id="divContent">
+                <div class="divInputTitulo">
+                    <p class="txtTitulo">Calculo de BTU</p>
+                    <p class="txtTitulo">2/2</p>
+                </div>
+                <div class="divInputPeq">
+                    <div class="divInput">
+                        <p class="txtInput">Total de ambientes</p>
+                        <input class="iptPeq" id="iptQuantidade" placeholder="Quantidade" onkeyup="calBtu()" />
+                    </div>
+                    <div class="divInput">
+                        <p class="txtInput">Área Total</p>
+                        <input class="iptPeq" id="iptArea" placeholder="Área (m²)" onkeyup="calBtu()" />
+                    </div>
+                </div>
+                <div class="divInput">
+                    <p class="txtInput">Total de pessoas de ambiente</p>
+                    <input class="input" id="iptQuantidadePessoas" placeholder="Quantidade de pessoas"
+                        onkeyup="calBtu()" /> <br>
+                    <p class="txtInput">Total de Eletrônicos</p>
+                    <input class="input" id="iptEletronico" placeholder="Eletrônicos" onkeyup="calBtu()" /> <br>
+                    <div class="divTotal">
+                        <p class="txtInput">Valor Total:</p>
+                        <p id="valorLive"></p>
+                    </div>
+                    <br>
+                    <div class="divBotao">
+                        <button id="btnVoltar" class="btn">
+                            <p>
+                                < Voltar</p>
+                        </button>
+                        <button id="btnProximo" class="btn">
+                            Próximo >
+                        </button>
+                    </div>
+                </div>
+            </div>
+</body>
+
+</html>
