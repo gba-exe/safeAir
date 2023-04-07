@@ -2,11 +2,14 @@
 
 *{margin: 0; padding: 0;}
 
-#divMenu img{/*logo que esta no menu*/
+/*logo que esta no menu*/
+#divMenu img{
     padding-left: 20px;
     width: 150px;
 }
-#divMenu{/*menu*/
+
+/*menu*/
+#divMenu{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -19,38 +22,52 @@
     background: #A4B096;
     align-items: center;
 }
-ul{/*UL do menu*/
+
+/*UL do menu*/
+ul{
     font-family: Noto Sans;
-    color: #072953;
     font-size: 23px;
     gap: 30px;
     display: flex;
     justify-content: row;
     list-style: none;
-    font-weight: 900;
     align-items: center;
 }
+
+/*Botões na parte da direita*/
 .btnLoginIn{
     background-color: #A4B096;
     padding: 5px;
     font-size: 20px;
     border: 3px solid #072953;
     border-radius: 100px;
-    color: #072953;
     font-weight: 500;
 }
-.btnSingUp{
+.btnSignUp{
     background-color: #072953;
     border: 3px solid #072953;
     border-radius: 100px;
-    color: #A4B096;
     padding: 5px;
     font-size: 20px;
     font-weight: 500;
 }
+
+/*Confirgurações para zoom*/
 .liZoom{
     transition: all 0.5s;
 }
 .liZoom:hover{
     transform: scale(1.2);
+}
+
+/*Configurações dos "A"*/
+.btnSignUp a{
+    font-weight: 500;
+    text-decoration: none;
+    color: #A4B096;
+}
+a{
+    font-weight: 500;
+    text-decoration: none;
+    color: #072953;
 }

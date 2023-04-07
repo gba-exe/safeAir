@@ -1,18 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&family=Noto+Sans:wght@300&display=swap');
 
+/*Configurações Gerais*/
 * {
     font-family: 'Noto Sans', sans-serif;
     color: #072953;
     box-sizing: border-box;
 }
-
 body{
     height: 100vh;
     display: flex;
     flex-direction: row;
     margin: 0;
 }
-
 input {
     width: 100%;
     height: 50px;
@@ -21,24 +20,32 @@ input {
     border-color: #072953;
     padding: 10px;
     background: #d5d4c6;  
-  }
-
+}
+/*Fim das configurações Gerais*/
 
 /* Textos */
-.pGrande{
-    font-size: 25px;
+.pGrande{/*h1*/
+    font-size: 28px;
 }
-.pParagrafo{
+.pParagrafo{/*texto debaixo da h1*/
     font-weight: 500;
+    font-size: 23px;
+}
+.pInput{/*textos que ficam em cima do input*/
     font-size: 20px;
+    font-weight: bold;
+    color: #072953;
+    margin-top: 23px;
+    margin-bottom: 7px;
 }
-.pSub{
-    font-size: 25px;
-}
-.pPequeno{
+.pPequeno{/*texto pequeno para voltar*/
     margin-top: 25px;
     font-weight: 600;
     font-size: 15px;
+}
+.pSobreNos{/*p do sobre nós*/
+    font-weight: 500;
+    font-size: 20px;
 }
 /* /Textos */
 
@@ -50,22 +57,22 @@ input {
     margin: auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
-
 /* /Content */
+
 /* Esquerda */
 .divEsquerda {
     width: 50%;
     height: 100%;
     background-color: #A4B096;
 }
-
 .divEsquerda .divContent {
     align-items: start;
     justify-content: center;
 }
-
 /* /Esquerda */
+
 /* Direita */
 .divDireita {
     width: 50%;
@@ -81,11 +88,13 @@ input {
     align-items: start;
     justify-content: center;
 }
-
+.divComponentesDireita{
+    display: flex;
+    flex-direction: row-reverse;
+}
 /* /Direita */
 
 /* Botões */
-
 .btnVerde{
     width: 100%;
     height: 50px;
@@ -112,5 +121,12 @@ input {
     justify-content: center;
     align-items: center;
 
+}
+.btnAzulTransparente{
+    color: #072953;
+    background-color: rgba(245, 245, 220, 0);
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
 }
 /* /Botões */

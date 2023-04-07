@@ -5,19 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
-
         <title>Calculadora de Prejuízo</title>
         <link rel="stylesheet" href="../../style/style.css" />
+        <link rel="stylesheet" href="calcPrejuizo.css" />
     </head>
-    <body><!--
-
-        <div id="divModal">
-            <div id="divMiniModal">
-                <button id="btnModal" onclick="fecharModal()"><b>X</b></button>
-                <p id="pTexto" class="txtInput"></p>
-            </div>
-        </div>
-    -->
+    <body>
         <!--Tela em si já visível-->
         <div class="divEsquerda">
             <div class="divContent">
@@ -25,22 +17,25 @@
                 <div id="divTexto">
                     <h1>Descubra quanto está perdendo!</h1>
                     <div>
-                        <p class="pParagrafo">Venha calcular a média de absenteísmo da sua empresa e descubra quanto está perdendo com isso!</p>
+                        <p class="pParagrafo">&emsp;&emsp;Venha calcular a média de absenteísmo da sua empresa e descubra quanto está perdendo com isso!</p>
                     </div>
                 </div>  
             </div>  
         </div>
+
         <div class="divDireita">
             <div class="divContent">
-                <p class="pPequeno">Digite o rendimento líquido anual da sua empresa:</p>
+                <p class="pInput">Digite o rendimento líquido anual da sua empresa:</p>
                 <input id="iptRendimento" placeholder="Rendimento Líquido Anualmente"/>
             
-                <p class="pPequeno">Digite a quantidade de dias úteis perdidos anualmente:</p>
+                <p class="pInput">Digite a quantidade de dias úteis perdidos anualmente:</p>
                 <input id="iptDiasPerdidos" placeholder="Dias Úteis Perdidos"/>
             
-                <p class="pPequeno">Digite a quantidade de dias úteis da sua empresa anualmente:</p>
+                <p class="pInput">Digite a quantidade de dias úteis da sua empresa anualmente:</p>
                 <input id="iptDiasTotal" placeholder="Dias Úteis"/>
+                
                 <br>
+
                 <button onclick="calcular()" class="btnVerde">Calcular Prejuízo</button>
             </div>
         </div>

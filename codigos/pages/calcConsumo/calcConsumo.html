@@ -2,65 +2,63 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Calculadora: Cálculo de Consumo</title>
-    <link rel="stylesheet" href="calcConsumo.css" />
+    <link rel="stylesheet" href="../../style/style.css"/>
+    <link rel="stylesheet" href="calcConsumo.css"/>
   </head>
   <body>
-    <div id="divLogin">
-      <div id="divEsquerda">
-        <a id="divVoltar"> < Voltar ao menu </a>
-        <div id="divTexto">
-          <h1 id="titulo">Faça seu orçamento</h1>
-          <div id="divDesc">
-            <p>Calcule seu orçamento com prontidão e junte-se a nós</p>
-          </div>
-        </div>
-      </div>
-      <div id="divDireita">
-        <div id="divContent">
-          <div class="divInputTitulo">
-            <p class="txtTitulo">Calculo de Consumo</p>
-            <p class="txtTitulo">1/2</p>
-        </div>
-          <div class="divInput">
-            <p class="txtInput">Horas por dia</p>
-            <input class="input" id="iptHorasDia" placeholder="H/Dia" onkeyup="calculo()" />
-          </div>
-          <div class="divInput">
-            <p class="txtInput">Dias por mês</p>
-            <input class="input" id="iptDiasMes" placeholder="Dias/Mês" onkeyup="calculo()" />
-          </div>
-          <div class="divInput">
-            <p class="txtInput">Consumo de energia do aparelho</p>
-            <input
-              class="input"
-              id="iptConsumoAparelho"
-              placeholder="kW/h p/Mês"
-              onkeyup="calculo();" />
-          </div>
-          <div class="divInput">
-            <p class="txtInput">Preço de energia</p>
-            <input class="input" id="iptPreçoEnergia" placeholder="R$/p kW/h" onkeyup="calculo()" />
-          </div>
-          <div id="iptValorAoVivo">
-            <p class="txtInput" id="txtConsumoTotal">Consumo Total:</p>
-            <p class="txtInput" id="txtValorAoVivo"></p>
-          </div>
-          <div class="divBotao">
-            <button id="btnVoltar" class="btn">
-                <p>
-                    < Voltar</p>
-            </button>
-            <button id="btnProximo" class="btn">
-                Próximo >
-            </button>
-        </div>
+
+      <div class="divEsquerda">
+        <div class="divContent">
+            <a class="pPequeno"> < Voltar ao menu </a>
+            <div id="divTexto">
+                <h1>Orçamento</h1>
+                <div>
+                    <p class="pParagrafo">&emsp;&emsp;Aqui calcularemos seu orçamento com prontidão e precisão.</p>
+                </div>
+            </div>  
+        </div>  
     </div>
+
+    <div class="divDireita">
+      <div class="divContent">
+        
+        <div id="divTituloDireita">
+          <h1>Calculo de Consumo</h1>
+          <h1>1/2</h1>
         </div>
+
+        <p class="pInput">Horas por dia</p>
+        <input id="iptHorasDia" placeholder="H/Dia" onkeyup="calculo()"/>
+    
+        <p class="pInput">Dias por mês</p>
+        <input id="iptDiasMes" placeholder="Dias/Mês" onkeyup="calculo()"/>
+    
+        <p class="pInput">Consumo de energia do aparelho</p>
+        <input id="iptConsumoAparelho" placeholder="kW/h p/Mês" onkeyup="calculo();"/>
+
+        <p class="pInput">Preço de Energia</p>
+        <input id="iptPreçoEnergia" placeholder="R$/p kW/h" onkeyup="calculo()"/>
+
+        <br>
+
+        <div class="btnVerde">
+          <p>Consumo Total:</p>
+          <p id="txtValorAoVivo"></p>
+        </div>
+
+        <br>
+
+        <div class="divBtnProximo">
+          <button class="btnAzulTransparente">Próximo ></button>
+        </div>
+
       </div>
     </div>
+
   </body>
 </html>
 <script defer src="calcConsumo.js" type="text/javascript"></script>
