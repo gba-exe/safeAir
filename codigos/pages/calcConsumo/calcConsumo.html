@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Calculadora: Cálculo de Consumo</title>
+    <link rel="stylesheet" href="../../style/style.css"/>
+    <link rel="stylesheet" href="calcConsumo.css"/>
+  </head>
+  <body>
+
+      <div class="divEsquerda">
+        <div class="divContent">
+            <a class="pPequeno"> < Voltar ao menu </a>
+            <div id="divTexto">
+                <h1>Orçamento</h1>
+                <div>
+                    <p class="pParagrafo">&emsp;&emsp;Aqui calcularemos seu orçamento com prontidão e precisão.</p>
+                </div>
+            </div>  
+        </div>  
+    </div>
+
+    <div class="divDireita">
+      <div class="divContent">
+        
+        <div id="divTituloDireita">
+          <h1>Calculo de Consumo</h1>
+          <h1>1/2</h1>
+        </div>
+
+        <p class="pInput">Horas por dia</p>
+        <input id="iptHorasDia" placeholder="H/Dia" onkeyup="calculo()"/>
+    
+        <p class="pInput">Dias por mês</p>
+        <input id="iptDiasMes" placeholder="Dias/Mês" onkeyup="calculo()"/>
+    
+        <p class="pInput">Consumo de energia do aparelho</p>
+        <input id="iptConsumoAparelho" placeholder="kW/h p/Mês" onkeyup="calculo();"/>
+
+        <p class="pInput">Preço de Energia</p>
+        <input id="iptPreçoEnergia" placeholder="R$/p kW/h" onkeyup="calculo()"/>
+
+        <br>
+
+        <div class="btnVerde">
+          <p>Consumo Total:</p>
+          <p id="txtValorAoVivo"></p>
+        </div>
+
+        <br>
+
+        <div class="divBtnProximo">
+          <button class="btnAzulTransparente">Próximo ></button>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+</html>
+<script defer src="calcConsumo.js" type="text/javascript"></script>

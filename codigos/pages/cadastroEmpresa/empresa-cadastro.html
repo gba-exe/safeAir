@@ -5,61 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="./style/empresa-style.css">
+    <title>Cadastro de Empresas</title>
+    <link rel="stylesheet" href="../../style/style.css">
     <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
     <script src="empresa-function.js"></script>
-
 </head>
 
 <body>
-    <div class="div_pai">
-        <div class="container-1">
-            <div class="div_menu">
-                <a href="">
-                    < Voltar a home </a>
-            </div>
-            <div class="div_textos">
-                <h2>Cadastro Interno da SafeAir</h2>
-                <sub>Aqui os representantes da SafeAir cadastram novas empresas que terão acesso ao Dashboard.</sub>
-            </div>
-        </div>
-
-        <div class="space-1"></div>
-
-        <div class="container-2">
-            <div class="ipts">
-                <div class="div_empresa">
-                    Nome da empresa:
-                    <input type="text" id="ipt_empresa" placeholder="Nome">
+    <div class="divEsquerda">
+        <div class="divContent">
+            <a class="pPequeno"> < Voltar ao menu </a>
+            <div id="divTexto">
+                <h1>Cadastro Interno da SafeAir</h1>
+                <div >
+                    <p class="pParagrafo">&emsp;&emsp;Aqui os representantes da SafeAir cadastram novas empresas que teram acesso ao Dashboard.</p>
                 </div>
-                <div class="div_cliente">
-                    Nome da do cliente:
-                    <input type="text" id="ipt_cliente" placeholder="Nome do Cliente">
-                </div>
-                <div class="div_email">
-                    E-mail:
-                    <input type="text" id="ipt_email" placeholder="E-mail">
-                </div>
-                <div class="div_cnpj">
-                    CNPJ:
-                    <input type="text" id="ipt_cnpj" placeholder="CNPJ">
-                </div>
-                <div class="div_senha">
-                    Senha:
-                    <input type="password" id="ipt_senha" placeholder="Senha">
-                </div>
-                <div class="div_confirmacao">
-                    Confirmação de senha:
-                    <input type="password" id="ipt_confirmacao" placeholder="Conf. senha">
-                </div>
-                <div class="div_btn">
-                    <button onclick="criar()" class="btn">Criar conta</button>
-                </div>
-            </div>
-        </div>
+            </div>  
+        </div>  
     </div>
 
+    <div class="divDireita">
+        <div class="divContent">
+            <p class="pInput">Nome da empresa</p>
+            <input id="ipt_empresa" placeholder="Nome da empresa">
+            <p class="pInput">Nome do(a) cliente</p>
+            <input id="ipt_cliente" placeholder="Nome do(a) cliente">
+            <p class="pInput">E-mail</p>
+            <input id="ipt_email" placeholder="E-mail da empresa">
+            <p class="pInput">CNPJ</p>
+            <input id="ipt_cnpj" placeholder="CNPJ da empresa">
+            <p class="pInput">Senha</p>
+            <input id="ipt_senha" placeholder="Senha">
+            <p class="pInput">Confirmação de senha</p>
+            <input id="ipt_confirmacao" placeholder="Confirmação de senha">
+            <br>
+            <button onclick="criar()" class="btnVerde">Cadastrar</button>  
+        </div>
+    </div>
 </body>
-
 </html>

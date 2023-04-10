@@ -8,13 +8,7 @@ function criar() {
     var confirmacao = ipt_confirmacao.value;
     var erro = false;
 
-    ipt_empresa.style = "border-color: #072953;"
-    ipt_cliente.style = "border-color: #072953;"
-    ipt_email.style = "border-color: #072953;"
-    ipt_cnpj.style = "border-color: #072953;"
-    ipt_senha.style = "border-color: #072953;"
-    ipt_confirmacao.style = "border-color: #072953;"
-
+    
     if (empresa == "") {
         alert("Por favor, insira o nome da empresa.")
         ipt_empresa.style = "border-color: red;"
@@ -54,7 +48,7 @@ function criar() {
     } else {
         ipt_senha.style = "border-color: green;"
     }
-
+    
     if (confirmacao != senha || confirmacao == "") {
         alert("As senhas não estão idênticas.")
         ipt_confirmacao.style = "border-color: red;"
@@ -66,7 +60,23 @@ function criar() {
     if (erro == true) {
         alert("Favor corrigir o(s) dado(s) de entrada para seguirmos em frente")
     } else {
-        alert("Cadastrado com sucesso!")
+        alert("Cadastrado com sucesso!");
+        
+        //limpando os campos qnd tudo for respondido corretamente
+        ipt_empresa.value = "";
+        ipt_cliente.value = "";
+        ipt_email.value = "";
+        ipt_cnpj.value = "";
+        ipt_senha.value = "";
+        ipt_confirmacao.value = "";
+        
+        //borda dos inputs padrão qnd tudo for respondido corretamente
+        ipt_empresa.style = "border-color: #072953;"
+        ipt_cliente.style = "border-color: #072953;"
+        ipt_email.style = "border-color: #072953;"
+        ipt_cnpj.style = "border-color: #072953;"
+        ipt_senha.style = "border-color: #072953;"
+        ipt_confirmacao.style = "border-color: #072953;"
     }
 }
 
