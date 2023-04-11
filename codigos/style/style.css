@@ -5,7 +5,28 @@
     font-family: 'Noto Sans', sans-serif;
     color: #072953;
     box-sizing: border-box;
+    
 }
+
+/* ScrollBar */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #5757578c;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #072953;
+    border-radius: 20px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #041831;
+  }
+/* /ScrollBar */  
+
 body{
     height: 130vh;
     display: flex;
