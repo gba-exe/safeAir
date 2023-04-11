@@ -7,9 +7,9 @@
     box-sizing: border-box;
 }
 body{
-    height: 100vh;
+    height: 130vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: 0;
 }
 input {
@@ -58,6 +58,12 @@ input {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.divContainer{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
 }
 /* /Content */
 

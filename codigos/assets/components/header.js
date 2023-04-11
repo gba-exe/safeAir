@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../../../logos/iconSafeAir.ico" type="image/x-icon">
-    <link rel="stylesheet" href="navbar.css">
-    <title>Menu</title>
-</head>
-<body>
-    <div id="divMenu">
+const header = document.createElement('template');
+
+header.innerHTML = `
+<header id="divMenu">
         <img class="liZoom" src="../../../logos/logoSemFundoMaior.png" alt="">
         <ul>
             <li class="liZoom"><a href="#">Serviços</a></li>
@@ -18,8 +10,9 @@
             <li class="liZoom"><a href="../SobreNós/sobreNos.html">Sobre Nós</a></li>
             <li>|</li>
             <button class="liZoom btnLoginIn"><a href="../Login/Login.HTML">Login In</a></button>
-            <button class="liZoom btnSignUp"><a href="../Login/Login.HTML">Sign Up</a></button>
+            <button class="liZoom btnSignUp"><a href="../cadastroFuncionarios/cadastrofuncionarios.html">Cadastro</a></button>
         </ul>
-    </div>
-</body>
-</html>
+    </header>
+    `
+
+document.body.appendChild(header.content);

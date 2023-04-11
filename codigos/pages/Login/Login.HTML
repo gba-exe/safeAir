@@ -8,31 +8,41 @@
     <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
     <title>Login</title>
     <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../navbarFooter/navbar.css">
+    <link rel="stylesheet" href="../navbarFooter/footer.css">
 </head>
 
 <body>
-    <div class="divEsquerda">
-        <div class="divContent">
-            <a class="pPequeno"> < Voltar ao menu </a>
-            <div id="divTexto">
-                <h1>Entre Agora!</h1>
-                <div>
-                    <p class="pParagrafo">&emsp;&emsp;Agora que já tem um cadastro faça seu login utilizando o e-mail que sua empresa disponibilizou.</p>
-                </div>
-            </div>  
-        </div>  
-    </div>
+    <script src="../../assets/components/header.js"></script>
 
-    <div class="divDireita">
-        <div class="divContent">
-            <p class="pInput">Nome de usuário</p>
-            <input id="iptUsuario" placeholder="Usuário">
-            <p class="pInput">Senha</p>
-            <input id="iptSenha" placeholder="Senha">
-            <br>
-            <button onclick="avancar()" class="btnVerde">Entrar</button>  
+    <div class="divContainer">
+        <div class="divEsquerda">
+            <div class="divContent">
+                <a class="pPequeno">
+                    < Voltar ao menu </a>
+                        <div id="divTexto">
+                            <h1>Entre Agora!</h1>
+                            <div>
+                                <p class="pParagrafo">&emsp;&emsp;Agora que já tem um cadastro faça seu login utilizando
+                                    o e-mail que sua empresa disponibilizou.</p>
+                            </div>
+                        </div>
+            </div>
+        </div>
+
+        <div class="divDireita">
+            <div class="divContent">
+                <p class="pInput">Nome de usuário</p>
+                <input id="iptUsuario" placeholder="Usuário">
+                <p class="pInput">Senha</p>
+                <input id="iptSenha" placeholder="Senha">
+                <br>
+                <button onclick="avancar()" class="btnVerde">Entrar</button>
+            </div>
         </div>
     </div>
+    <script src="../../assets/components/footer.js"></script>
+
 </body>
 <script>
     function avancar() {
@@ -43,17 +53,18 @@
 
         if (ipt_Email.indexOf('@')
         ) {
-            iptUsuario.style='border-color: red;';
+            iptUsuario.style = 'border-color: red;';
             alert('Insira um e-mail correto');
             erro = true;
         }
-        
-        if (ipt_Senha== '') {
-            iptSenha.style='border-color: red;';
+
+        if (ipt_Senha == '') {
+            iptSenha.style = 'border-color: red;';
             alert('Insira uma senha correta');
-            erro = true;    
+            erro = true;
         }
     }
 
 </script>
+
 </html>
