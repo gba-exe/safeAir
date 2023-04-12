@@ -9,21 +9,21 @@ footer.innerHTML = `
 <div class="divLinha"></div>
 <div class="padraoRodape divNavegue">
     <h1>Navegue</h1>
-    <a class="aZoom" href="#">Serviços</a>
-    <a class="aZoom" href="../produto/produtos.html">Produto</a>
-    <a class="aZoom" href="../calcPrejuizo/calcPrejuizo.html">Calculadora</a>
+    <a class="aZoom" href="../calcConsumo/calcConsumo.html"><p>Serviços</p></a>
+    <a class="aZoom" href="../produto/produtos.html"><p>Produto</p></a>
+    <a class="aZoom" href="../calcPrejuizo/calcPrejuizo.html"><p>Calculadora</p></a>
 </div>
 <div class="divLinha"></div>
 <div class="padraoRodape">
     <h1>Contatos</h1>
-    <p class="aZoom">Whatsapp</p>
-    <p class="aZoom">Telefone</p>
+    <a class="aZoom" href="#"><p>Whatsapp</p></a>
+    <a class="aZoom" href="#"><p>Telefone</p></a>
 </div>
 <div class="divLinha"></div>
 <div class="padraoRodape">
     <h1>Institucional</h1>
-    <a class="aZoom" href="../SobreNós/sobreNos.html">Sobre Nós</a>
-    <p class="aZoom">Telefone</p>
+    <a class="aZoom" href="../SobreNós/sobreNos.html"><p>Sobre Nós</p></a>
+    <a class="aZoom" href="#"><p>Telefone</p></a>
 </div>
 </footer>
 `
