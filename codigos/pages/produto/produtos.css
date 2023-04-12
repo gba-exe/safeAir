@@ -20,7 +20,8 @@
 /* /Imagem de Fundo */
 
 .divDireita .divContent{
-    gap: 8%
+    gap: 8%;
+    align-items: center;
 }
 
 .divProdutos{ 
@@ -28,7 +29,7 @@
     align-items: center;
     justify-content: start;
     gap: 5%;
-    width: 100%;
+    width: 75%;
 }
 .divProdutos img{
     object-fit: contain;
