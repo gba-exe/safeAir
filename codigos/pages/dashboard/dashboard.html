@@ -1,20 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dashboard.css">
     <link rel="stylesheet" href="../../style/style.css">
     <link rel="stylesheet" href="../navbarFooter/navbar.css">
     <link rel="stylesheet" href="../navbarFooter/footer.css">
-    <title>SafeAir</title>
+    <title>Dashboard</title>
 </head>
+
 <body>
-<script src="../../assets/components/header.js"></script>
-<div class="divContainer">
-    <div style="width: 800px;"><canvas id="acquisitions"></canvas></div>
-    <script type="module" src="acquisition.js"></script>
-</div>
-<script src="../../assets/components/footer.js"></script>    
+    <!-- <script src="../../assets/components/header.js"></script> -->
+    <div class="divContainer">
+        <div class="divEsquerda">
+            <div class="divContentDashboard">
+                <h1 class="h1Grandao
+                ">
+                    SALAS COM PROBLEMA
+                </h1>
+                <input list="browsers" placeholder="Confira suas salas com problema">
+                <datalist id="browsers">
+                    <option value="Sala 1">
+                    <option value="Sala 2">
+                    <option value="Sala 3">
+                    <option value="Sala 4">
+                    <option value="Sala 5">
+                  </datalist>
+                  <div class="divInformacoes">
+                    <div class="divEsquerda">
+                        <div class="divRosquinha"></div>
+                    </div>
+                    <div class="divDireita">
+                        <div class="divTemperatura">
+                            <h1 class="h1Grande"> X salas</h1>
+                            <p class="pParagrafo">Com temperatura elevada</p>
+                        </div>
+                        <div class="divUmidade">
+                            <h1 class="h1Grande"> X salas</h1>
+                            <p class="pParagrafo">Com umidade elevada</p>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="divDireita">
+            <div class="divContent">
+                <div class="divDashboard">
+                    <canvas style="height:40vh; width:42vw" id="temperaturaProblema"></canvas>
+                </div>
+                <div class="divDashboard">
+                    <canvas style="height:40vh; width:42vw" id="umidadeProblema"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/components/footer.js"></script>
 </body>
+
 </html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dashboard.js"></script>
