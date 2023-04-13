@@ -2,7 +2,7 @@ const header = document.createElement('template');
 
 header.innerHTML = `
 <header id="divMenu">
-        <img class="liZoom" src="../../../logos/logoSemFundoMaior.png" alt="">
+        <a href="../home/home.html"><img class="liZoom" src="../../../logos/logoSemFundoMaior.png" alt=""></a>
         <ul>
             <li class="liZoom"><a href="../calcConsumo/calcConsumo.html">Serviços</a></li>
             <li class="liZoom"><a href="../produto/produtos.html">Produto</a></li>
