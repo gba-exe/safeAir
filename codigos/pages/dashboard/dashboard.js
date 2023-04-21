@@ -8,10 +8,10 @@ const temperatura = document.getElementById('temperaturaProblema');
         label: 'Temperatura - Sala 2',
         data: [18, 19, 23, 25, 22, 26,18, 20, 23, 25, 25, 26,18, 15, 14, 13, 15, 20, 19, 22, 23, 21, 20, 22],
         backgroundColor: [
-            'rgb(255, 99, 132)'
+            '#f04600'
         ],
         borderColor: [
-            'rgb(255, 99, 132)'
+          '#f04600'
         ],
         borderWidth: 3
       }]
@@ -34,10 +34,10 @@ const umidade = document.getElementById('umidadeProblema');
         label: 'Umidade - Sala 2',
         data: [40, 49, 43, 45, 50, 56, 48, 40, 40, 45, 35, 36, 38, 40, 44, 53, 55, 57, 60, 62, 50, 45, 40, 42],
         backgroundColor: [
-            'rgb(54, 162, 235)'
+            '#072953'
         ],
         borderColor: [
-            'rgb(54, 162, 235)'
+            '#072953'
         ],
         borderWidth: 3
       }]
@@ -48,5 +48,36 @@ const umidade = document.getElementById('umidadeProblema');
           beginAtZero: true
         }
       }
+    }
+});
+
+const rosquinha = document.getElementById('rosquinhaSalas');
+  new Chart(rosquinha, {
+    type: 'doughnut',
+    data: {
+      labels: ['Salas Com Problemas','Salas Normais'],
+      datasets: [{
+        data: [2,6],
+        backgroundColor: [
+          'rgb(218, 42, 80)','rgb(54, 162, 235)'
+        ],
+        borderColor: [
+          '#072953'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      cutoutPercentage: 100,
+        plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: 18
+                    }
+                }
+            }
+        }
+
     }
   });
