@@ -5,45 +5,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
     <title>Login</title>
-    <link rel="stylesheet" href="./style/login_style.css">
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../navbarFooter/navbar.css">
+    <link rel="stylesheet" href="../navbarFooter/footer.css">
 </head>
 
 <body>
-    <div class='corpo'>
-        <div class="ls">
-            <div class="container">
-            <div class="voltar"><a href="">Voltar ao menu</a></div>
-            <div class="mensagem">
-            <h1>Entre Agora!</h1>
-            <p>Agora que já tem um cadastro faça seu login.</p>
-            <p>Caso ainda não tenha uma conta clique <b>aqui</b> e crie já.</p>
-            </div>
-            </div>
-            
-    </div>
+    <script src="../../assets/components/header.js"></script>
 
-        <div class="rs">
-            <div class="login">
-                <div class="formulario">
-                    <p>Nome de usuário</p>
-                    <input id="ipt_nome_usuario" placeholder="Usuário" class="input">
-                    <p>Senha</p>
-                    <input id="ipt_senha" placeholder="Senha" class="input">
-                    <br>
-                    <br>
-                    <button onclick="" class="botao">Entrar</button>
-                </div>   
-                </div>
-
-
-
+    <div class="divContainer">
+        <div class="divEsquerda">
+            <div class="divContent">
+                <a class="pPequeno">
+                    < Voltar ao menu </a>
+                        <div id="divTexto">
+                            <h1>Entre Agora!</h1>
+                            <div>
+                                <p class="pParagrafo">&emsp;&emsp;Agora que já tem um cadastro faça seu login utilizando
+                                    o e-mail que sua empresa disponibilizou.</p>
+                            </div>
+                        </div>
             </div>
         </div>
 
-
-
+        <div class="divDireita">
+            <div class="divContent">
+                <p class="pInput">Nome de usuário</p>
+                <input id="iptUsuario" placeholder="Usuário">
+                <p class="pInput">Senha</p>
+                <input id="iptSenha" placeholder="Senha">
+                <br>
+                <button onclick="avancar()" class="btnVerde">Entrar</button>
+            </div>
+        </div>
     </div>
+    <script src="../../assets/components/footer.js"></script>
+
 </body>
+<script>
+    function avancar() {
+
+        var ipt_Email = iptUsuario.value;
+        var ipt_Senha = iptSenha.value;
+        var erro = 'false';
+
+        if (ipt_Email.indexOf('@')
+        ) {
+            iptUsuario.style = 'border-color: red;';
+            alert('Insira um e-mail correto');
+            erro = true;
+        }
+
+        if (ipt_Senha == '') {
+            iptSenha.style = 'border-color: red;';
+            alert('Insira uma senha correta');
+            erro = true;
+        }
+    }
+
+</script>
 
 </html>

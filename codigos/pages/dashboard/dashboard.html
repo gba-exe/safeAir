@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./dashboard.css" />
+    <link rel="stylesheet" href="../../style/style.css" />
+    <link rel="stylesheet" href="../navbarFooter/navbar.css" />
+    <link rel="stylesheet" href="../navbarFooter/footer.css" />
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <!-- <script src="../../assets/components/header.js"></script> -->
+    <div class="divContainerDashboard">
+        <div class="divContentDashboard">
+            <div class="divEsquerda">
+                <div class="divContent">
+                    <h1 class="h1Grandao" >SALAS COM PROBLEMA</h1>
+                    <div class="divSalas">
+                        <div class="divSalaComProblema">
+                            <h1>Sala 1</h1>
+                            <div class="divGraus">
+                                <h1 class="h1Critico">30°C</h1>
+                            </div>
+                            <p class="pGrande">Perigo: <b class="pGrande">Crítico! </b></p>
+                        </div>
+                        <div class="divSalaComProblema">
+                            <h1>Sala 3</h1>
+                            <div class="divGraus">
+                                <h1 class="h1Emergencia">16°C</h1>
+                            </div>
+                            <p class="pGrande">Perigo: <b class="pGrande"> Emergência! </b></p>
+                        </div>
+                        <div class="divSalaComProblema">
+                            <h1>Sala 20</h1>
+                            <div class="divGraus">
+                                <h1 class="h1Alerta">18°C</h1>
+                            </div>
+                            <p class="pGrande">Perigo: <b class="pGrande">Alerta! </b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divDireita">
+                <div class="divContent">
+                    <div class="divDashboard">
+                        <canvas style="height: 40vh; width: 42vw" id="temperaturaProblema"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="divContentDashboard">
+            <div class="divEsquerda">
+                <div class="divContent">
+                    <div class="divInformacoes">
+                        <div class="divRosquinha">
+                            <canvas id="rosquinhaSalas"></canvas>
+                        </div>
+                        <div class="divDireita">
+                            <div class="divTemperatura">
+                                <h1 class="h1Grande">X salas</h1>
+                                <p class="pParagrafo">Com temperatura elevada</p>
+                            </div>
+                            <div class="divUmidade">
+                                <h1 class="h1Grande">X salas</h1>
+                                <p class="pParagrafo">Com umidade elevada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divDireita">
+                <div class="divContent">
+                    <div class="divDashboard">
+                        <canvas style="height: 40vh; width: 42vw" id="umidadeProblema"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="../../assets/components/footer.js"></script> -->
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dashboard.js"></script>

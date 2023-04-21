@@ -1,56 +1,78 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&family=Noto+Sans:wght@300&display=swap');
 
-*{margin: 0; padding: 0;}
+*{
+    margin: 0;
+    padding: 0; 
+}
 
-#divMenu img{/*logo que esta no menu*/
+/*logo que esta no menu*/
+#divMenu img{
     padding-left: 20px;
     width: 150px;
 }
-#divMenu{/*menu*/
+
+/*menu*/
+#divMenu{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     padding: 0px;
     gap: 50px;
-    position: relative;
     width: 100%;
     height: 80px;
-    background: #A4B096;
+    background-color: #A4B096;
     align-items: center;
+    position: fixed;
+    z-index: 1; 
+    box-shadow: 0px  1px;
 }
-ul{/*UL do menu*/
+
+/*UL do menu*/
+#divMenu ul{
     font-family: Noto Sans;
-    color: #072953;
     font-size: 23px;
     gap: 30px;
     display: flex;
     justify-content: row;
     list-style: none;
-    font-weight: 900;
     align-items: center;
 }
+
+/*Botões na parte da direita*/
 .btnLoginIn{
     background-color: #A4B096;
     padding: 5px;
     font-size: 20px;
     border: 3px solid #072953;
     border-radius: 100px;
-    color: #072953;
     font-weight: 500;
 }
-.btnSingUp{
+.btnSignUp{
     background-color: #072953;
     border: 3px solid #072953;
     border-radius: 100px;
-    color: #A4B096;
     padding: 5px;
     font-size: 20px;
     font-weight: 500;
 }
+
+/*Confirgurações para zoom*/
 .liZoom{
     transition: all 0.5s;
 }
 .liZoom:hover{
     transform: scale(1.2);
+}
+
+/*Configurações dos "A"*/
+.btnSignUp a{
+    font-weight: 500;
+    text-decoration: none;
+    color: #A4B096;
+}
+a{
+    font-weight: 500;
+    text-decoration: none;
+    color: #072953;
 }
