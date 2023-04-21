@@ -1,0 +1,22 @@
+.divDireita .divContent {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+}
+
+.divTituloDireita {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.btnVerde p {
+    width: 100%;
+    gap: 15px;
+}
+
+.divButton {
+    width: 50%;
+    justify-self: center;
+    align-self: center;
+}
