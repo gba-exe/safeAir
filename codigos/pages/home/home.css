@@ -120,6 +120,7 @@ span {
     display: flex;
     margin: auto;
     justify-content: center;
+    align-items: center;
 }
 
 #divButton a {
