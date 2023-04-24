@@ -141,3 +141,7 @@ span {
     width: 100%;
     height: 30%;
 }
+
+.divTitulo br {
+    height: 15%;
+}
