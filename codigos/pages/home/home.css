@@ -17,18 +17,21 @@
 }
 
 #divSofa img {
-    width: 1322px;
+    width: 100%;
 }
 
 #divSofa01 {
+    width: 98%;
     align-self: start;
 }
 
 #divSofa02 {
+    width: 97%;
     align-self: end;
 }
 
 #divSofa03 {
+    width: 98%;
     align-self: start;
 }
 
