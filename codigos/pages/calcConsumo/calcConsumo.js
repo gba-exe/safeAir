@@ -12,11 +12,17 @@ function calculo() {
   var consumoDia = consumoAparelho / 30;
 
   //calculando quanto sera gastado
-  var calculo = Math.round((horasMes * consumoDia * precEnergia)*100)/100;
+  var resConsumo = Math.round((horasMes * consumoDia * precEnergia)*100)/100;
 
-  if (calculo > 0) {
-    txtValorAoVivo.innerHTML = `R$ ${calculo}`;
+  if (resConsumo > 0) {
+    txtValorAoVivo.innerHTML = `R$ ${resConsumo.toFixed(2)}`;
   } else {
     txtValorAoVivo.innerHTML = `R$ 0.00`;
   }
 }
+
+
+
+
+
+
