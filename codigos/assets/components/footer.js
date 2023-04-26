@@ -16,7 +16,7 @@ footer.innerHTML = `
 <div class="divLinha"></div>
 <div class="padraoRodape">
     <h1>Contatos</h1>
-    <a class="aZoom" href="#"><p>Whatsapp</p></a>
+    <a class="aZoom" href="../dashboard/dashboard.html"><p>Whatsapp</p></a>
     <a class="aZoom" href="#"><p>Telefone</p></a>
 </div>
 <div class="divLinha"></div>
