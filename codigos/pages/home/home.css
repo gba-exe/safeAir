@@ -17,18 +17,21 @@
 }
 
 #divSofa img {
-    width: 1322px;
+    width: 100%;
 }
 
 #divSofa01 {
+    width: 98%;
     align-self: start;
 }
 
 #divSofa02 {
+    width: 97%;
     align-self: end;
 }
 
 #divSofa03 {
+    width: 98%;
     align-self: start;
 }
 
@@ -117,6 +120,7 @@ span {
     display: flex;
     margin: auto;
     justify-content: center;
+    align-items: center;
 }
 
 #divButton a {
@@ -131,4 +135,13 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.divEspacamento {
+    width: 100%;
+    height: 30%;
+}
+
+.divTitulo br {
+    height: 15%;
 }
