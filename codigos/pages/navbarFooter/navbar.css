@@ -23,7 +23,6 @@
     height: 80px;
     background-color: #A4B096;
     align-items: center;
-    position: fixed;
     z-index: 1; 
     box-shadow: 0px  1px;
 }
@@ -47,6 +46,7 @@
     border: 3px solid #072953;
     border-radius: 100px;
     font-weight: 500;
+    width: 110px;
 }
 .btnSignUp{
     background-color: #072953;
@@ -55,6 +55,7 @@
     padding: 5px;
     font-size: 20px;
     font-weight: 500;
+    width: 110px;
 }
 
 /*Confirgurações para zoom*/

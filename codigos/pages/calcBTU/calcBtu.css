@@ -24,3 +24,9 @@
     display: flex;
     justify-content: space-between;
 }
+
+.divBtn {
+    width: 50%;
+    justify-self: center;
+    align-self: center;
+}

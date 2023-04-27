@@ -17,8 +17,8 @@
   <div class="divContainer">
     <div class="divEsquerda">
       <div class="divContent">
-        <a class="pPequeno">
-          < Voltar ao menu </a>
+        <a class="pPequeno" href="../home/home.html">
+          < Voltar a home </a>
             <div id="divTexto">
               <h1>Cadastre-se já!</h1>
               <div>
@@ -68,31 +68,31 @@
 
 
     if (ax_nome == '') {
-      alert("Favor informar o nome do passageiro");
+      alert("Favor informar o nome do cliente");
       ipt_nome.style = "border-color: red;";
       ax_tem_erro = 'sim';
     }
 
     if (ax_email.indexOf('@')) {
-      alert("Favor informar o email do passageiro");
+      alert("Favor informar corretamente o email do cliente");
       ipt_email.style = "border-color: red;";
       ax_tem_erro = 'sim';
     }
 
     if (ax_telefone == '') {
-      alert("Favor informar o telefone do passageiro");
+      alert("Favor informar o telefone do cliente");
       ipt_telefone.style = "border-color: red;";
       ax_tem_erro = 'sim';
     }
 
     if (ax_senha == '') {
-      alert("Favor informar a senha do passageiro");
+      alert("Favor informar a senha do cliente");
       ipt_senha.style = "border-color: red;";
       ax_tem_erro = 'sim';
     }
 
     if (ax_confSenha == '') {
-      alert("Favor informar a confirmação de senha do passageiro");
+      alert("Favor informar corretamente a senha do cliente");
       ipt_confirmacao.style = "border-color: red;";
       ax_tem_erro = 'sim';
     }
