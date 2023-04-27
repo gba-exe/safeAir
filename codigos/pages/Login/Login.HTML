@@ -32,10 +32,10 @@
 
         <div class="divDireita">
             <div class="divContent">
-                <p class="pInput">Nome de usuário</p>
+                <p class="pInput">E-mail do usuário</p>
                 <input id="iptUsuario" placeholder="Usuário">
                 <p class="pInput">Senha</p>
-                <input id="iptSenha" placeholder="Senha">
+                <input type="password" id="iptSenha" placeholder="Senha">
                 <br>
                 <button onclick="avancar()" class="btnVerde">Entrar</button>
             </div>
@@ -46,13 +46,14 @@
 </body>
 <script>
     function avancar() {
+        iptUsuario.style = 'border-color: #072953;';
+        iptSenha.style = 'border-color: #072953;';
 
         var ipt_Email = iptUsuario.value;
         var ipt_Senha = iptSenha.value;
         var erro = 'false';
 
-        if (ipt_Email.indexOf('@')
-        ) {
+        if (ipt_Email.indexOf('@') == -1) {
             iptUsuario.style = 'border-color: red;';
             alert('Insira um e-mail correto');
             erro = true;
@@ -63,6 +64,14 @@
             alert('Insira uma senha correta');
             erro = true;
         }
+
+        if(ipt_Email == 'safeair@gmail.com'){
+            window.location.href = "../cadastroEmpresa/empresa-cadastro.html";
+        }
+        if(ipt_Email == 'cliente@gmail.com'){
+            window.location.href = "../dashboard/dashboard.html";
+        }
+
     }
 
 </script>

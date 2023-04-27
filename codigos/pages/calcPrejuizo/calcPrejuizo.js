@@ -1,11 +1,12 @@
 function calcular(){
 
-    var renda = document.getElementById("iptRendimento").value; // pego o input do rendimento
-    var diaPerdido = document.getElementById("iptDiasPerdidos").value;// pego input dos dias perdidos
-    var diaTotal = document.getElementById("iptDiasTotal").value;// pego os dias totais
+    var salario = document.getElementById("iptSalario").value; // pego o salario medio
+    var funcionarios = document.getElementById("iptFuncionarios").value;// pego qtd de funcionários
+    var taxa = document.getElementById("iptTaxa").value;// pego a taxa
 
-    var taxa = (diaPerdido) / (diaTotal) * 100; //calculo a % de absentismo
-    var perda = renda * (taxa/100); // calculo a qtd que a empresa esta perdendo
+    taxa = taxa / 100 //transforma a taxa que antes estava em decimal para %
 
-    alert ("Sua taxa de absenteísmo é de: " +taxa.toFixed(2)+ "% \n O seu prejuízo por ano é de R$ " +perda.toFixed(2));//"toFixed(2)" serve para limitar em duas casas depois da virgula
+    var perda = taxa * funcionarios * salario * 12 //calcula a perda
+
+    alert ("O seu prejuízo por ano é de R$ " +perda.toFixed(2));//"toFixed(2)" serve para limitar em duas casas depois da virgula
 }
