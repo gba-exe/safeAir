@@ -22,6 +22,10 @@ ul{
     padding-left: 0;
     padding-top: 20px;
 }
+.liMenus:hover{
+    background-color: #8B967F;
+    border-radius: 40px;
+}
 a{
     text-decoration: none;
     display: flex;
@@ -31,7 +35,7 @@ a{
     font-weight: 600;
 }
 li{
-    margin-bottom: 25px;
+    padding: 15px;
 }
 button img{
     width: 30px;

@@ -16,7 +16,7 @@
     <script src="../../assets/components/headerDashboard.js"></script>
     <div id="divDashboard">
         <div class="divContent">
-
+            
             <div class="divLogo">
                 <img src="../../assets/logoMenu.png">
             </div>
@@ -33,8 +33,83 @@
                     <option value="">Secretaria</option>
                 </select>
             </div>
-
+            <div class="divAlertas">
+                <div>
+                    <h1>Salas em estado Regular:</h1>
+                    <p class="pAlerta">Temperatura: 2</p>
+                    <p class="pAlerta">Umidade: 2</p>
+                </div>
+                <div>
+                    <h1>Salas em estado de Alerta:</h1>
+                    <p class="pAlerta">Temperatura: 2</p>
+                    <p class="pAlerta">Umidade: 2</p>
+                </div>
+                <div>
+                    <h1>Salas em estado Crítico:</h1>
+                    <p class="pAlerta">Temperatura: 2</p>
+                    <p class="pAlerta">Umidade: 2</p>
+                </div>
+            </div>
+            
+            <div class="divGraficos">
+                <div class="divTemperatura">
+                    <h1>Temperatura atual de todas as salas:</h1>
+                    <div class="divGraficoLegenda">
+                        <div class="divGraficoTemperatura">
+                            <canvas style="width: 100%;" id="temperaturaSalas"></canvas>
+                        </div>
+                        <div class="divLegenda">
+                            <label for="">
+                                <img src="../../assets/bolinhaVermelha.png" alt="">
+                                <p>Emergência</p>
+                            </label>
+                            <label for="">
+                                <img src="../../assets/bolinhaLaranja.png" alt="">
+                                <p>Crítico</p>
+                            </label>
+                            <label for="">
+                                <img src="../../assets/bolinhaAmarela.png" alt="">
+                                <p>Alerta</p>
+                            </label>
+                            <label for="">
+                                <img src="../../assets/bolinhaVerde.png" alt="">
+                                <p>Estável</p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="divUmidade">
+                    <h1>Umidade atual de todas as salas:</h1>
+                    <div class="divGraficoLegenda">
+                        <div class="divGraficoUmidade">
+                            <canvas style="width: 100%;" id="umidadeSalas"></canvas>
+                        </div>
+                        <div class="divLegenda">
+                            <label for="">
+                                <img src="../../assets/bolinhaVermelha.png" alt="">
+                                <p>Emergência</p>
+                            </label>
+                            <label for="">
+                                <img src="../../assets/bolinhaLaranja.png" alt="">
+                                <p>Crítico</p>
+                            </label>
+                            <label for="">
+                                <img src="../../assets/bolinhaAmarela.png" alt="">
+                                <p>Alerta</p>
+                            </label>
+                            <label for="">
+                                <img src="../../assets/bolinhaVerde.png" alt="">
+                                <p>Estável</p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dashboard.js"></script>

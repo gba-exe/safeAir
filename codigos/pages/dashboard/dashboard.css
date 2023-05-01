@@ -1,22 +1,8 @@
-/*background-color: #C7C6B4;
-border: solid 1px #072953;
-background-color: #A4B096; verde*/
-
 body{
     background-color: #C7C6B4 ;
 }
-.divContainerDashboard{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
 
-.divSelect{
-    display: flex;
-    justify-content: space-between;
-}
-
+/*Selects*/
 select{
     background-color: #A4B096;
     border-radius: 20px;
@@ -25,14 +11,83 @@ select{
     font-weight: 600;
     text-align: center;
 }
+
+/*Divs*/
+.divContent{
+    gap: 20px;
+}
 .divSelect{
     display: flex;
     justify-content: flex-end;
 }
-.divLogo img{
-    width: 120px;
-}
 .divLogo{
     display: flex;
     justify-content: flex-end;
+}
+.divAlertas{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.divAlertas div{
+    width: 31%;
+    background-color: #A4B096;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+.divGraficos{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.divTemperatura, .divUmidade{
+    background-color: #A4B096;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 20px;
+}
+.divGraficoTemperatura, .divGraficoUmidade{
+    background-color: #E2F0D9;
+    border-radius: 10px;
+    width: 70%;
+    padding: 5px;
+}
+.divGraficoLegenda{
+    display: flex;
+    gap: 20px;
+}
+.divLegenda{
+    width: 30%;
+    display: flex;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    flex-direction: column;
+    justify-content: center;
+}
+.divLegenda img{
+    width: 20px;
+    height: 20px;
+}
+.divLegenda label{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+/*Textos*/
+p,h1{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-size: 18px;
+}
+
+/*Imagens*/
+.divLogo img{
+    width: 120px;
 }

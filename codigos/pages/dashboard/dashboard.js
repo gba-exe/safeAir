@@ -1,4 +1,5 @@
 const temperatura = document.getElementById('temperaturaSalas');
+
   new Chart(temperatura, {
     type: 'line',
     data: {
@@ -25,12 +26,11 @@ const temperatura = document.getElementById('temperaturaSalas');
         legend: {
           labels: {
               font: {
-                  size: 18
+                  size: 16
               }
           }
         }
       }
-      
     }
   });
 
@@ -40,7 +40,7 @@ const umidade = document.getElementById('umidadeSalas');
     data: {
       labels: ['Diretoria','Descanso','Refeitório','Biblioteca','T.I.','Reunião','Conferência','Hall','Secretaria'],
       datasets: [{
-        label: 'Umidade - Sala 2',
+        label: 'Umidade das Salas - %',
         data: [40, 49, 43, 45, 50, 56, 48, 40, 40, 45, 35, 36, 38, 40, 44, 53, 55, 57, 60, 62, 50, 45, 40, 42],
         backgroundColor: [
             '#072953'
@@ -61,7 +61,7 @@ const umidade = document.getElementById('umidadeSalas');
         legend: {
           labels: {
               font: {
-                  size: 18
+                  size: 16
               }
           }
         }

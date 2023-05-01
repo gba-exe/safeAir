@@ -10,31 +10,31 @@ header.innerHTML = `
             <li>
                 <hr>
             </li>
-            <li>
+            <li class='liMenus'>
                 <a href="#">
                     <img src="../../assets/dashboardIcon.png" alt="">
                     <span id="menuDashboard" class="spanLink">Dashboard</span>
                 </a>
             </li>
-            <li>
+            <li class='liMenus'>
                 <a href="#">
                     <img src="../../assets/analyticsIcon.png" alt="">
                     <span id="menuAnalytics" class="spanLink">Analytics</span>
                 </a>
             </li>
-            <li>
+            <li class='liMenus'> 
                 <a href="#">
                     <img src="../../assets/suporteIcon.png" alt="">
                     <span id="menuHelpDesk" class="spanLink">Help Desk</span>
                 </a>
             </li>
-            <li>
+            <li class='liMenus'>
                 <a href="#">
                     <img src="../../assets/configuracaoIcon.png" alt="">
                     <span id="menuSetting" class="spanLink">Settings</span>
                 </a>
             </li>
-            <li>
+            <li class='liMenus'>
                 <a href="#">
                     <img src="../../assets/logoutIcon.png" alt="">
                     <span id="menuLogout" class="spanLink">Log Out</span>
