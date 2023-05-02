@@ -68,34 +68,3 @@ const umidade = document.getElementById('umidadeSalas');
       }
     }
 });
-
-const rosquinha = document.getElementById('rosquinhaSalas');
-  new Chart(rosquinha, {
-    type: 'doughnut',
-    data: {
-      labels: ['Salas Com Problemas','Salas Normais'],
-      datasets: [{
-        data: [2,6],
-        backgroundColor: [
-          'rgb(218, 42, 80)','rgb(54, 162, 235)'
-        ],
-        borderColor: [
-          '#072953'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      cutoutPercentage: 100,
-        plugins: {
-            legend: {
-                labels: {
-                    font: {
-                        size: 18
-                    }
-                }
-            }
-        }
-
-    }
-  });
