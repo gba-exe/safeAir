@@ -15,55 +15,70 @@
 <body>
   <script src="../../assets/components/header.js"></script>
   <div class="divContainer">
-      <div class="divEsquerda">
-        <div class="divContent">
-          <a class="pPequeno" href="../home/home.html">
-            < Voltar a home </a>
-              <div id="divTexto">
-                <h1>Orçamento</h1>
-                  <p class="pParagrafo">Aqui calcularemos seu orçamento com prontidão e precisão.</p>
-              </div>
-        </div>
+    <div class="divEsquerda">
+      <div class="divContent">
+        <a class="pPequeno" href="../home/home.html">
+          < Voltar a home </a>
+            <div id="divTexto">
+              <h1>Orçamento</h1>
+              <p class="pParagrafo">Aqui calcularemos seu orçamento com prontidão e precisão.</p>
+            </div>
       </div>
+    </div>
 
-      <div class="divDireita">
-        <div class="divContent">
+    <div class="divDireita">
+      <div class="divContent">
 
-          <div id="divTituloDireita">
-            <h1>Calculo de Consumo</h1>
-            <h1>1/2</h1>
-          </div>
-
-          <p class="pInput">Horas por dia</p>
-          <input id="iptHorasDia" placeholder="H/Dia" onkeyup="calculo()" />
-
-          <p class="pInput">Dias por mês</p>
-          <input id="iptDiasMes" placeholder="Dias/Mês" onkeyup="calculo()" />
-
-          <p class="pInput">Consumo de energia do aparelho</p>
-          <input id="iptConsumoAparelho" placeholder="kW/h p/Mês" onkeyup="calculo();" />
-
-          <p class="pInput">Preço de Energia</p>
-          <input id="iptPreçoEnergia" placeholder="R$/p kW/h" onkeyup="calculo()" />
-
-          <br>
-
-          <div class="btnVerde">
-            <p>Consumo Total:</p>
-            <p id="txtValorAoVivo"></p>
-          </div>
-
-          <br>
-
-          <div class="divBtnProximo">
-            <a class="btnAzulTransparente" href="../calcBTU/calcBtu.html">Próximo ></a>
-          </div>
-
+        <div id="divTituloDireita">
+          <h1>Calculo de Consumo</h1>
+          <h1>1/2</h1>
         </div>
-      </div>  
+
+        <div class="divLista">
+          <p class="pInput">Ar condicionado de quantos BTUs</p>
+          <select id="btus" onchange="calculo()">
+            <option value="1350">10.000 BTUs</option>
+            <option value="2000">15.000 BTUs</option>
+            <option value="2100">18.000 BTUs</option>
+          </select>
+        </div>
+
+        <p class="pInput">Horas de trabalho por dia</p>
+        <input id="iptHorasDia" placeholder="Horas/Dias" onkeyup="calculo()" />
+
+        <p class="pInput">Dias por mês</p>
+        <input id="iptDiasMes" placeholder="Dias/Mês" onkeyup="calculo();" />
+
+        
+
+        <div class="divLista">
+          <p class="pInput">Localização da sala</p>
+          <select id="cidades" onchange="calculo()">
+            <option value="sp">São Paulo</option>
+            <option value="rj">Rio de janeiro</option>
+            <option value="bh">Belo horizonte</option>
+            <option value="go">Goiânia</option>
+          </select>
+        </div>
+        
+        <br>
+
+        <div class="btnVerde">
+          <p>Consumo Total:</p>
+          <p id="txtValorAoVivo"></p>
+        </div>
+
+        <br>
+
+        <div class="divBtnProximo">
+          <a class="btnAzulTransparente" href="../calcBTU/calcBtu.html">Próximo ></a>
+        </div>
+
+      </div>
+    </div>
   </div>
   <script src="../../assets/components/footer.js"></script>
 </body>
 
 </html>
-<script defer src="calcConsumo.js" type="text/javascript"></script> 
+<script defer src="calcConsumo.js" type="text/javascript"></script>
