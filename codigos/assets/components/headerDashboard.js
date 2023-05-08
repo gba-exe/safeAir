@@ -11,13 +11,13 @@ header.innerHTML = `
                 <hr>
             </li>
             <li class='liMenus'>
-                <a href="#">
+                <a href="../dashboard/dashboard.html">
                     <img src="../../assets/dashboardIcon.png" alt="">
                     <span id="menuDashboard" class="spanLink">Dashboard</span>
                 </a>
             </li>
             <li class='liMenus'>
-                <a href="#">
+                <a href="../analytics/analytics.html">
                     <img src="../../assets/analyticsIcon.png" alt="">
                     <span id="menuAnalytics" class="spanLink">Analytics</span>
                 </a>
@@ -29,13 +29,13 @@ header.innerHTML = `
                 </a>
             </li>
             <li class='liMenus'>
-                <a href="#">
+                <a href="../config/config.html">
                     <img src="../../assets/configuracaoIcon.png" alt="">
                     <span id="menuSetting" class="spanLink">Settings</span>
                 </a>
             </li>
             <li class='liMenus'>
-                <a href="#">
+                <a href="../home/home.html">
                     <img src="../../assets/logoutIcon.png" alt="">
                     <span id="menuLogout" class="spanLink">Log Out</span>
                 </a>

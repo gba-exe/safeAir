@@ -21,6 +21,32 @@
     width: 100%;
     border-radius: 10px;
 }
+#divRegistros{
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #A4B096;
+}
+.divRegistroTempUmi{
+    gap: 15px;
+    display: flex;
+    text-align: center;
+    width: 50%;
+    flex-direction: column;
+}
+.divDados{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.data{
+    flex-direction: column;
+    display: flex;
+    width: 33%;
+}
 
 h1{
     margin: 0;
