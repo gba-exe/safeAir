@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../style/style.css" />
     <link rel="stylesheet" href="analytics.css">
-    <link rel="stylesheet" href="../../style/style.css"/>
     <link rel="stylesheet" href="../navbarFooter/navbarDashboard.css">
     <title>Analytics</title>
 </head>
@@ -17,7 +16,7 @@
     <script src="../../assets/components/headerDashboard.js"></script>
     <div id="divDashboard">
         <div class="divContent">
-            
+
             <div class="divLogo">
                 <img src="../../assets/logoMenu.png">
             </div>
@@ -25,11 +24,69 @@
             <div class="divMetricas">
                 <div class="divMetricaEspecifica">
                     <h1>Métricas utilizadas para temperatura</h1>
-                    <img src="../../assets/analyticsTemperatura.png" alt="">
+                    <div class="divMetricasBolinhas">
+                        <div>
+                            <h4>Crítico</h4>
+                            <h4 class="critico">14ºC</h4>
+                        </div>
+                        <div>
+                            <h4>Emergência</h4>
+                            <h4 class="emergencia">16ºC</h4>
+                        </div>
+                        <div>
+                            <h4>Alerta</h4>
+                            <h4 class="alerta">18ºC</h4>
+                        </div>
+                        <div>
+                            <h4>Ideal</h4>
+                            <h4 class="ideal">20-23ºC</h4>
+                        </div>
+                        <div>
+                            <h4>Alerta</h4>
+                            <h4 class="alerta">25ºC</h4>
+                        </div>
+                        <div>
+                            <h4>Emergência</h4>
+                            <h4 class="emergencia">27ºC</h4>
+                        </div>
+                        <div>
+                            <h4>Crítico</h4>
+                            <h4 class="critico">30ºC</h4>
+                        </div>
+                    </div>
                 </div>
                 <div class="divMetricaEspecifica">
                     <h1>Métricas utilizadas para umidade</h1>
-                    <img src="../../assets/analyticsUmidade.png" alt="">
+                    <div class="divMetricasBolinhas">
+                        <div>
+                            <h4>Crítico</h4>
+                            <h4 class="critico">25%</h4>
+                        </div>
+                        <div>
+                            <h4>Emergência</h4>
+                            <h4 class="emergencia">30%</h4>
+                        </div>
+                        <div>
+                            <h4>Alerta</h4>
+                            <h4 class="alerta">35%</h4>
+                        </div>
+                        <div>
+                            <h4>Ideal</h4>
+                            <h4 class="ideal">40-50%</h4>
+                        </div>
+                        <div>
+                            <h4>Alerta</h4>
+                            <h4 class="alerta">55%</h4>
+                        </div>
+                        <div>
+                            <h4>Emergência</h4>
+                            <h4 class="emergencia">60%</h4>
+                        </div>
+                        <div>
+                            <h4>Crítico</h4>
+                            <h4 class="critico">75%</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -162,6 +219,7 @@
         </div>
     </div>
 </body>
+
 </html>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="analytics.js"></script>

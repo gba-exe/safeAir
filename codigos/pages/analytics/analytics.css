@@ -1,4 +1,11 @@
-.divMetricaEspecifica{
+body {
+    height: 170vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.divMetricaEspecifica {
     background-color: #A4B096;
     border-radius: 20px;
     padding: 15px;
@@ -7,21 +14,65 @@
     flex-direction: column;
     width: 100%;
 }
-.divMetricas{
+
+.divMetricas {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.divContent{
+
+.divContent {
     gap: 30px;
     align-items: center;
     justify-content: center;
 }
-.divMetricas img{
-    width: 100%;
+
+.divMetricasBolinhas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.divMetricasBolinhas div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.divMetricasBolinhas div h4 {
+    font-weight: bolder;
+    text-transform: uppercase;
+    width: 100px;
+    height: 50px;
+    padding-top: 15px;
+    margin-top: 10px;
+}
+
+.critico {
+    margin-left: 15px;
+    background-color: red;
     border-radius: 10px;
 }
-#divRegistros{
+
+.emergencia {
+    margin-left: 15px;
+    background-color: orangered;
+    border-radius: 10px;
+}
+
+.alerta {
+    margin-left: 15px;
+    background-color: yellow;
+    border-radius: 10px;
+}
+
+.ideal {
+    margin-left: 15px;
+    background-color: green;
+    border-radius: 10px;
+}
+
+#divRegistros {
     margin-top: 20px;
     border-radius: 20px;
     padding: 10px;
@@ -30,32 +81,35 @@
     flex-direction: row;
     background-color: #A4B096;
 }
-.divRegistroTempUmi{
+
+.divRegistroTempUmi {
     gap: 15px;
     display: flex;
     text-align: center;
     width: 50%;
     flex-direction: column;
 }
-.divDados{
+
+.divDados {
     display: flex;
     width: 100%;
     flex-direction: row;
 }
-.data{
+
+.data {
     flex-direction: column;
     display: flex;
     width: 33%;
 }
 
-h1{
+h1 {
     margin: 0;
     padding: 0;
     font-size: 18px;
 }
 
 /*Selects*/
-select{
+select {
     background-color: #A4B096;
     border-radius: 20px;
     width: 160px;
@@ -64,20 +118,21 @@ select{
     text-align: center;
 }
 
-.divSelect{
+.divSelect {
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-.divTodosGraficos{
+.divTodosGraficos {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.divGrafico{
+
+.divGrafico {
     width: 50%;
     display: flex;
     flex-direction: row;
@@ -85,7 +140,7 @@ select{
     gap: 20px;
 }
 
-.divGraficosGeral{
+.divGraficosGeral {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -94,14 +149,15 @@ select{
 
 }
 
-.divTemperaturaGrafico, .divUmidadeGrafico{
+.divTemperaturaGrafico,
+.divUmidadeGrafico {
     width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.divLegenda{
+.divLegenda {
     width: 50%;
     display: flex;
     font-weight: 600;
@@ -110,16 +166,19 @@ select{
     justify-content: center;
     gap: 10px;
 }
-.divLegenda img{
+
+.divLegenda img {
     width: 20px;
     height: 20px;
 }
-.divLegenda label{
+
+.divLegenda label {
     display: flex;
     gap: 10px;
     align-items: center;
 }
-p{
+
+p {
     margin: 0;
     padding: 0;
 }
