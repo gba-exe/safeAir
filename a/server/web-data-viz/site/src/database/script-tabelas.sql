@@ -1,99 +1,93 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+CREATE DATABASE safeAir DEFAULT CHARACTER SET utf8 ;
+USE safeAir ;
 
-/*
-comandos para mysql - banco local - ambiente de desenvolvimento
-*/
+-- -----------------------------------------------------
+-- Table empresa
+-- -----------------------------------------------------
+CREATE TABLE empresa (
+  idempresa INT auto_increment,
+  nome VARCHAR(45) NULL,
+  cnpj CHAR(18) NULL,
+  PRIMARY KEY (idempresa));
+drop table empresa;
+drop table usuario;
 
-CREATE DATABASE aquatech;
+SELECT* FROM empresa;
+-- -----------------------------------------------------
+-- Table usuario
+-- -----------------------------------------------------
+CREATE TABLE  usuario (
+  idusuario INT NOT NULL,
+  nome VARCHAR(45) NULL,
+  email VARCHAR(45) NULL,
+  senha VARCHAR(45) NULL,
+  fkAdministrador INT NOT NULL,
+  fkEmpresa INT NOT NULL,
+  PRIMARY KEY (idusuario, fkEmpresa),
+  FOREIGN KEY (fkEmpresa) REFERENCES empresa (idempresa),
+  FOREIGN KEY (fkAdministrador) REFERENCES usuario (idusuario)
+    );
 
-USE aquatech;
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50)
+
+-- -----------------------------------------------------
+-- Table endereco
+-- -----------------------------------------------------
+CREATE TABLE  endereco (
+  idEndereco INT NOT NULL,
+  rua VARCHAR(45) NULL,
+  numero INT NULL,
+  cep CHAR(9) NULL,
+  bairro VARCHAR(45) NULL,
+  complemento VARCHAR(45) NULL,
+  cidade VARCHAR(45) NULL,
+  estado VARCHAR(45) NULL,
+  fkEmpresa INT NOT NULL,
+  PRIMARY KEY (idEndereco, fkEmpresa),
+    FOREIGN KEY (fkEmpresa) REFERENCES empresa (idempresa)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-);
-
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300)
-);
-
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
 
 
-/*
-comando para sql server - banco remoto - ambiente de produção
-*/
+-- -----------------------------------------------------
+-- Table sala
+-- -----------------------------------------------------
+CREATE TABLE  sala (
+  idSala INT NOT NULL,
+  nomeSala VARCHAR(45) NULL,
+  tamanhoSala VARCHAR(45) NULL,
+  fkEndereco INT NOT NULL,
+  fkEmpresa INT NOT NULL,
+  PRIMARY KEY (idSala, fkEndereco, fkEmpresa),
+    FOREIGN KEY (fkEndereco)
+    REFERENCES endereco (idEndereco),
+    FOREIGN KEY (fkEmpresa)
+    REFERENCES empresa (idempresa));
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-);
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
-);
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY IDENTITY(1,1),
-	descricao VARCHAR(300)
-);
+-- -----------------------------------------------------
+-- Table sensor
+-- -----------------------------------------------------
+CREATE TABLE  sensor (
+  idsensor INT NOT NULL,
+  tipo VARCHAR(45) NULL,
+  fkSala INT NULL,
+  PRIMARY KEY (idsensor),
+    FOREIGN KEY (fkSala)
+    REFERENCES sala (idSala));
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
-CREATE TABLE medida (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT FOREIGN KEY REFERENCES aquario(id)
-);
 
-/*
-comandos para criar usuário em banco de dados azure, sqlserver,
-com permissão de insert + update + delete + select
-*/
+-- -----------------------------------------------------
+-- Table dados
+-- -----------------------------------------------------
+CREATE TABLE  dados (
+  dataHr DATETIME NOT NULL,
+  temperatura DECIMAL(3,1) NULL,
+  umidade DECIMAL(3,1) NULL,
+  fkSensor INT NOT NULL,
+  PRIMARY KEY (dataHr, fkSensor),
+    FOREIGN KEY (fkSensor)
+    REFERENCES sensor (idsensor));
 
-CREATE USER [usuarioParaAPIWebDataViz_datawriter_datareader]
-WITH PASSWORD = '#Gf_senhaParaAPIWebDataViz',
-DEFAULT_SCHEMA = dbo;
-
-EXEC sys.sp_addrolemember @rolename = N'db_datawriter',
-@membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
-
-EXEC sys.sp_addrolemember @rolename = N'db_datareader',
-@membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
