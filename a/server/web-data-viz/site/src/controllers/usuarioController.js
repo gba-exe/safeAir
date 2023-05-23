@@ -95,9 +95,41 @@ function cadastrar(req, res) {
     }
 }
 
+function cadastrarEmpresa(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nome_Empresa = req.body.nomeEmpresaServer;
+    var cnpj = req.body.cnpjServer;
+
+    // Faça as validações dos valores
+    if (nome_Empresa == undefined) {
+        res.status(400).send("Sua empresa está undefined!");
+    } else if (cnpj == undefined) {
+        res.status(400).send("Seu cnpj está undefined!");
+    } else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarEmpresa(nome_Empresa, cnpj)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    cadastrarEmpresa
 }
