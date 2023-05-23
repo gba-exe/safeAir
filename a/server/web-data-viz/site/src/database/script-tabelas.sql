@@ -6,8 +6,8 @@ USE safeAir ;
 -- -----------------------------------------------------
 CREATE TABLE empresa (
   idempresa INT auto_increment,
-  nome VARCHAR(45) NULL,
-  cnpj CHAR(18) NULL,
+  nome VARCHAR(45),
+  cnpj CHAR(18),
   PRIMARY KEY (idempresa));
 drop table empresa;
 drop table usuario;
