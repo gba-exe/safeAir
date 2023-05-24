@@ -53,19 +53,18 @@
 
                     </div>
                     <div class="divCadastroDir">
-                        <div class="divDentroDir">
-                            <p class="pInput">Telefone</p>
-                            <input type="password" id="iptTelefone" placeholder="Telefone">
-                            <p class="pInput">CPF</p>
-                            <input id="iptCPF" placeholder="CPF">
-
-                        </div>
+                        <!-- <div class="divDentroDir">
+                            <p class="pInput">Administrador?</p>
+                            <input type="checkbox" id="chkAdministrador">
+                            <p class="pInput">Empresa:</p>
+                            <input id="iptEmpresa" placeholder="Nome empresa">
+                        </div> -->
                     </div>
                     <div class="divFotoCracha"><img src="../../assets/crachazinho.png">
                     </div>
                 </div>
                 <div class="divBaixo">
-                    <button class="btnAzul">Cadastrar</button>
+                    <button onclick="cadastrar()" class="btnAzul">Cadastrar</button>
                 </div>
 
 
@@ -76,3 +75,56 @@
 
 </html>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    function cadastrar() {
+
+        var nomeCompletoVar = iptNomeCompleto.value;
+        var emailVar = iptEmail.value;
+        var senhaVar = iptSenha.value;
+        // var administradorVar = chkAdministrador.value;
+        // var empresaVar = iptEmpresa.value;
+
+        iptEmail.style = 'border-color = #072953;'
+        iptSenha.style = 'border-color = #072953;'
+
+        if (nomeCompletoVar == '' || emailVar == '' || senhaVar == '') {
+            alert('Favor digitar os campos corretamente.');
+            return false;
+        } else if (emailVar.indexOf('@') == -1) {
+            alert('Favor digitar o email corretamente.');
+            iptEmail.style = 'border-color = red;'
+            return false;
+        } else if (senhaVar.length < 8) {
+            alert('Favor digitar uma senha com no mínimo oito caracteres.');
+            iptSenha.style = 'border-color = red;'
+            return false;
+        }
+
+        fetch('/usuarios/cadastrar',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+
+                },
+                body: JSON.stringify({
+                    nomeCompletoServer: nomeCompletoVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar,
+                    // administradorServer: administradorVar,
+                    // empresaServer: empresaVar
+                })
+            }).then(function (resposta) {
+                console.log('resposta: ', resposta);
+                if (resposta.ok) {
+                    alert('Um novo funcionário foi cadastrado com sucesso!');
+
+                }else {
+                    alert('Erro ao cadastrar funcionário.');
+                }
+            }).catch(function(resposta) {
+                console.log('erro: ', resposta);
+                });
+            return false;
+    }
+</script>

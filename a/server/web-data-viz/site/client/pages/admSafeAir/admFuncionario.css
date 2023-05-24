@@ -99,3 +99,7 @@ h2 {
 .pGrande {
     font-weight: bold;
 }
+#chkAdministrador {
+    margin: 0px;
+    width: 8%;
+}

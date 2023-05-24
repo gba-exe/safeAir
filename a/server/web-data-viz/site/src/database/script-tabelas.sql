@@ -21,11 +21,10 @@ CREATE TABLE  usuario (
   nome VARCHAR(45) NULL,
   email VARCHAR(45) NULL,
   senha VARCHAR(45) NULL,
-  fkAdministrador INT NOT NULL,
+  administrador BINARY,
   fkEmpresa INT NOT NULL,
   PRIMARY KEY (idusuario, fkEmpresa),
-  FOREIGN KEY (fkEmpresa) REFERENCES empresa (idempresa),
-  FOREIGN KEY (fkAdministrador) REFERENCES usuario (idusuario)
+  FOREIGN KEY (fkEmpresa) REFERENCES empresa (idempresa)
     );
 
 
