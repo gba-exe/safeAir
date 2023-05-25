@@ -21,48 +21,35 @@
                 <img src="../../assets/logos/logoSemFundoMaior.png">
             </div>
 
-            <!-- <div class="divFotos">
-                <div class="divFoto">
-                    <img src="../../assets/foto-giovanna.png">
-                    <div class="divInfo">
-                        <p class="pParagrafo">Logado como:</p>
-                        <p class="pGrande">Giovanna</p>
-                        <p class="pParagrafo">Developer</p>
-                    </div>
-                </div>
-                <div class="divFoto">
-                    <img src="../../assets/logo.png">
-                    <div class="divInfo">
-                        <p class="pParagrafo">Empresa:</p>
-                        <p class="pGrande">Safe Air</p>
-                        <p class="pParagrafo">Funcionária Safe Air - 2023</p>
-                    </div>
-                </div>
-            </div> -->
 
             <div class="divCadastroCliente">
                 <div class="divCima">
+                    <h2>Cadastrar novo cliente</h2>
                     <div class="divCadastroEsq">
-                        <h2>Cadastrar novo cliente</h2>
                         <p class="pInput">Nome da Empresa</p>
                         <input id="iptNomeEmpresa" placeholder="Nome da Empresa">
-                        <!-- <p class="pInput">Nome do(a) cliente</p>
-                        <input id="iptNomeCliente" placeholder="Nome do(a) cliente"> -->
-                        <!-- <p class="pInput">E-mail</p>
-                        <input id="iptEmail" placeholder="E-mail da empresa"> -->
                     </div>
                     <div class="divCadastroDir">
                         <div class="divDentroDir">
                             <p class="pInput">CNPJ</p>
                             <input id="iptCNPJ" placeholder="CNPJ da empresa">
-                            <!-- <p class="pInput">Senha</p>
-                        <input type="password" id="iptSenha" placeholder="Senha">
-                        <p class="pInput">Confirmação de Senha</p>
-                        <input type="password" id="iptConfimacaoSenha" placeholder="Confirmação de senha"> -->
+                            <p class="pInput">Rua</p>
+                            <input id="iptRua" placeholder="Rua">
+                            <input id="iptNumero" placeholder="Número">
+                            <p class="pInput">CEP</p>
+                            <input id="iptCEP" placeholder="CEP">
+                            <p class="pInput">Bairro</p>
+                            <input id="iptBairro" placeholder="Bairro">
+                            <p class="pInput">Complemento</p>
+                            <input id="iptComplemento" placeholder="Complemento">
+                            <p class="pInput">Cidade</p>
+                            <input id="iptCidade" placeholder="Cidade">
+                            <p class="pInput">Estado</p>
+                            <input id="iptEstado" placeholder="Estado">
                         </div>
                     </div>
-                    <div class="divFotoCracha"><img src="../../assets/crachazinho.png">
-                    </div>
+                </div>
+                <div class="divFotoCracha"><img src="../../assets/crachazinho.png">
                 </div>
                 <div class="divBaixo">
                     <button class="btnAzul" onclick="cadastrarEmpresa()">Cadastrar</button>
@@ -81,8 +68,16 @@
 
         var nomeEmpresaVar = iptNomeEmpresa.value;
         var cnpjVar = iptCNPJ.value;
+        var ruaVar = iptRua.value;
+        var numeroVar = iptNumero.value;
+        var cepVar = iptCEP.value;
+        var bairroVar = iptBairro.value;
+        var complementoVar = iptComplemento.value;
+        var cidadeVar = iptCidade.value;
+        var estadoVar = iptEstado.value;
 
-        if (nomeEmpresaVar == '' || cnpjVar == '') {
+
+        if (nomeEmpresaVar == '' || cnpjVar == '' ) {
             alert('Favor digitar os campos corretamente');
             return false;
         }
@@ -96,20 +91,28 @@
                 },
                 body: JSON.stringify({
                     nomeEmpresaServer: nomeEmpresaVar,
-                    cnpjServer: cnpjVar
+                    cnpjServer: cnpjVar,
+                    ruaServer: ruaVar,
+                    numeroServer: numeroVar,
+                    cepServer: cepVar,
+                    bairroServer: bairroVar,
+                    complementoServer: complementoVar,
+                    cidadeServer: cidadeVar,
+                    estadoServer: estadoVar
                 })
             }).then(function (resposta) {
                 console.log('resposta: ', resposta);
                 if (resposta.ok) {
                     alert('Empresa cadastrada com sucesso');
 
-                }else {
+                } else {
                     alert('Erro ao cadastrar empresa');
                 }
-            }).catch(function(resposta) {
+            }).catch(function (resposta) {
                 console.log('erro: ', resposta);
-                });
-            return false;
+            });
+
+        return false;
 
     }
 

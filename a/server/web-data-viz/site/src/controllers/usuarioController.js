@@ -34,7 +34,7 @@ function entrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-        
+
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
@@ -75,7 +75,7 @@ function cadastrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-        
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nome, email, senha)
             .then(
@@ -99,16 +99,37 @@ function cadastrarEmpresa(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome_Empresa = req.body.nomeEmpresaServer;
     var cnpj = req.body.cnpjServer;
+    var estado = req.body.estadoServer;
+    var cidade = req.body.cidadeServer;
+    var bairro = req.body.bairroServer;
+    var rua = req.body.ruaServer;
+    var numero = req.body.numeroServer;
+    var complemento = req.body.complementoServer;
+    var cep = req.body.cepServer;
 
     // Faça as validações dos valores
     if (nome_Empresa == undefined) {
         res.status(400).send("Sua empresa está undefined!");
     } else if (cnpj == undefined) {
         res.status(400).send("Seu cnpj está undefined!");
+    } else if (estado == undefined) {
+        res.status(400).send("Seu estado está undefined!");
+    } else if (cidade == undefined) {
+        res.status(400).send("Seu cidade está undefined!");
+    } else if (bairro == undefined) {
+        res.status(400).send("Seu bairro está undefined!");
+    } else if (rua == undefined) {
+        res.status(400).send("Seu rua está undefined!");
+    } else if (numero == undefined) {
+        res.status(400).send("Seu numero está undefined!");
+    } else if (complemento == undefined) {
+        res.status(400).send("Seu complemento está undefined!");
+    } else if (cep == undefined) {
+        res.status(400).send("Seu cep está undefined!");
     } else {
-        
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarEmpresa(nome_Empresa, cnpj)
+        usuarioModel.cadastrarEmpresa(nome_Empresa, cnpj, estado, cidade, bairro, rua, numero, complemento, cep)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -125,6 +146,7 @@ function cadastrarEmpresa(req, res) {
             );
     }
 }
+
 
 module.exports = {
     entrar,

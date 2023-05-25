@@ -15,6 +15,7 @@ fetch('/usuarios/cadastrar', {
     body: JSON.stringify({
         nomeEmpresaServer: nome,
         nomeCNPJServer: cnpj,
+
     })
 })
 }
