@@ -23,21 +23,23 @@
 
 
             <div class="divCadastroCliente">
+                <h2>Cadastrar novo cliente</h2>
                 <div class="divCima">
-                    <h2>Cadastrar novo cliente</h2>
                     <div class="divCadastroEsq">
                         <p class="pInput">Nome da Empresa</p>
                         <input id="iptNomeEmpresa" placeholder="Nome da Empresa">
+                        <p class="pInput">CNPJ</p>
+                        <input id="iptCNPJ" placeholder="CNPJ da empresa">
+                        <p class="pInput">Rua</p>
+                        <input id="iptRua" placeholder="Rua">
+                        <p class="pInput">Número</p>
+                        <input id="iptNumero" placeholder="Número">
+                        <p class="pInput">CEP</p>
+                        <input id="iptCEP" placeholder="CEP">
+
                     </div>
                     <div class="divCadastroDir">
                         <div class="divDentroDir">
-                            <p class="pInput">CNPJ</p>
-                            <input id="iptCNPJ" placeholder="CNPJ da empresa">
-                            <p class="pInput">Rua</p>
-                            <input id="iptRua" placeholder="Rua">
-                            <input id="iptNumero" placeholder="Número">
-                            <p class="pInput">CEP</p>
-                            <input id="iptCEP" placeholder="CEP">
                             <p class="pInput">Bairro</p>
                             <input id="iptBairro" placeholder="Bairro">
                             <p class="pInput">Complemento</p>
@@ -48,16 +50,17 @@
                             <input id="iptEstado" placeholder="Estado">
                         </div>
                     </div>
+                    <div class="divFotoCracha"><img src="../../assets/crachazinho.png">
+                    </div>
                 </div>
-                <div class="divFotoCracha"><img src="../../assets/crachazinho.png">
+                    <div class="divBaixo">
+                        <button class="btnAzul" onclick="cadastrarEmpresa()">Cadastrar</button>
                 </div>
-                <div class="divBaixo">
-                    <button class="btnAzul" onclick="cadastrarEmpresa()">Cadastrar</button>
-                </div>
-
-
             </div>
+
+
         </div>
+    </div>
     </div>
 </body>
 
@@ -77,7 +80,7 @@
         var estadoVar = iptEstado.value;
 
 
-        if (nomeEmpresaVar == '' || cnpjVar == '' ) {
+        if (nomeEmpresaVar == '' || cnpjVar == '') {
             alert('Favor digitar os campos corretamente');
             return false;
         }
