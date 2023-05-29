@@ -14,6 +14,13 @@ select{
 }
 
 /*Divs*/
+
+.janela{
+    width: 80%;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+  }
 .divContent{
     gap: 20px;
 }
@@ -61,8 +68,14 @@ select{
     display: flex;
     gap: 20px;
 }
+.label-captura{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
 .divLegenda{
-    width: 30%;
     display: flex;
     gap: 10px;
     font-weight: 600;
