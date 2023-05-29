@@ -53,12 +53,16 @@
 
                     </div>
                     <div class="divCadastroDir">
-                        <!-- <div class="divDentroDir">
+                        <div class="divDentroDir">
                             <p class="pInput">Administrador?</p>
-                            <input type="checkbox" id="chkAdministrador">
+                            <select name="selectAdministrador" id="selAdm">
+                                <option>Selecione uma opção</option>
+                                <option value="Não">Não</option>
+                                <option value="Sim">Sim</option>
+                            </select>
                             <p class="pInput">Empresa:</p>
                             <input id="iptEmpresa" placeholder="Nome empresa">
-                        </div> -->
+                        </div>
                     </div>
                     <div class="divFotoCracha"><img src="../../assets/crachazinho.png">
                     </div>
@@ -81,13 +85,13 @@
         var nomeCompletoVar = iptNomeCompleto.value;
         var emailVar = iptEmail.value;
         var senhaVar = iptSenha.value;
-        // var administradorVar = chkAdministrador.value;
-        // var empresaVar = iptEmpresa.value;
+        var administradorVar = selAdm.value;
+        var empresaVar = iptEmpresa.value;
 
         iptEmail.style = 'border-color = #072953;'
         iptSenha.style = 'border-color = #072953;'
 
-        if (nomeCompletoVar == '' || emailVar == '' || senhaVar == '') {
+        if (nomeCompletoVar == '' || emailVar == '' || senhaVar == '' || administradorVar == '' || empresaVar == '') {
             alert('Favor digitar os campos corretamente.');
             return false;
         } else if (emailVar.indexOf('@') == -1) {
@@ -100,31 +104,31 @@
             return false;
         }
 
-        fetch('/usuarios/cadastrar',
+        fetch(`/usuarios/cadastrar`,
             {
-                method: 'POST',
+                method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
-
                 },
                 body: JSON.stringify({
                     nomeCompletoServer: nomeCompletoVar,
                     emailServer: emailVar,
                     senhaServer: senhaVar,
-                    // administradorServer: administradorVar,
-                    // empresaServer: empresaVar
+                    administradorServer: administradorVar,
+                    empresaServer: empresaVar
                 })
             }).then(function (resposta) {
                 console.log('resposta: ', resposta);
                 if (resposta.ok) {
                     alert('Um novo funcionário foi cadastrado com sucesso!');
-
-                }else {
+                } else {
+                    console.log(resposta)
                     alert('Erro ao cadastrar funcionário.');
                 }
-            }).catch(function(resposta) {
+            }).catch(function (resposta) {
                 console.log('erro: ', resposta);
-                });
-            return false;
+            });
+        return false;
+
     }
 </script>

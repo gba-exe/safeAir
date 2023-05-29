@@ -34,7 +34,7 @@ function entrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-        
+
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
@@ -66,8 +66,8 @@ function cadastrar(req, res) {
     var nomeFunc = req.body.nomeCompletoServer;
     var emailFunc = req.body.emailServer;
     var senhaFunc = req.body.senhaServer;
-    // var admFunc = req.body.administradorServer;
-    // var empresaFunc = req.body.empresaServer;
+    var admFunc = req.body.administradorServer;
+    var empresaFunc = req.body.empresaServer;
 
     // Faça as validações dos valores
     if (nomeFunc == undefined) {
@@ -76,14 +76,14 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senhaFunc == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    // } else if (admFunc == undefined) {
-    //     res.status(400).send("Seu administrador está undefined!");
-    // } else if (empresaFunc == undefined) {
-    //     res.status(400).send("Sua empresa está undefined!");
+    } else if (admFunc == undefined) {
+        res.status(400).send("Seu administrador está undefined!");
+    } else if (empresaFunc == undefined) {
+        res.status(400).send("Sua empresa está undefined!");
     } else {
-        
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nomeFunc, emailFunc, senhaFunc)
+        usuarioModel.cadastrar(nomeFunc, emailFunc, senhaFunc, admFunc, empresaFunc)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -112,7 +112,7 @@ function cadastrarEmpresa(req, res) {
     } else if (cnpj == undefined) {
         res.status(400).send("Seu cnpj está undefined!");
     } else {
-        
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrarEmpresa(nome_Empresa, cnpj)
             .then(
@@ -132,8 +132,31 @@ function cadastrarEmpresa(req, res) {
     }
 }
 
+// function pegarID(req, res) {
+//     for (var i = 0; i < x.length; i++) {
+//         divSelect.innerHtml +=
+//             `
+//         <select name="selectEmpresa" id="selEmpresa}">
+//             <option>Selecione uma opção</option>
+//             <option value="response.id">${response.nome[i]}</option>
+//         </select>
+
+//         `
+//     }
+
+//     fetch(`/usuarios/pegarId`)
+//         .then(response => {
+//             id = response.id
+//             console.log(response)
+//         })
+//         .catch(() => {
+//             console.log("deu erro fetch api cep")
+//         })
+// }
+
 module.exports = {
     entrar,
+    // pegarID,
     cadastrar,
     listar,
     testar,
