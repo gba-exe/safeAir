@@ -51,6 +51,23 @@
                     <div class="divFotoCracha"><img src="../../assets/crachazinho.png">
                     </div>
                 </div>
+            </div>
+            <div class="divCadastroCliente">
+                <div class="divCima">
+                    <div class="divCadastroEsq">
+                        <h2>Cadastrar Primeiro Usuário</h2>
+                        <p class="pInput">Nome de Usuário</p>
+                        <input id="iptNomeUsuario" placeholder="Nome">
+                        <p class="pInput">E-mail</p>
+                        <input id="iptEmail" placeholder="E-mail">
+                    </div>
+                    <div class="divCadastroDir">
+                        <p class="pInput">Senha</p>
+                        <input id="iptSenha" placeholder="Senha">
+                    </div>
+                    <div class="divFotoCracha">
+                    </div>
+                </div>
                 <div class="divBaixo">
                     <button class="btnAzul" onclick="cadastrarEmpresa()">Cadastrar</button>
                 </div>
@@ -76,6 +93,9 @@
         var complementoVar = iptComplemento.value;
         var cidadeVar = iptCidade.value;
         var estadoVar = iptEstado.value;
+        var nomeUsuarioVar = iptNomeUsuario.value;
+        var emailVar = iptEmail.value;
+        var senhaVar = iptSenha.value;
 
 
         if (nomeEmpresaVar == '' || cnpjVar == '') {
@@ -99,12 +119,27 @@
                     bairroServer: bairroVar,
                     complementoServer: complementoVar,
                     cidadeServer: cidadeVar,
-                    estadoServer: estadoVar
+                    estadoServer: estadoVar,
+                    nomeUsuarioServer: nomeUsuarioVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
                 })
             }).then(function (resposta) {
                 console.log('resposta: ', resposta);
                 if (resposta.ok) {
                     alert('Empresa cadastrada com sucesso');
+                    iptNomeEmpresa.value = '';
+                    iptCNPJ.value = '';
+                    iptRua.value = '';
+                    iptNumero.value = '';
+                    iptCEP.value = '';
+                    iptBairro.value = '';
+                    iptComplemento.value = '';
+                    iptCidade.value = '';
+                    iptEstado.value = '';
+                    iptNomeUsuario.value = '';
+                    iptEmail.value = '';
+                    iptSenha.value = '';
 
                 } else {
                     alert('Erro ao cadastrar empresa');
