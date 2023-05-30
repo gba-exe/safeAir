@@ -56,11 +56,10 @@ h2 {
     width: 25%;
 }
 .divCadastroDir {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     height: 100%;
     width: 25%;
+    position: relative;
+    top: 55px;
 }
 .divDentroDir {
    margin-top: auto;
