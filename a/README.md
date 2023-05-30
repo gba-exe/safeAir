@@ -13,7 +13,7 @@ Projeto de climatização para empresas
 
 - Ana: @anabueno25 
 
-- Otávio:
+- Otávio: @OtavioWalk
 
 ### Feito por:
 - Bárbara: @babi-barbato
