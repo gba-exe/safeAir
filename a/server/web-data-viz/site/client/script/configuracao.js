@@ -2,13 +2,14 @@ function registrarFunc() {
     var emailFuncionarioVar = iptEmailFunc.value;
     var nomeFuncionarioVar = iptNomeFunc.value;
     var administradorFuncionarioVar = selectAdministrador.value;
+    var senhaFuncionarioVar = iptSenhaFunc.value;
     var empresaFuncionarioVar = sessionStorage.EMPRESA_USUARIO;
 
     iptEmailFunc.style = 'border-color = #072953;'
     iptNomeFunc.style = 'border-color = #072953;'
     selectAdministrador.style = 'border-color = #072953;'
 
-    if (emailFuncionarioVar == '' || nomeFuncionarioVar == '' || administradorFuncionarioVar == '') {
+    if (emailFuncionarioVar == '' || nomeFuncionarioVar == '' || administradorFuncionarioVar == '' || senhaFuncionarioVar == '') {
         alert('Favor digitar os campos corretamente.');
         return false;
     } else if (emailFuncionarioVar.indexOf('@') == -1) {
@@ -23,6 +24,10 @@ function registrarFunc() {
         alert('Favor escolher se o funcionário é administrador ou não.');
         selectAdministrador.style = 'border-color = red;'
         return false;
+    } else if (senhaFuncionarioVar != iptConfSenha.value) {
+        alert('As senhas não coincidem, por favor corrija os campos corretamente.');
+        iptSenhaFunc.style = 'border-color = red;'
+        return false;
     }
 
     fetch(`/usuarios/registrarFunc`,
@@ -35,6 +40,7 @@ function registrarFunc() {
                 nomeFuncionarioServer: nomeFuncionarioVar,
                 emailFuncionarioServer: emailFuncionarioVar,
                 administradorFuncionarioServer: administradorFuncionarioVar,
+                senhaFuncionarioServer: senhaFuncionarioVar,
                 empresaFuncionarioServer: empresaFuncionarioVar
             })
         }).then(function (resposta) {

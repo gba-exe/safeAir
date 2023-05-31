@@ -29,7 +29,7 @@ header.innerHTML = `
                 </a>
             </li>
             <li class='liMenus'>
-                <a href="../config/config.html">
+                <a href="../configuracao/configuracao.html">
                     <img src="../../assets/configuracaoIcon.png" alt="">
                     <span id="menuSetting" class="spanLink">Settings</span>
                 </a>

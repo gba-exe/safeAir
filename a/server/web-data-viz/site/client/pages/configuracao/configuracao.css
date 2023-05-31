@@ -18,13 +18,13 @@ h1 {
     width: 100%;
 }
 
-.divPerfis>div {
+.divPerfis div {
     gap: 20px;
     display: flex;
     flex-direction: row;
 }
 
-.divPerfis>div div {
+.divPerfis div div {
     display: flex;
     align-items: start;
     justify-content: center;
@@ -59,15 +59,16 @@ h1 {
     gap: 10px;
 }
 
-.divInputs>div {
+.divInputs div {
     display: flex;
+    width: 100%;
     justify-content: space-between;
 }
 
 .divInputsMetade {
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 50%;
     font-weight: 600;
     justify-content: center;
 }
@@ -86,6 +87,7 @@ h1 {
 }
 
 .input {
+    width: 100%;
     height: 35px;
 }
 
@@ -103,5 +105,3 @@ select {
     width: 100%;
     height: 5%;
 }
-
-

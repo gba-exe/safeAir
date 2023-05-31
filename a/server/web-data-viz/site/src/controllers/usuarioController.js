@@ -130,6 +130,7 @@ function registrarFunc(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nomeNovoFuncionario = req.body.nomeFuncionarioServer;
     var emailNovoFuncionario = req.body.emailFuncionarioServer;
+    var senhaNovoFuncionario = req.body.senhaFuncionarioServer;
     var admFuncionario = req.body.administradorFuncionarioServer;
     var empresaFuncionario = req.body.empresaFuncionarioServer;
 
@@ -142,9 +143,11 @@ function registrarFunc(req, res) {
         res.status(400).send("Seu administrador está undefined!");
     } else if  (empresaFuncionario == undefined) {
         res.status(400).send("Sua empresa está undefined!");
+    } else if  (senhaNovoFuncionario == undefined) {
+        res.status(400).send("Sua senha está undefined!");
     } else {
             // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-            usuarioModel.registrarFunc(nomeNovoFuncionario, emailNovoFuncionario, admFuncionario, empresaFuncionario)
+            usuarioModel.registrarFunc(nomeNovoFuncionario, emailNovoFuncionario, admFuncionario, empresaFuncionario, senhaNovoFuncionario)
                 .then(
                     function (resultado) {
                         res.json(resultado);
