@@ -20,8 +20,8 @@
             <div class="divLogo">
                 <img src="../../assets/logos/logoSemFundoMaior.png">
             </div>
-
-            <div class="divPerfis">
+            
+            <!-- <div class="divPerfis">
                 <div>
                     <img src="../../assets/foto-barbara.png" alt="">
                     <div>
@@ -38,8 +38,10 @@
                         <p class="pLogin">Parceira SafeAir - 2023</p>
                     </div>
                 </div>
-            </div>
-
+            </div> -->
+            
+            <div class="divEspacamento"></div>
+            
             <div class="divVerdes">
                 <div class="divTitulo">
                     <img src="../../assets/admin.png" alt="">
@@ -51,24 +53,23 @@
                 <div class="divInputs">
                     <div>
                         <div class="divInputsMetade">
-                            <p class="pLogin">Identificador do funcionário</p>
-                            <input class="input" type="text" placeholder="idFuncionário">
+                            <p class="pLogin">Email do funcionário</p>
+                            <input class="input" type="text" placeholder="Email do funcionário" id="iptEmailFunc">
                         </div>
                         <div class="divInputsMetade">
                             <p class="pLogin">Nome:</p>
-                            <input class="input" type="text" placeholder="Nome do Funcionário">
+                            <input class="input" type="text" placeholder="Nome do Funcionário" id="iptNomeFunc">
                         </div>
                     </div>
                     <div class="divInputsInteiro">
-                        <p class="pLogin">Cargo:</p>
-                        <select id="selectSala">
-                            <option value="">Selecionar Cargo</option>
-                            <option value="">Estagiario</option>
-                            <option value="">Gerente</option>
-                            <option value="">Coordenador</option>
-                            <option value="">Desenvolvedor</option>
+                        <p class="pLogin">Administrador:</p>
+                        <select id="selectAdministrador">
+                            <option value="">Selecione uma opção</option>
+                            <option value="Não">Não</option>
+                            <option value="Sim">Sim</option>
                         </select>
                     </div>
+                    <button onclick="registrarFunc()" class="btnAzul">Registrar Novo Funcionário</button>
                 </div>
             </div>
             
@@ -83,12 +84,13 @@
                 <div class="divInputs">
                     <div class="divInputsInteiro">
                         <p class="pLogin">Senha:</p>
-                        <input type="password" class="input" placeholder="Nova Senha">
+                        <input type="password" class="input" placeholder="Nova Senha" id="iptSenhaNova">
                     </div>
                     <div class="divInputsInteiro">
                         <p class="pLogin">Confirmação e senha:</p>
-                        <input type="password" class="input" placeholder="Confirmação de senha">
+                        <input type="password" class="input" placeholder="Confirmação de senha" id="iptConfSenhaNova">
                     </div>
+                    <button onclick="alterarSenha()" class="btnAzul">Modificar Senha</button>
                 </div>
             </div>
         </div>
@@ -98,3 +100,5 @@
 </html>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="analytics.js"></script>
+
+<script src="../../script/config.js"></script>

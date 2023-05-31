@@ -5,29 +5,27 @@ USE safeAir ;
 -- Table empresa
 -- -----------------------------------------------------
 CREATE TABLE empresa (
-  idempresa INT auto_increment,
+  idempresa INT AUTO_INCREMENT,
   nome VARCHAR(45),
   cnpj CHAR(18),
   PRIMARY KEY (idempresa));
-drop table empresa;
-drop table usuario;
 
 SELECT* FROM empresa;
 -- -----------------------------------------------------
 -- Table usuario
 -- -----------------------------------------------------
 CREATE TABLE  usuario (
-  idusuario INT NOT NULL,
+  idusuario INT AUTO_INCREMENT,
   nome VARCHAR(45) NULL,
-  email VARCHAR(45) NULL,
+  email VARCHAR(45) NULL UNIQUE,
   senha VARCHAR(45) NULL,
-  administrador BINARY,
+  administrador CHAR (3),
   fkEmpresa INT NOT NULL,
   PRIMARY KEY (idusuario, fkEmpresa),
-  FOREIGN KEY (fkEmpresa) REFERENCES empresa (idempresa)
-    );
+  FOREIGN KEY (fkEmpresa) REFERENCES empresa(idempresa)
+) AUTO_INCREMENT = 1000;
 
-
+SELECT * FROM usuario;
 
 -- -----------------------------------------------------
 -- Table endereco
@@ -89,4 +87,3 @@ CREATE TABLE  dados (
   PRIMARY KEY (dataHr, fkSensor),
     FOREIGN KEY (fkSensor)
     REFERENCES sensor (idsensor));
-

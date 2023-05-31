@@ -66,8 +66,6 @@ function cadastrar(req, res) {
     var nomeFunc = req.body.nomeCompletoServer;
     var emailFunc = req.body.emailServer;
     var senhaFunc = req.body.senhaServer;
-    var admFunc = req.body.administradorServer;
-    var empresaFunc = req.body.empresaServer;
 
     // Faça as validações dos valores
     if (nomeFunc == undefined) {
@@ -76,14 +74,10 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senhaFunc == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (admFunc == undefined) {
-        res.status(400).send("Seu administrador está undefined!");
-    } else if (empresaFunc == undefined) {
-        res.status(400).send("Sua empresa está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nomeFunc, emailFunc, senhaFunc, admFunc, empresaFunc)
+        usuarioModel.cadastrar(nomeFunc, emailFunc, senhaFunc)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -132,33 +126,78 @@ function cadastrarEmpresa(req, res) {
     }
 }
 
-// function pegarID(req, res) {
-//     for (var i = 0; i < x.length; i++) {
-//         divSelect.innerHtml +=
-//             `
-//         <select name="selectEmpresa" id="selEmpresa}">
-//             <option>Selecione uma opção</option>
-//             <option value="response.id">${response.nome[i]}</option>
-//         </select>
+function registrarFunc(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nomeNovoFuncionario = req.body.nomeFuncionarioServer;
+    var emailNovoFuncionario = req.body.emailFuncionarioServer;
+    var admFuncionario = req.body.administradorFuncionarioServer;
+    var empresaFuncionario = req.body.empresaFuncionarioServer;
 
-//         `
-//     }
+    // Faça as validações dos valores
+    if (nomeNovoFuncionario == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (emailNovoFuncionario == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else if (admFuncionario == undefined) {
+        res.status(400).send("Seu administrador está undefined!");
+    } else if  (empresaFuncionario == undefined) {
+        res.status(400).send("Sua empresa está undefined!");
+    } else {
+            // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+            usuarioModel.registrarFunc(nomeNovoFuncionario, emailNovoFuncionario, admFuncionario, empresaFuncionario)
+                .then(
+                    function (resultado) {
+                        res.json(resultado);
+                    }
+                ).catch(
+                    function (erro) {
+                        console.log(erro);
+                        console.log(
+                            "\nHouve um erro ao realizar o cadastro! Erro: ",
+                            erro.sqlMessage
+                        );
+                        res.status(500).json(erro.sqlMessage);
+                    }
+                );
+        }
+    }
 
-//     fetch(`/usuarios/pegarId`)
-//         .then(response => {
-//             id = response.id
-//             console.log(response)
-//         })
-//         .catch(() => {
-//             console.log("deu erro fetch api cep")
-//         })
-// }
+    function alterarSenha(req, res) {
+        // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+        var novaSenhaFunc = req.body.senhaNovaServer;
+        var idFunc = req.body.idFuncionarioServer;
+    
+        // Faça as validações dos valores
+        if (novaSenhaFunc == undefined) {
+            res.status(400).send("Sua senha está undefined!");
+        } else if (idFunc == undefined) {
+            res.status(400).send("Seu ID está undefined!");
+        } else {
+                // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+                usuarioModel.alterarSenha(novaSenhaFunc, idFunc)
+                    .then(
+                        function (resultado) {
+                            res.json(resultado);
+                        }
+                    ).catch(
+                        function (erro) {
+                            console.log(erro);
+                            console.log(
+                                "\nHouve um erro ao realizar o cadastro! Erro: ",
+                                erro.sqlMessage
+                            );
+                            res.status(500).json(erro.sqlMessage);
+                        }
+                    );
+            }
+        }
 
-module.exports = {
-    entrar,
-    // pegarID,
-    cadastrar,
-    listar,
-    testar,
-    cadastrarEmpresa
-}
+    module.exports = {
+        entrar,
+        cadastrar,
+        listar,
+        testar,
+        cadastrarEmpresa,
+        registrarFunc,
+        alterarSenha
+    }

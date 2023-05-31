@@ -43,28 +43,13 @@
             <div class="divCadastroCliente">
                 <div class="divCima">
                     <div class="divCadastroEsq">
-                        <h2>Cadastrar novo funcionário</h2>
+                        <h2>Cadastrar Novo Funcionário SafeAir</h2>
                         <p class="pInput">Nome Completo</p>
                         <input id="iptNomeCompleto" placeholder="Nome">
                         <p class="pInput">E-mail</p>
                         <input id="iptEmail" placeholder="E-mail">
                         <p class="pInput">Senha</p>
                         <input type="password" id="iptSenha" placeholder="Senha">
-
-                    </div>
-                    <div class="divCadastroDir">
-                        <div class="divDentroDir">
-                            <div id="divSelect">
-                            <p class="pInput">Administrador?</p>
-                            <select name="selectAdministrador" id="selAdm" >
-                                <option>Selecione uma opção</option>
-                                <option value="Não">Não</option>
-                                <option value="Sim">Sim</option>
-                            </select>
-                        </div>
-                            <p class="pInput">Empresa:</p>
-                            <input id="iptEmpresa" placeholder="Nome empresa">
-                        </div>
                     </div>
                     <div class="divFotoCracha"><img src="../../assets/crachazinho.png">
                     </div>
@@ -87,13 +72,11 @@
         var nomeCompletoVar = iptNomeCompleto.value;
         var emailVar = iptEmail.value;
         var senhaVar = iptSenha.value;
-        var administradorVar = selAdm.value;
-        var empresaVar = iptEmpresa.value;
 
         iptEmail.style = 'border-color = #072953;'
         iptSenha.style = 'border-color = #072953;'
 
-        if (nomeCompletoVar == '' || emailVar == '' || senhaVar == '' || administradorVar == '' || empresaVar == '') {
+        if (nomeCompletoVar == '' || emailVar == '' || senhaVar == '') {
             alert('Favor digitar os campos corretamente.');
             return false;
         } else if (emailVar.indexOf('@') == -1) {
@@ -116,8 +99,6 @@
                     nomeCompletoServer: nomeCompletoVar,
                     emailServer: emailVar,
                     senhaServer: senhaVar,
-                    administradorServer: administradorVar,
-                    empresaServer: empresaVar
                 })
             }).then(function (resposta) {
                 console.log('resposta: ', resposta);

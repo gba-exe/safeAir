@@ -23,7 +23,7 @@ header.innerHTML = `
                 </a>
             </li>
             <li class='liMenus'> 
-                <a href="#">
+                <a href="https://safeair.atlassian.net/servicedesk/customer/portal/1">
                     <img src="../../assets/suporteIcon.png" alt="">
                     <span id="menuHelpDesk" class="spanLink">Help Desk</span>
                 </a>
@@ -35,7 +35,7 @@ header.innerHTML = `
                 </a>
             </li>
             <li class='liMenus'>
-                <a href="../home/home.html">
+                <a href="../Login/Login.HTML">
                     <img src="../../assets/logoutIcon.png" alt="">
                     <span id="menuLogout" class="spanLink">Log Out</span>
                 </a>

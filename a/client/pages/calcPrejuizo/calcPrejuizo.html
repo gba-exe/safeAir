@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
+        <title>Calculadora de Prejuízo</title>
+        <link rel="stylesheet" href="../../style/style.css" />
+        <link rel="stylesheet" href="calcPrejuizo.css" />
+        <link rel="stylesheet" href="../navbarFooter/navbar.css">
+        <link rel="stylesheet" href="../navbarFooter/footer.css">
+    </head>
+    <body>
+    <script src="../../assets/components/header.js"></script>
+        <div class="divContainer">
+        <!--Tela em si já visível-->
+        <div class="divEsquerda">
+            <div class="divContent">
+                <a class="pPequeno" href="../home/home.html"> < Voltar a home </a>
+                <div id="divTexto">
+                    <h1>Descubra quanto está perdendo!</h1>
+                    <div>
+                        <p class="pParagrafo">&emsp;&emsp;Venha calcular quanto a sua empresa está perdendo anualmente com o absenteísmo!</p>
+                    </div>
+                </div>  
+            </div>  
+        </div>
+
+        <div class="divDireita">
+            <div class="divContent">
+                <p class="pInput">Digite salário médio dos seus funcionários:</p>
+                <input id="iptSalario" placeholder="Salario em R$"/>
+            
+                <p class="pInput">Digite a quantidade média de funcionários da sua empresa:</p>
+                <input id="iptFuncionarios" placeholder="Quantidade de funcionários"/>
+            
+                <p class="pInput">Digite a taxa de absenteísmo da sua empresa:</p>
+                <input id="iptTaxa" placeholder="Taxa de absenteísmo"/>
+                
+                <br>
+
+                <button onclick="calcular()" class="btnVerde">Calcular Prejuízo</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/components/footer.js"></script>
+    </body>
+</html>
+<script src="calcPrejuizo.js" type="text/javascript"></script>

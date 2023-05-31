@@ -1,0 +1,156 @@
+body{
+    background-color: #C7C6B4 ;
+}
+
+/*Divs*/
+.divContent{
+    gap: 20px;
+}
+.divLogo{
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+.divCadastroCliente{
+    display: flex;
+    justify-content: flex-start;
+    background-color: #A4B096;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 20px;
+    width: 100%;
+    height: 51%;
+    flex-direction: column;
+
+    box-shadow: 0px 30px 50px rgba(0, 0, 0, 0.4);
+}
+
+/*Textos*/
+p,h1{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-size: 22px;
+}
+h2 {
+    font-size: 25px;
+    white-space: nowrap;
+    font-weight: bold;  
+}   
+/*Imagens*/
+.divLogo img{
+    width: 120px;
+}
+.divFotoCracha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+.divFotoCracha img {
+    width: 50%;
+}
+.divCadastroEsq {
+    height: 100%;
+    width: 20%;
+}
+.divCadastroDir {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 20%;
+}
+.divDentroDir {
+   margin-top: auto;
+}
+.divFotos {
+    display: flex;
+    flex-direction: row;
+    height: 14%;
+    margin-bottom: 10px;
+}
+.divFotos img {
+    height: 100%;
+    width: 135px;
+    border-radius: 100px;
+    box-shadow:5px 5px 20px rgba(0, 0, 0, 0.4);
+}
+.divFoto {
+    display: flex;
+    width: 50%;
+    height: 100%;
+}
+.divInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+.divCima {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+.divBaixo {
+    width: 100%;
+    display: flex;
+}
+.pGrande {
+    font-weight: bold;
+}
+.divCalculos {
+    display: flex;
+    /*! width: 50%; */
+    justify-content: space-between;
+}
+.divCalcDir {
+    width: 45%;
+}
+.divCalcEsq {
+    width: 45%;
+}
+.btnVerdeAdm {
+    width: 45%;
+    height: 50px;
+    background: #A4B096;
+    border: 3px solid #0000005d;
+    border-radius: 10px;
+    color: #072953;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#divTitulo {
+    display: flex;
+    justify-content: space-between;
+}
+.divBtnProximoAdm{
+    width: 50%;
+    display: flex;
+    justify-content: end;
+}
+
+.divLista select {
+    background-color: #D5D4C6;
+    /* Imagem de fundo (Seta) */
+    width: 100%;
+    /* Tamanho do select, maior que o tamanho da div "div-select" */
+    height: 50px;
+    /* altura do select, importante para que tenha a mesma altura em todo os navegadores */
+    font-size: 18px;
+    /* Tamanho da Fonte */
+    padding: 13px 20px 13px 12px;
+    /* Configurações de padding para posicionar o texto no campo */
+    color: #8f8d8d;
+    /* Cor da Fonte */
+    text-indent: 0.01px;
+    border-radius: 10px;
+    border: 3px solid;
+    border-color: #072953;
+    font-size: 16px;
+    
+}

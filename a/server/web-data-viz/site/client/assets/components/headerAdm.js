@@ -23,7 +23,7 @@ header.innerHTML = `
                 </a>
             </li>        
             <li class='liMenus'> 
-                <a href="#">
+                <a href="https://safeair.atlassian.net/jira/servicedesk/projects/SAF/section/problems/custom/14">
                     <img src="../../assets/suporteIcon.png" alt="">
                     <span id="menuHelpDesk" class="spanLink">Help Desk</span>
                 </a>
