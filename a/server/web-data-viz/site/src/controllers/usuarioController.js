@@ -147,11 +147,45 @@ function cadastrarEmpresa(req, res) {
     }
 }
 
+function cadastrarSala(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nomeSala = req.body.nomeSalaServer;
+    var cnpjSala = req.body.cnpjSalaServer;
+    var tamanhoSala = req.body.tamanhoSalaServer;
+
+    // Faça as validações dos valores
+    if (nomeSala == undefined) {
+        res.status(400).send("Sua empresa está undefined!");
+    } else if (cnpjSala == undefined) {
+        res.status(400).send("Seu cnpj está undefined!");
+    } else if (tamanhoSala == undefined) {
+        res.status(400).send("Seu estado está undefined!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarSala(nomeSala, cnpjSala, tamanhoSala)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
 
 module.exports = {
     entrar,
     cadastrar,
     listar,
     testar,
-    cadastrarEmpresa
+    cadastrarEmpresa,
+    cadastrarSala
 }
