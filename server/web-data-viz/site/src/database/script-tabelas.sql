@@ -8,33 +8,28 @@ CREATE TABLE empresa (
   idempresa INT auto_increment,
   nome VARCHAR(45),
   cnpj CHAR(18),
-  PRIMARY KEY (idempresa));
-drop table empresa;
-drop table usuario;
+  PRIMARY KEY (idempresa)
+);
 
-SELECT* FROM empresa;
 -- -----------------------------------------------------
 -- Table usuario
 -- -----------------------------------------------------
 CREATE TABLE  usuario (
-  idusuario INT NOT NULL,
+  idusuario INT NOT NULL AUTO_INCREMENT,
   nome VARCHAR(45) NULL,
   email VARCHAR(45) NULL,
   senha VARCHAR(45) NULL,
-  fkAdministrador INT NOT NULL,
+  administrador INT NULL,
   fkEmpresa INT NOT NULL,
   PRIMARY KEY (idusuario, fkEmpresa),
-  FOREIGN KEY (fkEmpresa) REFERENCES empresa (idempresa),
-  FOREIGN KEY (fkAdministrador) REFERENCES usuario (idusuario)
-    );
-
-
+  FOREIGN KEY (fkEmpresa) REFERENCES empresa (idempresa)
+);
 
 -- -----------------------------------------------------
 -- Table endereco
 -- -----------------------------------------------------
 CREATE TABLE  endereco (
-  idEndereco INT NOT NULL,
+  idEndereco INT NOT NULL AUTO_INCREMENT,
   rua VARCHAR(45) NULL,
   numero INT NULL,
   cep CHAR(9) NULL,
@@ -44,40 +39,36 @@ CREATE TABLE  endereco (
   estado VARCHAR(45) NULL,
   fkEmpresa INT NOT NULL,
   PRIMARY KEY (idEndereco, fkEmpresa),
-    FOREIGN KEY (fkEmpresa) REFERENCES empresa (idempresa)
+  FOREIGN KEY (fkEmpresa) REFERENCES empresa (idempresa)
 );
-
-
 
 -- -----------------------------------------------------
 -- Table sala
 -- -----------------------------------------------------
 CREATE TABLE  sala (
-  idSala INT NOT NULL,
+  idSala INT NOT NULL AUTO_INCREMENT,
   nomeSala VARCHAR(45) NULL,
   tamanhoSala VARCHAR(45) NULL,
   fkEndereco INT NOT NULL,
   fkEmpresa INT NOT NULL,
   PRIMARY KEY (idSala, fkEndereco, fkEmpresa),
-    FOREIGN KEY (fkEndereco)
-    REFERENCES endereco (idEndereco),
-    FOREIGN KEY (fkEmpresa)
-    REFERENCES empresa (idempresa));
-
-
+  FOREIGN KEY (fkEndereco)
+  REFERENCES endereco (idEndereco),
+  FOREIGN KEY (fkEmpresa)
+  REFERENCES empresa (idempresa)
+);
 
 -- -----------------------------------------------------
 -- Table sensor
 -- -----------------------------------------------------
 CREATE TABLE  sensor (
-  idsensor INT NOT NULL,
+  idsensor INT NOT NULL AUTO_INCREMENT,
   tipo VARCHAR(45) NULL,
   fkSala INT NULL,
   PRIMARY KEY (idsensor),
-    FOREIGN KEY (fkSala)
-    REFERENCES sala (idSala));
-
-
+  FOREIGN KEY (fkSala)
+  REFERENCES sala (idSala)
+);
 
 -- -----------------------------------------------------
 -- Table dados
@@ -88,6 +79,6 @@ CREATE TABLE  dados (
   umidade DECIMAL(3,1) NULL,
   fkSensor INT NOT NULL,
   PRIMARY KEY (dataHr, fkSensor),
-    FOREIGN KEY (fkSensor)
-    REFERENCES sensor (idsensor));
-
+  FOREIGN KEY (fkSensor)
+  REFERENCES sensor (idsensor)
+);

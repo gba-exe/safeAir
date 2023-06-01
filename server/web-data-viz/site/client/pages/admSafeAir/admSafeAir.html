@@ -24,40 +24,58 @@
 
             <div class="divCadastroCliente">
                 <div class="divCima">
-                    <h2>Cadastrar novo cliente</h2>
                     <div class="divCadastroEsq">
+                        <h2>Cadastrar novo cliente</h2>
                         <p class="pInput">Nome da Empresa</p>
                         <input id="iptNomeEmpresa" placeholder="Nome da Empresa">
+                        <p class="pInput">CNPJ</p>
+                        <input id="iptCNPJ" placeholder="CNPJ da empresa">
+                        <p class="pInput">Rua</p>
+                        <input id="iptRua" placeholder="Rua">
+                        <p class="pInput">Número</p>
+                        <input id="iptNumero" placeholder="Número">
+                        <p class="pInput">CEP</p>
+                        <input id="iptCEP" placeholder="CEP">
+
                     </div>
                     <div class="divCadastroDir">
-                        <div class="divDentroDir">
-                            <p class="pInput">CNPJ</p>
-                            <input id="iptCNPJ" placeholder="CNPJ da empresa">
-                            <p class="pInput">Rua</p>
-                            <input id="iptRua" placeholder="Rua">
-                            <input id="iptNumero" placeholder="Número">
-                            <p class="pInput">CEP</p>
-                            <input id="iptCEP" placeholder="CEP">
-                            <p class="pInput">Bairro</p>
-                            <input id="iptBairro" placeholder="Bairro">
-                            <p class="pInput">Complemento</p>
-                            <input id="iptComplemento" placeholder="Complemento">
-                            <p class="pInput">Cidade</p>
-                            <input id="iptCidade" placeholder="Cidade">
-                            <p class="pInput">Estado</p>
-                            <input id="iptEstado" placeholder="Estado">
-                        </div>
+                        <p class="pInput">Bairro</p>
+                        <input id="iptBairro" placeholder="Bairro">
+                        <p class="pInput">Complemento</p>
+                        <input id="iptComplemento" placeholder="Complemento">
+                        <p class="pInput">Cidade</p>
+                        <input id="iptCidade" placeholder="Cidade">
+                        <p class="pInput">Estado</p>
+                        <input id="iptEstado" placeholder="Estado">
+                    </div>
+                    <div class="divFotoCracha"><img src="../../assets/crachazinho.png">
                     </div>
                 </div>
-                <div class="divFotoCracha"><img src="../../assets/crachazinho.png">
+            </div>
+            <div class="divCadastroCliente">
+                <div class="divCima">
+                    <div class="divCadastroEsq">
+                        <h2>Cadastrar Primeiro Usuário</h2>
+                        <p class="pInput">Nome de Usuário</p>
+                        <input id="iptNomeUsuario" placeholder="Nome">
+                        <p class="pInput">E-mail</p>
+                        <input id="iptEmail" placeholder="E-mail">
+                    </div>
+                    <div class="divCadastroDir">
+                        <p class="pInput">Senha</p>
+                        <input id="iptSenha" placeholder="Senha">
+                    </div>
+                    <div class="divFotoCracha">
+                    </div>
                 </div>
                 <div class="divBaixo">
                     <button class="btnAzul" onclick="cadastrarEmpresa()">Cadastrar</button>
                 </div>
-
-
             </div>
+
+
         </div>
+    </div>
     </div>
 </body>
 
@@ -75,9 +93,12 @@
         var complementoVar = iptComplemento.value;
         var cidadeVar = iptCidade.value;
         var estadoVar = iptEstado.value;
+        var nomeUsuarioVar = iptNomeUsuario.value;
+        var emailVar = iptEmail.value;
+        var senhaVar = iptSenha.value;
 
 
-        if (nomeEmpresaVar == '' || cnpjVar == '' ) {
+        if (nomeEmpresaVar == '' || cnpjVar == '') {
             alert('Favor digitar os campos corretamente');
             return false;
         }
@@ -98,12 +119,27 @@
                     bairroServer: bairroVar,
                     complementoServer: complementoVar,
                     cidadeServer: cidadeVar,
-                    estadoServer: estadoVar
+                    estadoServer: estadoVar,
+                    nomeUsuarioServer: nomeUsuarioVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
                 })
             }).then(function (resposta) {
                 console.log('resposta: ', resposta);
                 if (resposta.ok) {
                     alert('Empresa cadastrada com sucesso');
+                    iptNomeEmpresa.value = '';
+                    iptCNPJ.value = '';
+                    iptRua.value = '';
+                    iptNumero.value = '';
+                    iptCEP.value = '';
+                    iptBairro.value = '';
+                    iptComplemento.value = '';
+                    iptCidade.value = '';
+                    iptEstado.value = '';
+                    iptNomeUsuario.value = '';
+                    iptEmail.value = '';
+                    iptSenha.value = '';
 
                 } else {
                     alert('Erro ao cadastrar empresa');

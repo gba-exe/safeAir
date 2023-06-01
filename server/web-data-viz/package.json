@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./site/app.js",
-    "dev": "cd site && npm run dev",
+    "dev": "cd site && nodemon app.js",
     "postinstall": "cd site && npm install"
   },
   "dependencies": {
