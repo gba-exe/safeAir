@@ -163,6 +163,41 @@ function cadastrarEmpresa(req, res) {
 }
 
 <<<<<<< HEAD:a/server/web-data-viz/site/src/controllers/usuarioController.js
+function cadastrarSala(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nomeSala = req.body.nomeSalaServer;
+    var cnpjSala = req.body.cnpjSalaServer;
+    var tamanhoSala = req.body.tamanhoSalaServer;
+
+    // Faça as validações dos valores
+    if (nomeSala == undefined) {
+        res.status(400).send("Sua empresa está undefined!");
+    } else if (cnpjSala == undefined) {
+        res.status(400).send("Seu cnpj está undefined!");
+    } else if (tamanhoSala == undefined) {
+        res.status(400).send("Seu estado está undefined!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarSala(nomeSala, cnpjSala, tamanhoSala)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+=======
+<<<<<<< HEAD:a/server/web-data-viz/site/src/controllers/usuarioController.js
 function registrarFunc(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nomeNovoFuncionario = req.body.nomeFuncionarioServer;
@@ -242,12 +277,19 @@ function registrarFunc(req, res) {
         alterarSenha
     }
 =======
+>>>>>>> production:server/web-data-viz/site/src/controllers/usuarioController.js
 
 module.exports = {
     entrar,
     cadastrar,
     listar,
     testar,
+<<<<<<< HEAD:a/server/web-data-viz/site/src/controllers/usuarioController.js
+    cadastrarEmpresa,
+    cadastrarSala
+}
+=======
     cadastrarEmpresa
 }
+>>>>>>> production:server/web-data-viz/site/src/controllers/usuarioController.js
 >>>>>>> production:server/web-data-viz/site/src/controllers/usuarioController.js
