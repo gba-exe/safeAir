@@ -5,25 +5,43 @@ USE safeAir ;
 -- Table empresa
 -- -----------------------------------------------------
 CREATE TABLE empresa (
-  idempresa INT auto_increment,
+  idempresa INT AUTO_INCREMENT,
   nome VARCHAR(45),
   cnpj CHAR(18),
+<<<<<<< HEAD:a/server/web-data-viz/site/src/database/script-tabelas.sql
+  PRIMARY KEY (idempresa));
+=======
   PRIMARY KEY (idempresa)
 );
+>>>>>>> production:server/web-data-viz/site/src/database/script-tabelas.sql
 
 -- -----------------------------------------------------
 -- Table usuario
 -- -----------------------------------------------------
 CREATE TABLE  usuario (
+<<<<<<< HEAD:a/server/web-data-viz/site/src/database/script-tabelas.sql
+  idusuario INT AUTO_INCREMENT,
+=======
   idusuario INT NOT NULL AUTO_INCREMENT,
+>>>>>>> production:server/web-data-viz/site/src/database/script-tabelas.sql
   nome VARCHAR(45) NULL,
-  email VARCHAR(45) NULL,
+  email VARCHAR(45) NULL UNIQUE,
   senha VARCHAR(45) NULL,
+<<<<<<< HEAD:a/server/web-data-viz/site/src/database/script-tabelas.sql
+  administrador CHAR (3),
+  fkEmpresa INT NOT NULL,
+  PRIMARY KEY (idusuario, fkEmpresa),
+  FOREIGN KEY (fkEmpresa) REFERENCES empresa(idempresa)
+) AUTO_INCREMENT = 1000;
+
+SELECT * FROM usuario;
+=======
   administrador INT NULL,
   fkEmpresa INT NOT NULL,
   PRIMARY KEY (idusuario, fkEmpresa),
   FOREIGN KEY (fkEmpresa) REFERENCES empresa (idempresa)
 );
+>>>>>>> production:server/web-data-viz/site/src/database/script-tabelas.sql
 
 -- -----------------------------------------------------
 -- Table endereco
@@ -79,6 +97,11 @@ CREATE TABLE  dados (
   umidade DECIMAL(3,1) NULL,
   fkSensor INT NOT NULL,
   PRIMARY KEY (dataHr, fkSensor),
+<<<<<<< HEAD:a/server/web-data-viz/site/src/database/script-tabelas.sql
+    FOREIGN KEY (fkSensor)
+    REFERENCES sensor (idsensor));
+=======
   FOREIGN KEY (fkSensor)
   REFERENCES sensor (idsensor)
 );
+>>>>>>> production:server/web-data-viz/site/src/database/script-tabelas.sql

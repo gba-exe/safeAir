@@ -55,10 +55,20 @@ h2 {
     width: 25%;
 }
 .divCadastroDir {
+<<<<<<< HEAD:a/server/web-data-viz/site/client/pages/admSafeAir/admSafeAir.css
+    height: 100%;
+    width: 25%;
+    position: relative;
+    top: 55px;
+}
+.divDentroDir {
+   margin-top: auto;
+=======
     height: 82%;
     width: 25%;
     position: relative;
     top: 55px;
+>>>>>>> production:server/web-data-viz/site/client/pages/admSafeAir/admSafeAir.css
 }
 .divFotos {
     display: flex;

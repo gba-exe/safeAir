@@ -37,7 +37,14 @@
                 <p class="pInput">Senha</p>
                 <input type="password" id="iptSenha" placeholder="Senha">
                 <br>
-                <button onclick="avancar()" class="btnVerde">Entrar</button>
+                <button onclick="entrar()" class="btnVerde">Entrar</button>
+
+                <div class="divEspacamento"></div>
+
+                <div id="divLoading">
+                    <img src="https://th.bing.com/th/id/R.e4b6323e19e57f6761b1ce47b7d329e0?rik=D4%2b%2fTxSGPiWP2g&pid=ImgRaw&r=0"
+                        alt="loading-gif">
+                </div>
             </div>
         </div>
     </div>
@@ -45,33 +52,82 @@
 
 </body>
 <script>
-    function avancar() {
+    function aguardar() {
+        var divLoad = document.getElementById("divLoading");
+        divLoad.style.display = "flex";
+    }
+
+    function entrar() {
+        var emailVar = iptUsuario.value;
+        var senhaVar = iptSenha.value;
+
         iptUsuario.style = 'border-color: #072953;';
         iptSenha.style = 'border-color: #072953;';
 
-        var ipt_Email = iptUsuario.value;
-        var ipt_Senha = iptSenha.value;
-        var erro = 'false';
-
-        if (ipt_Email.indexOf('@') == -1) {
+        if (emailVar.indexOf('@') == -1) {
             iptUsuario.style = 'border-color: red;';
             alert('Insira um e-mail correto');
-            erro = true;
-        }
-
-        if (ipt_Senha == '') {
+            return false;
+        } if (senhaVar == '') {
             iptSenha.style = 'border-color: red;';
             alert('Insira uma senha correta');
-            erro = true;
+            return false;
+        } else {
+            aguardar()
         }
 
-        if(ipt_Email == 'safeair@gmail.com'){
-            window.location.href = "../admSafeAir/admSafeAir.html";
-        }
-        if(ipt_Email == 'cliente@gmail.com'){
-            window.location.href = "../dashboard/dashboard.html";
-        }
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
 
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.ID_USUARIO = json.idusuario;
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.SENHA_USUARIO = json.senha;
+                    sessionStorage.ADM = json.administrador;
+                    sessionStorage.EMPRESA_USUARIO = json.fkEmpresa;
+
+                    if (json.administrador == "Não") {
+                        setTimeout(function () {
+                            window.alert(`Seja bem-vindo, ${json.nome}!`)
+                            window.location = "../dashboard/dashboard.html";
+                        }, 1000);
+                    } else {
+                        setTimeout(function () {
+                            window.alert(`Seja bem-vindo, ${json.nome}!`)
+                            window.location = "../admSafeAir/admSafeAir.html";
+                        }, 1000);
+                    }
+                });
+
+            } else {
+                alert("Usuário inválido.")
+                console.log("Houve um erro ao tentar realizar o login!");
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
     }
 
 </script>
