@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&family=Noto+Sans:wght@300&display=swap');
+
+/*Configurações Gerais*/
+* {
+    font-family: 'Noto Sans', sans-serif;
+    color: #072953;
+    box-sizing: border-box;
+    
+}
+
+/* ScrollBar */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #5757578c;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #072953;
+    border-radius: 20px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #041831;
+  }
+/* /ScrollBar */  
+
+body{
+    height: 130vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+input {
+    width: 100%;
+    height: 50px;
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: #072953;
+    padding: 10px;
+    background: #d5d4c6;  
+}
+/*Fim das configurações Gerais*/
+
+/* Textos */
+.pGrande{/*h1*/
+    font-size: 28px;
+}
+.pParagrafo{/*texto debaixo da h1*/
+    font-weight: 500;
+    font-size: 23px;
+}
+.pInput{/*textos que ficam em cima do input*/
+    font-size: 20px;
+    font-weight: bold;
+    color: #072953;
+    margin-top: 23px;
+    margin-bottom: 7px;
+}
+.pPequeno{/*texto pequeno para voltar*/
+    margin-top: 25px;
+    font-weight: 600;
+    font-size: 15px;
+}
+.pSobreNos{/*p do sobre nós*/
+    font-weight: 500;
+    font-size: 20px;
+}
+/* /Textos */
+
+/* Content */
+.divContent {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.divContainer{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+/* /Content */
+
+/* Esquerda */
+.divEsquerda {
+    width: 50%;
+    height: 100%;
+    background-color: #A4B096;
+}
+.divEsquerda .divContent {
+    align-items: start;
+    justify-content: center;
+}
+/* /Esquerda */
+
+/* Direita */
+.divDireita {
+    width: 50%;
+    height: 100%;
+    background-color: #C7C6B4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+.divDireita .divContent {
+    align-items: start;
+    justify-content: center;
+}
+.divComponentesDireita{
+    display: flex;
+    flex-direction: row-reverse;
+}
+/* /Direita */
+
+/* Botões */
+.btnVerde{
+    width: 100%;
+    height: 50px;
+    background: #A4B096;
+    border: 3px solid #0000005d;
+    border-radius: 10px;
+    color: #072953;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnAzul{
+    width: 100%;
+    height: 50px;
+    background: #072953;
+    border: 3px solid #0000005d;
+    border-radius: 10px;
+    color: #C7C6B4;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.btnAzulTransparente{
+    color: #072953;
+    background-color: rgba(245, 245, 220, 0);
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.divBtnProximo {
+    width: 98%;
+    display: flex;
+    justify-content: end;
+}
+/* /Botões */
+
+/* Loading  */
+#divLoading {
+    height: 10%;
+    display: none;
+    justify-self: center;
+    align-self: center;
+}
+
+#divLoading img{
+    width: 50px;
+    height: 50px;
+}
+
+.divEspacamento {
+    width: 100%;
+    height: 3%;
+}

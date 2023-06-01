@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="analytics.css">
+    <link rel="stylesheet" href="../../style/style.css"/>
+    <link rel="stylesheet" href="../navbarFooter/navbarDashboard.css">
+    <title>Analytics</title>
+</head>
+
+<body>
+    <script src="../../assets/components/headerDashboard.js"></script>
+    <div id="divDashboard">
+        <div class="divContent">
+            
+            <div class="divLogo">
+                <img src="../../assets/logos/logoSemFundoMaior.png">
+            </div>
+
+            <div class="divMetricas">
+                <div class="divMetricaEspecifica">
+                    <h1>Métricas utilizadas para temperatura</h1>
+                    <img src="../../assets/analyticsTemperatura.png" alt="">
+                </div>
+                <div class="divMetricaEspecifica">
+                    <h1>Métricas utilizadas para umidade</h1>
+                    <img src="../../assets/analyticsUmidade.png" alt="">
+                </div>
+            </div>
+
+            <div class="divSelect">
+                <select id="selectSala">
+                    <option value="">Selecionar sala</option>
+                    <option value="">Diretoria</option>
+                    <option value="">Descanso</option>
+                    <option value="">Refeitorio</option>
+                    <option value="">Biblioteca</option>
+                    <option value="">T.I.</option>
+                    <option value="">Reunião</option>
+                    <option value="">Conferencia</option>
+                    <option value="">Hall</option>
+                    <option value="">Secretaria</option>
+                </select>
+            </div>
+
+            <div class="divGraficosGeral">
+                <h1>Desde o começo do nosso processo, a sala Diretória esteve nos seguindes estados:</h1>
+                <div class="divTodosGraficos">
+                    <div class="divGrafico">
+                        <div class="divTemperaturaGrafico">
+                            <canvas style="width : 100%;" id="rosquinhaTemperatura"></canvas>
+                        </div>
+                        <div class="divLegenda">
+                            <label for="">
+                                <img src="../../assets/bolinhaVerde.png" alt="">
+                                <p>55% Ideal</p>
+                            </label>
+                            <label for="">
+                                <img src="../../assets/bolinhaAmarela.png" alt="">
+                                <p>15% Alerta</p>
+                            </label>
+                            <label for="">
+                                <img src="../../assets/bolinhaLaranja.png" alt="">
+                                <p> 15% Emergência</p>
+                            </label>
+                            <label for="">
+                                <img src="../../assets/bolinhaVermelha.png" alt="">
+                                <p>15% Crítico</p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="divGrafico">
+                        <div class="divUmidadeGrafico">
+                            <canvas style="width : 100%;" id="rosquinhaUmidade"></canvas>
+                        </div>
+                        <div class="divLegenda">
+                            <label for="">
+                                <img src="../../assets/bolinhaVerde.png" alt="">
+                                <p>55% Ideal</p>
+                            </label>
+                            <label for="">
+                                <img src="../../assets/bolinhaAmarela.png" alt="">
+                                <p>15% Alerta</p>
+                            </label>
+                            <label for="">
+                                <img src="../../assets/bolinhaLaranja.png" alt="">
+                                <p> 15% Emergência</p>
+                            </label>
+                            <label for="">
+                                <img src="../../assets/bolinhaVermelha.png" alt="">
+                                <p>15% Crítico</p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div id="divRegistros">
+                    <div class="divRegistroTempUmi">
+                        <h1>Registro de Temperatura</h1>
+                        <div class="divDados">
+                            <div class="data">
+                                <h1>DATA:</h1>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                            </div>
+                            <div class="data">
+                                <h1>HORÁRIO:</h1>
+                                <p>12:50</p>
+                                <p>12:50</p>
+                                <p>12:50</p>
+                                <p>12:50</p>
+                                <p>12:50</p>
+                            </div>
+                            <div class="data">
+                                <h1>DADOS:</h1>
+                                <p>11°C</p>
+                                <p>11°C</p>
+                                <p>11°C</p>
+                                <p>11°C</p>
+                                <p>11°C</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divRegistroTempUmi">
+                        <h1>Registro de Umidade</h1>
+                        <div class="divDados">
+                            <div class="data">
+                                <h1>DATA:</h1>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                            </div>
+                            <div class="data">
+                                <h1>HORÁRIO:</h1>
+                                <p>12:50</p>
+                                <p>12:50</p>
+                                <p>12:50</p>
+                                <p>12:50</p>
+                                <p>12:50</p>
+                            </div>
+                            <div class="data">
+                                <h1>DADOS:</h1>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="analytics.js"></script>
