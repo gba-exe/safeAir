@@ -15,8 +15,24 @@
 <body>
     <script src="../../assets/components/headerDashboard.js"></script>
     <div id="divDashboard">
+        <div class="hello">
+            <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            <h3>Seu email é, <span id="b_email">email</span>!</h3>
+            <h3>Seu email é, <span id="b_cpf">cpf</span>!</h3>
+        </div>
         <div class="divContent">
-            
+            <div id="graficos">
+                <div id="grafico1" class="display-block">
+                    <h3 class="tituloGraficos">
+                        <span id="tituloAquario1">123</span>
+                    </h3>
+                    <div class="graph">
+                        <canvas id="myChartCanvas1"></canvas>
+                    </div>
+                    <div class="label-captura">
+                        <p id="avisoCaptura1" style="color: white"></p>
+                    </div>
+                </div>
             <div class="divLogo">
                 <img src="../../assets/logoMenu.png">
             </div>

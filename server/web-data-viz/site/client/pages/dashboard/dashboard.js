@@ -1,3 +1,4 @@
+
 const temperatura = document.getElementById('temperaturaSalas');
 
   new Chart(temperatura, {
