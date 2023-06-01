@@ -13,11 +13,15 @@ Projeto de climatização para empresas
 
 - Ana: @anabueno25 
 
+<<<<<<< HEAD:a/README.md
+- Otávio: @OtavioWalk
+=======
 <<<<<<< HEAD
 - Otávio:
 =======
 - Otávio: @OtavioWalk
 >>>>>>> production
+>>>>>>> production:README.md
 
 ### Feito por:
 - Bárbara: @babi-barbato
