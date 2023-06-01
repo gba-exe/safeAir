@@ -31,5 +31,8 @@ router.put("/alterarSenha", function (req, res) {
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
+router.post("/captarSalas", function (req, res) {
+    usuarioController.captarSalas(req, res);
+});
 
 module.exports = router;

@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="analytics.css">
-    <link rel="stylesheet" href="../../style/style.css"/>
+    <link rel="stylesheet" href="../../style/style.css" />
     <link rel="stylesheet" href="../navbarFooter/navbarDashboard.css">
     <title>Analytics</title>
 </head>
@@ -17,7 +16,7 @@
     <script src="../../assets/components/headerDashboard.js"></script>
     <div id="divDashboard">
         <div class="divContent">
-            
+
             <div class="divLogo">
                 <img src="../../assets/logos/logoSemFundoMaior.png">
             </div>
@@ -34,17 +33,9 @@
             </div>
 
             <div class="divSelect">
-                <select id="selectSala">
-                    <option value="">Selecionar sala</option>
-                    <option value="">Diretoria</option>
-                    <option value="">Descanso</option>
-                    <option value="">Refeitorio</option>
-                    <option value="">Biblioteca</option>
-                    <option value="">T.I.</option>
-                    <option value="">Reunião</option>
-                    <option value="">Conferencia</option>
-                    <option value="">Hall</option>
-                    <option value="">Secretaria</option>
+                <select id="selectEndereco" onchange="plotarGrafico()">
+                </select>
+                <select id="selectSala" onchange="plotarGrafico()">
                 </select>
             </div>
 
@@ -109,22 +100,36 @@
                                 <p>01/04/2023</p>
                                 <p>01/04/2023</p>
                                 <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
                             </div>
                             <div class="data">
-                                <h1>HORÁRIO:</h1>
-                                <p>12:50</p>
-                                <p>12:50</p>
-                                <p>12:50</p>
-                                <p>12:50</p>
-                                <p>12:50</p>
                             </div>
                             <div class="data">
                                 <h1>DADOS:</h1>
-                                <p>11°C</p>
-                                <p>11°C</p>
-                                <p>11°C</p>
-                                <p>11°C</p>
-                                <p>11°C</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
                             </div>
                         </div>
                     </div>
@@ -138,17 +143,31 @@
                                 <p>01/04/2023</p>
                                 <p>01/04/2023</p>
                                 <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
+                                <p>01/04/2023</p>
                             </div>
                             <div class="data">
-                                <h1>HORÁRIO:</h1>
-                                <p>12:50</p>
-                                <p>12:50</p>
-                                <p>12:50</p>
-                                <p>12:50</p>
-                                <p>12:50</p>
                             </div>
                             <div class="data">
                                 <h1>DADOS:</h1>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
+                                <p>80%</p>
                                 <p>80%</p>
                                 <p>80%</p>
                                 <p>80%</p>
@@ -162,6 +181,197 @@
         </div>
     </div>
 </body>
+
 </html>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="analytics.js"></script>
+<script>
+
+
+    const rosquinha = document.getElementById('rosquinhaTemperatura');
+
+
+    var fkEmpresa = sessionStorage.EMPRESA_USUARIO
+
+    new Chart(rosquinha, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: ['55', '15', '15', '15'],
+                backgroundColor: [
+                    'rgb(101,163,13)', 'rgb(207,188,15)', 'rgb(207,119,15)', 'rgb(194,65,12)'
+                ],
+                borderColor: [
+                    'rgb(101,163,13)', 'rgb(207,188,15)', 'rgb(207,119,15)', 'rgb(194,65,12)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            cutoutPercentage: 100,
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 18
+                        }
+                    }
+                }
+            }
+
+        }
+    });
+
+    const rosquinha1 = document.getElementById('rosquinhaUmidade');
+    new Chart(rosquinha1, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: ['55', '15', '15', '15'],
+                backgroundColor: [
+                    'rgb(101,163,13)', 'rgb(207,188,15)', 'rgb(207,119,15)', 'rgb(194,65,12)'
+                ],
+                borderColor: [
+                    'rgb(101,163,13)', 'rgb(207,188,15)', 'rgb(207,119,15)', 'rgb(194,65,12)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            cutoutPercentage: 100,
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 18
+                        }
+                    }
+                }
+            }
+
+        }
+    });
+
+    var vtCaptura = [];
+    var vtSalas = [];
+    var vtId = [];
+    var fkEmpresaVar = fkEmpresa;
+
+
+    captarSalas();
+    function captarSalas() {
+        if (fkEmpresaVar == '') {
+            alert('Não encontrei esta uma empresa com este id');
+            return false;
+        }
+        else {
+            console.log("idEmpresa: ", fkEmpresaVar);
+
+            fetch("/usuarios/captarSalas", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    fkEmpresaServer: fkEmpresaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO captarSalas()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+                        vtCaptura = json;
+                        console.log(vtCaptura.length)
+
+                        for (let i = 0; i < vtCaptura.length; i++) {
+                            let pushNome = vtCaptura[i].nomeSala;
+                            let pushId = vtCaptura[i].idSala;
+                            vtSalas.push(pushNome);
+                            vtId.push(pushId);
+                        }
+                        console.log(vtSalas.length)
+                        for (let i = 0; i < vtSalas.length; i++) {
+                            alert('foi' + i);
+                            selectSala.innerHTML += `<option value='${vtId[i]}'>${vtSalas[i]}</option>`
+                        }
+
+                        plotarGrafico()
+                    });
+
+                } else {
+                    alert("A captura não funcionou")
+                    console.log("Houve um erro ao tentar realizar a captura");
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+        }
+    }
+
+    // function plotarGrafico() {
+
+    //     var idSalaVar = selectSala.value;
+    //     var fkEmpresaVar = fkEmpresa;
+    //     var fkEnderecoVar = 1;
+
+
+    //     if (fkEmpresaVar == '') {
+    //         alert('Não encontrei esta uma empresa com este id');
+    //         return false;
+    //     }
+    //     else {
+
+    //         console.log("idEmpresa: ", fkEmpresaVar);
+
+    //         fetch("/usuarios/captarSalas", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             },
+    //             body: JSON.stringify({
+    //                 fkEmpresaServer: fkEmpresaVar
+    //             })
+    //         }).then(function (resposta) {
+    //             console.log("ESTOU NO THEN DO captarSalas()!")
+
+    //             if (resposta.ok) {
+    //                 console.log(resposta);
+
+    //                 resposta.json().then(json => {
+    //                     console.log(json);
+    //                     console.log(JSON.stringify(json));
+
+    //                     vtCaptura = json;
+    //                     console.log(vtCaptura.length)
+
+    //                     for (let i = 0; i < vtCaptura.length; i++) {
+    //                         let pushNome = vtCaptura[i].nomeSala;
+    //                         let pushId = vtCaptura[i].idSala;
+    //                         vtSalas.push(pushNome);
+    //                         vtId.push(pushId);
+    //                     }
+
+    //                     for (let i = 0; i < vtSalas.length; i++) {
+    //                         selectSala.innerHTML += `<option value='${vtId[i]}'>${vtSalas[i]}</option>`
+    //                     }
+
+    //                     plotarGrafico()
+    //                 });
+
+    //             } else {
+    //                 alert("A captura não funcionou")
+    //                 console.log("Houve um erro ao tentar realizar a captura");
+    //             }
+
+    //         }).catch(function (erro) {
+    //             console.log(erro);
+    //         })
+    //     }
+    // }
+</script>

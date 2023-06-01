@@ -68,11 +68,23 @@ function alterarSenha(novaSenhaFunc, idFunc) {
     return database.executar(instrucao);
 }
 
+function captarSalas(idEmpresa) {
+    
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function captarSalas(): ", idEmpresa)
+    var instrucao = `
+        SELECT nomeSala, fkEmpresa from sala WHERE fkEmpresa = '${idEmpresa}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
     cadastrarEmpresa,
     registrarFunc,
-    alterarSenha
+    alterarSenha,
+    captarSalas
 };
