@@ -115,9 +115,6 @@ function cadastrarEmpresa(req, res) {
         res.status(400).send("Sua empresa está undefined!");
     } else if (cnpj == undefined) {
         res.status(400).send("Seu cnpj está undefined!");
-<<<<<<< HEAD:a/server/web-data-viz/site/src/controllers/usuarioController.js
-    } else {
-=======
     } else if (estado == undefined) {
         res.status(400).send("Seu estado está undefined!");
     } else if (cidade == undefined) {
@@ -141,7 +138,6 @@ function cadastrarEmpresa(req, res) {
         res.status(400).send("Sua senha está undefined!");
     }
     else {
->>>>>>> production:server/web-data-viz/site/src/controllers/usuarioController.js
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrarEmpresa(nome_Empresa, cnpj, estado, cidade, bairro, rua, numero, complemento, cep, nomeUsuario, email, senha)
@@ -162,7 +158,6 @@ function cadastrarEmpresa(req, res) {
     }
 }
 
-<<<<<<< HEAD:a/server/web-data-viz/site/src/controllers/usuarioController.js
 function cadastrarSala(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nomeSala = req.body.nomeSalaServer;
@@ -196,8 +191,6 @@ function cadastrarSala(req, res) {
             );
     }
 }
-=======
-<<<<<<< HEAD:a/server/web-data-viz/site/src/controllers/usuarioController.js
 function registrarFunc(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nomeNovoFuncionario = req.body.nomeFuncionarioServer;
@@ -213,83 +206,70 @@ function registrarFunc(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (admFuncionario == undefined) {
         res.status(400).send("Seu administrador está undefined!");
-    } else if  (empresaFuncionario == undefined) {
+    } else if (empresaFuncionario == undefined) {
         res.status(400).send("Sua empresa está undefined!");
-    } else if  (senhaNovoFuncionario == undefined) {
+    } else if (senhaNovoFuncionario == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-            // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-            usuarioModel.registrarFunc(nomeNovoFuncionario, emailNovoFuncionario, admFuncionario, empresaFuncionario, senhaNovoFuncionario)
-                .then(
-                    function (resultado) {
-                        res.json(resultado);
-                    }
-                ).catch(
-                    function (erro) {
-                        console.log(erro);
-                        console.log(
-                            "\nHouve um erro ao realizar o cadastro! Erro: ",
-                            erro.sqlMessage
-                        );
-                        res.status(500).json(erro.sqlMessage);
-                    }
-                );
-        }
-    }
-
-    function alterarSenha(req, res) {
-        // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-        var novaSenhaFunc = req.body.senhaNovaServer;
-        var idFunc = req.body.idFuncionarioServer;
-    
-        // Faça as validações dos valores
-        if (novaSenhaFunc == undefined) {
-            res.status(400).send("Sua senha está undefined!");
-        } else if (idFunc == undefined) {
-            res.status(400).send("Seu ID está undefined!");
-        } else {
-                // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-                usuarioModel.alterarSenha(novaSenhaFunc, idFunc)
-                    .then(
-                        function (resultado) {
-                            res.json(resultado);
-                        }
-                    ).catch(
-                        function (erro) {
-                            console.log(erro);
-                            console.log(
-                                "\nHouve um erro ao realizar o cadastro! Erro: ",
-                                erro.sqlMessage
-                            );
-                            res.status(500).json(erro.sqlMessage);
-                        }
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.registrarFunc(nomeNovoFuncionario, emailNovoFuncionario, admFuncionario, empresaFuncionario, senhaNovoFuncionario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
                     );
-            }
-        }
-
-    module.exports = {
-        entrar,
-        cadastrar,
-        listar,
-        testar,
-        cadastrarEmpresa,
-        registrarFunc,
-        alterarSenha
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
     }
-=======
->>>>>>> production:server/web-data-viz/site/src/controllers/usuarioController.js
+}
+
+function alterarSenha(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var novaSenhaFunc = req.body.senhaNovaServer;
+    var idFunc = req.body.idFuncionarioServer;
+
+    // Faça as validações dos valores
+    if (novaSenhaFunc == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    } else if (idFunc == undefined) {
+        res.status(400).send("Seu ID está undefined!");
+    } else {
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.alterarSenha(novaSenhaFunc, idFunc)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
 
 module.exports = {
     entrar,
     cadastrar,
     listar,
     testar,
-<<<<<<< HEAD:a/server/web-data-viz/site/src/controllers/usuarioController.js
     cadastrarEmpresa,
+    registrarFunc,
+    alterarSenha,
     cadastrarSala
+
 }
-=======
-    cadastrarEmpresa
-}
->>>>>>> production:server/web-data-viz/site/src/controllers/usuarioController.js
->>>>>>> production:server/web-data-viz/site/src/controllers/usuarioController.js
+
+
