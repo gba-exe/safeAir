@@ -1,0 +1,106 @@
+body{
+    background-color: #C7C6B4 ;
+}
+
+/*Divs*/
+.divContent{
+    gap: 20px;
+}
+.divLogo{
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+.divCadastroCliente{
+    display: flex;
+    justify-content: flex-start;
+    background-color: #A4B096;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 20px;
+    width: 100%;
+    flex-direction: column;
+
+    box-shadow: 0px 30px 50px rgba(0, 0, 0, 0.4);
+}
+
+/*Textos*/
+p,h1{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-size: 22px;
+}
+h2 {
+    font-size: 25px;
+    white-space: nowrap;
+    font-weight: bold;  
+}   
+/*Imagens*/
+.divLogo img{
+    width: 120px;
+}
+.divFotoCracha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+.divFotoCracha img {
+    width: 70%;
+}
+.divCadastroEsq {
+    height: 100%;
+    width: 25%;
+}
+.divCadastroDir {
+<<<<<<< HEAD:a/server/web-data-viz/site/client/pages/admSafeAir/admSafeAir.css
+    height: 100%;
+    width: 25%;
+    position: relative;
+    top: 55px;
+}
+.divDentroDir {
+   margin-top: auto;
+=======
+    height: 82%;
+    width: 25%;
+    position: relative;
+    top: 55px;
+>>>>>>> production:server/web-data-viz/site/client/pages/admSafeAir/admSafeAir.css
+}
+.divFotos {
+    display: flex;
+    flex-direction: row;
+    height: 14%;
+    margin-bottom: 10px;
+}
+.divFotos img {
+    height: 100%;
+    width: 135px;
+    border-radius: 100px;
+    box-shadow:5px 5px 20px rgba(0, 0, 0, 0.4);
+}
+.divFoto {
+    display: flex;
+    width: 50%;
+    height: 100%;
+}
+.divInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+.divCima {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+.divBaixo {
+    width: 55%;
+}
+.pGrande {
+    font-weight: bold;
+}
