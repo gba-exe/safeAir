@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="admFuncionario.css">
+    <link rel="stylesheet" href="../../style/style.css" />
+    <link rel="stylesheet" href="../navbarFooter/navbarDashboard.css">
+    <title>Cadastrar Sala</title>
+</head>
+
+<body>
+    <script src="../../assets/components/headerAdm.js"></script>
+    <div id="divDashboard">
+        <div class="divContent">
+
+            <div class="divLogo">
+                <img src="../../assets/logos/logoSemFundoMaior.png">
+            </div>
+
+            <div class="divCadastroCliente">
+                <div class="divCima">
+                    <div class="divCadastroEsq">
+                        <h2>Cadastrar nova sala</h2>
+                        <p class="pInput">Nome da Sala</p>
+                        <input id="iptNomeSala" placeholder="Nome Sala">
+                        <p class="pInput" >CNPJ da empresa</p>
+                        <input id="iptCnpj" placeholder="xxx.xxx.xxx/xxxx-xx">
+                    </div>
+                    <div class="divCadastroDir">
+                        <div class="divDentroDir">
+                            <p class="pInput">Tamanho da Sala</p>
+                            <input type="password" id="iptTamanho" placeholder="Em m²">
+                        </div>
+                    </div>
+                    <div class="divFotoCracha"><img src="../../assets/crachazinho.png">
+                    </div>
+                </div>
+                <div class="divBaixo">
+                    <button class="btnAzul" onclick="cadastrarSala()">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    
+function cadastrarSala() {
+
+    var nomeSalaVar = iptNomeSala.value;
+    var cnpjSalaVar = iptCnpj.value;
+    var tamanhoVar = iptTamanho.value;
+
+    if (nomeSalaVar == '' || cnpjSalaVar == '' || tamanhoVar == '') {
+        alert('Favor digitar os campos corretamente');
+        return false;
+    }
+
+    fetch('/usuarios/cadastrarSala',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+
+            },
+            body: JSON.stringify({
+                nomeSalaServer: nomeSalaVar,
+                cnpjSalaServer: cnpjSalaVar,
+                tamanhoSalaServer: tamanhoVar
+            })
+        }).then(function (resposta) {
+            console.log('resposta: ', resposta);
+            if (resposta.ok) {
+                alert('Sala cadastrada com sucesso');
+
+            } else {
+                alert('Erro ao cadastrar sala');
+            }
+        }).catch(function (resposta) {
+            console.log('erro: ', resposta);
+        });
+
+    return false;
+
+}
+
+</script>
