@@ -115,7 +115,6 @@ function alterarSenha(novaSenhaFunc, idFunc) {
     return database.executar(instrucao);
 }
 
-<<<<<<< HEAD:a/server/web-data-viz/site/src/models/usuarioModel.js
 function captarSalas(idEmpresa) {
     
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function captarSalas(): ", idEmpresa)
@@ -153,19 +152,6 @@ function atualizarAnalytics(idEmpresa, idSala, idEndereco, mesAnterior) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 
-=======
-
-function cadastrarSala(cnpjSala, tamanhoSala, nomeSala) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarSala():", cnpjSala, tamanhoSala, nomeSala);
-    
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
-    var inserirSala = `
-        INSERT INTO sala (idSala, nomeSala, tamanhoSala, fkEndereco, fkEmpresa) VALUES (NULL, '${nomeSala}', '${tamanhoSala}', '${cnpjSala}', '${cnpjSala}');
-    `;
-    console.log("Executando a instrução SQL: \n" + inserirSala);
-    return database.executar(inserirSala);
->>>>>>> production:server/web-data-viz/site/src/models/usuarioModel.js
 }
 
 module.exports = {
@@ -175,12 +161,7 @@ module.exports = {
     cadastrarEmpresa,
     registrarFunc,
     alterarSenha,
-<<<<<<< HEAD:a/server/web-data-viz/site/src/models/usuarioModel.js
     captarSalas,
     captarEndereco,
     atualizarAnalytics
-=======
-    cadastrarSala
-
->>>>>>> production:server/web-data-viz/site/src/models/usuarioModel.js
 };

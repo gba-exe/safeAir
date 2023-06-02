@@ -229,7 +229,6 @@ function registrarFunc(req, res) {
             );
     }
 }
-<<<<<<< HEAD:a/server/web-data-viz/site/src/controllers/usuarioController.js
 
 function alterarSenha(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -373,49 +372,3 @@ module.exports = {
     captarEndereco,
     atualizarAnalytics
 }
-=======
-
-function alterarSenha(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var novaSenhaFunc = req.body.senhaNovaServer;
-    var idFunc = req.body.idFuncionarioServer;
-
-    // Faça as validações dos valores
-    if (novaSenhaFunc == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else if (idFunc == undefined) {
-        res.status(400).send("Seu ID está undefined!");
-    } else {
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.alterarSenha(novaSenhaFunc, idFunc)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-}
-
-module.exports = {
-    entrar,
-    cadastrar,
-    listar,
-    testar,
-    cadastrarEmpresa,
-    registrarFunc,
-    alterarSenha,
-    cadastrarSala
-
-}
-
-
->>>>>>> production:server/web-data-viz/site/src/controllers/usuarioController.js
