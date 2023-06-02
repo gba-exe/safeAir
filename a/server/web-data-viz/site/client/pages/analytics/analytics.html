@@ -122,8 +122,9 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="analytics.js"></script>
 <script>
+    const rosquinha = document.getElementById("rosquinhaTemperatura");
 
-        new Chart(rosquinha, {
+    const rosquinha3 = new Chart(rosquinha, {
             type: 'doughnut',
             data: {
                 datasets: [{
@@ -155,7 +156,7 @@
 
         
         const rosquinha1 = document.getElementById('rosquinhaUmidade');
-        new Chart(rosquinha1, {
+        const rosquinha2 = new Chart(rosquinha1, {
             type: 'doughnut',
             data: {
                 datasets: [{
@@ -453,12 +454,12 @@
                             else if (umidadeAtual > 35 || umidadeAtual < 55) {
                                 umidadeIdeal++;
                             }
-                            rosquinha1.data.datasets[0].data = [umidadeIdeal, umidadeAlerta, umidadeEmergencia, umidadeCritica];
-                            rosquinha.data.datasets[0].data = [temperaturaIdeal, temperaturaAlerta, temperaturaEmergencia, temperaturaCritica];
+                            rosquinha2.data.datasets[0].data = [umidadeIdeal, umidadeAlerta, umidadeEmergencia, umidadeCritica];
+                            rosquinha3.data.datasets[0].data = [temperaturaIdeal, temperaturaAlerta, temperaturaEmergencia, temperaturaCritica];
 
-
+                            rosquinha3.update();
+                            rosquinha2.update();
                         }
-                        garfico();
                     });
 
                 } else {
