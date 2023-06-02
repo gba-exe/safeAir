@@ -29,6 +29,8 @@
     display: flex;
     flex-direction: row;
     background-color: #A4B096;
+    overflow: scroll;
+    height: 42%;
 }
 .divRegistroTempUmi{
     gap: 15px;
@@ -41,6 +43,7 @@
     display: flex;
     width: 100%;
     flex-direction: row;
+    justify-content: space-around;
 }
 .data{
     flex-direction: column;
@@ -63,11 +66,14 @@ select{
     font-weight: 600;
     text-align: center;
 }
+#selectEndereco{
+    width: fit-content;
+}
 
 .divSelect{
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 .divTodosGraficos{
