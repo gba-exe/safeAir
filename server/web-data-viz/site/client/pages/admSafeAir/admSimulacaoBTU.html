@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="admSimulacaoBTU.css">
+    <link rel="stylesheet" href="../../style/style.css" />
+    <link rel="stylesheet" href="../navbarFooter/navbarDashboard.css">
+    <title>Simulação BTU</title>
+</head>
+
+<body>
+    <script src="../../assets/components/headerAdm.js"></script>
+    <div id="divDashboard">
+        <div class="divContent">
+
+            <div class="divLogo">
+                <img src="../../assets/logos/logoSemFundoMaior.png">
+            </div>
+
+            <!-- <div class="divFotos">
+                <div class="divFoto">
+                    <img src="../../assets/foto-giovanna.png">
+                    <div class="divInfo">
+                        <p class="pParagrafo">Logado como:</p>
+                        <p class="pGrande">Giovanna</p>
+                        <p class="pParagrafo">Developer</p>
+                    </div>
+                </div>
+                <div class="divFoto">
+                    <img src="../../assets/logo.png">
+                    <div class="divInfo">
+                        <p class="pParagrafo">Empresa:</p>
+                        <p class="pGrande">Safe Air</p>
+                        <p class="pParagrafo">Funcionária Safe Air - 2023</p>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="divCadastroCliente">
+                <div id="divTitulo">
+                    <h1>Cálculo de BTU</h1>
+                    <h1>2/2</h1>
+                </div>
+                <div class="divCalculos">
+                    <div class="divCalcEsq">
+                        <p class="pInput">Quantidade de Ambientes</p>
+                        <input id="iptQuantidade" placeholder="Quantidade" onkeyup="calBtu()" />
+
+                        <p class="pInput">Área Total dos Ambientes</p>
+                        <input id="iptArea" placeholder="Área (m²)" onkeyup="calBtu()" />
+                    </div>
+
+                    <div class="divCalcDir">
+                        <p class="pInput">Total de Pessoas nos Ambientes</p>
+                        <input id="iptQuantidadePessoas" placeholder="Quantidade de pessoas" onkeyup="calBtu()" />
+                        <p class="pInput">Total de Eletrônicos Utilizados</p>
+                        <input id="iptEletronico" placeholder="Eletrônicos" onkeyup="calBtu()" />
+                    </div>
+                </div>
+                <div class="divBaixo">
+                <div class="btnVerdeAdm">
+                    <p id="valorLive"></p>
+                    <p>&nbspBTUs necessários</p>
+                </div>
+                </div>
+
+                <br>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</body>
+<script defer src="calcBtu.js" type="text/javascript"></script> 
+</html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
