@@ -34,5 +34,11 @@ router.post("/autenticar", function (req, res) {
 router.post("/captarSalas", function (req, res) {
     usuarioController.captarSalas(req, res);
 });
+router.post("/captarEndereco", function (req, res) {
+    usuarioController.captarEndereco(req, res);
+});
+router.post("/atualizarAnalytics", function (req, res) {
+    usuarioController.atualizarAnalytics(req, res);
+});
 
 module.exports = router;

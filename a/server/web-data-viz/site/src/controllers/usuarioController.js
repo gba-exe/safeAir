@@ -141,103 +141,169 @@ function registrarFunc(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (admFuncionario == undefined) {
         res.status(400).send("Seu administrador está undefined!");
-    } else if  (empresaFuncionario == undefined) {
+    } else if (empresaFuncionario == undefined) {
         res.status(400).send("Sua empresa está undefined!");
-    } else if  (senhaNovoFuncionario == undefined) {
+    } else if (senhaNovoFuncionario == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-            // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-            usuarioModel.registrarFunc(nomeNovoFuncionario, emailNovoFuncionario, admFuncionario, empresaFuncionario, senhaNovoFuncionario)
-                .then(
-                    function (resultado) {
-                        res.json(resultado);
-                    }
-                ).catch(
-                    function (erro) {
-                        console.log(erro);
-                        console.log(
-                            "\nHouve um erro ao realizar o cadastro! Erro: ",
-                            erro.sqlMessage
-                        );
-                        res.status(500).json(erro.sqlMessage);
-                    }
-                );
-        }
-    }
-
-    function alterarSenha(req, res) {
-        // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-        var novaSenhaFunc = req.body.senhaNovaServer;
-        var idFunc = req.body.idFuncionarioServer;
-    
-        // Faça as validações dos valores
-        if (novaSenhaFunc == undefined) {
-            res.status(400).send("Sua senha está undefined!");
-        } else if (idFunc == undefined) {
-            res.status(400).send("Seu ID está undefined!");
-        } else {
-                // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-                usuarioModel.alterarSenha(novaSenhaFunc, idFunc)
-                    .then(
-                        function (resultado) {
-                            res.json(resultado);
-                        }
-                    ).catch(
-                        function (erro) {
-                            console.log(erro);
-                            console.log(
-                                "\nHouve um erro ao realizar o cadastro! Erro: ",
-                                erro.sqlMessage
-                            );
-                            res.status(500).json(erro.sqlMessage);
-                        }
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.registrarFunc(nomeNovoFuncionario, emailNovoFuncionario, admFuncionario, empresaFuncionario, senhaNovoFuncionario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
                     );
-            }
-        }
-    function captarSalas(req, res) {
-
-   // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-   var idEmpresa = req.body.fkEmpresaServer;
-
-
-   // Faça as validações dos valores
-   if (idEmpresa == undefined) {
-       res.status(400).send("Seu id está undefined!");
-   } else {
-
-       // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-       usuarioModel.captarSalas(idEmpresa)
-           .then(
-               function (resultado) {
-                   res.json(resultado);
-               }
-           ).catch(
-               function (erro) {
-                   console.log(erro);
-                   console.log(
-                       "\nHouve um erro ao realizar a consulta! Erro: ",
-                       erro.sqlMessage
-                   );
-                   res.status(500).json(erro.sqlMessage);
-               }
-           );
-   }
-
-
-
-
-
-
-
-    }    
-
-    module.exports = {
-        entrar,
-        cadastrar,
-        listar,
-        testar,
-        cadastrarEmpresa,
-        registrarFunc,
-        alterarSenha,
-        captarSalas
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
     }
+}
+
+function alterarSenha(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var novaSenhaFunc = req.body.senhaNovaServer;
+    var idFunc = req.body.idFuncionarioServer;
+
+    // Faça as validações dos valores
+    if (novaSenhaFunc == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    } else if (idFunc == undefined) {
+        res.status(400).send("Seu ID está undefined!");
+    } else {
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.alterarSenha(novaSenhaFunc, idFunc)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+function captarSalas(req, res) {
+
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var idEmpresa = req.body.fkEmpresaServer;
+
+
+    // Faça as validações dos valores
+    if (idEmpresa == undefined) {
+        res.status(400).send("Seu id está undefined!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.captarSalas(idEmpresa)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar a consulta! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+function captarEndereco(req, res) {
+
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var idEmpresa = req.body.fkEmpresaServer;
+
+
+    // Faça as validações dos valores
+    if (idEmpresa == undefined) {
+        res.status(400).send("Seu id está undefined!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.captarEndereco(idEmpresa)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar a consulta! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+function atualizarAnalytics(req, res) {
+
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var idEmpresa = req.body.fkEmpresaServer;
+    var idSala = req.body.fkSalaServer;
+    var idEndereco = req.body.fkEnderecoServer;
+    var mesAnterior = req.body.mesAnteriorServer;
+
+
+    // Faça as validações dos valores
+    if (idEmpresa == undefined) {
+        res.status(400).send("Seu idEmpresa está undefined!");
+    }
+    else if (idSala == undefined) {
+        res.status(400).send("Seu idSala está undefined!");
+    }
+    else if (idEndereco == undefined) {
+        res.status(400).send("Seu idEndereco está undefined!");
+    }
+    else if (mesAnterior == undefined) {
+        res.status(400).send("Seu mesAnterior está undefined!");
+    }
+    else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.atualizarAnalytics(idEmpresa, idSala, idEndereco, mesAnterior)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar a consulta! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+module.exports = {
+    entrar,
+    cadastrar,
+    listar,
+    testar,
+    cadastrarEmpresa,
+    registrarFunc,
+    alterarSenha,
+    captarSalas,
+    captarEndereco,
+    atualizarAnalytics
+}

@@ -72,7 +72,35 @@ function captarSalas(idEmpresa) {
     
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function captarSalas(): ", idEmpresa)
     var instrucao = `
-        SELECT nomeSala, fkEmpresa from sala WHERE fkEmpresa = '${idEmpresa}';
+        SELECT idSala, nomeSala, fkEmpresa from sala WHERE fkEmpresa = '${idEmpresa}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+
+}
+function captarEndereco(idEmpresa) {
+    
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function captarEndereco(): ", idEmpresa)
+    var instrucao = `
+        SELECT idEndereco, estado, cidade, rua, numero FROM endereco WHERE fkEmpresa = '${idEmpresa}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+
+}
+function atualizarAnalytics(idEmpresa, idSala, idEndereco, mesAnterior) {
+    
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function atualizarAnalytics(): ", idEmpresa, idSala, idEndereco, mesAnterior)
+    var instrucao = `
+
+    SELECT AVG(temperatura) as 'mediaTemp', AVG(umidade) as 'mediaUmi', CAST(dataHr as date) as data FROM dados
+    JOIN sensor ON dados.fkSensor = sensor.idsensor
+    JOIN sala ON sensor.fkSala = sala.idSala
+    WHERE dados.dataHr like '%-${mesAnterior}-%'
+    and sala.fkEmpresa = '${idEmpresa}'
+    and sala.idSala = ${idSala}
+    and sala.fkEndereco = ${idEndereco}
+	GROUP BY DATE(dataHr);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -86,5 +114,7 @@ module.exports = {
     cadastrarEmpresa,
     registrarFunc,
     alterarSenha,
-    captarSalas
+    captarSalas,
+    captarEndereco,
+    atualizarAnalytics
 };
