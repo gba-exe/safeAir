@@ -53,8 +53,7 @@
 </body>
 <script>
     function aguardar() {
-        var divLoad = document.getElementById("divLoading");
-        divLoad.style.display = "flex";
+        window.setTimeout("document.getElementById('divLoading').style.display='flex';", 1000);
     }
 
     function entrar() {
@@ -105,14 +104,14 @@
                     sessionStorage.ADM = json.administrador;
                     sessionStorage.EMPRESA_USUARIO = json.fkEmpresa;
 
-                    if (json.administrador == "Não") {
+                    if (sessionStorage.EMPRESA_USUARIO != '12.345.678/9012-34') {
                         setTimeout(function () {
-                            window.alert(`Seja bem-vindo, ${json.nome}!`)
+                            window.alert(`Seja bem-vindo(a), ${sessionStorage.NOME_USUARIO}!`)
                             window.location = "../dashboard/dashboard.html";
                         }, 1000);
                     } else {
                         setTimeout(function () {
-                            window.alert(`Seja bem-vindo, ${json.nome}!`)
+                            window.alert(`Bem-vindo(a) de volta, ${sessionStorage.NOME_USUARIO}!`)
                             window.location = "../admSafeAir/admSafeAir.html";
                         }, 1000);
                     }

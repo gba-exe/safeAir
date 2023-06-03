@@ -82,20 +82,18 @@ CREATE TABLE  dados (
 -- Exemplo de Inserts No WEB-DATA-VIZ (Registrando um novo cliente através da tela Adm SafeAir)
 -- --------------------------------------------------------------------------------------------
 
-
 INSERT INTO empresa VALUES ('12.345.678/9012-34', 'Safe Air');
 INSERT INTO empresa VALUES ('12.345.678/0001-00', 'HP');
 
-INSERT INTO usuario (idUsuario, nome, email, senha, administrador, fkEmpresa) VALUES (null, 'ADM', 'safeAir@gmail.com', '123456789', 'Sim', '12.345.678/9012-34'); 
-INSERT INTO usuario (idUsuario, nome, email, senha, administrador, fkEmpresa) VALUES (null, 'Usuario Teste', 'testeEmail@gmail.com', 'TesteSenha', 'Não', '12.345.678/0001-00'); 
+INSERT INTO usuario (idUsuario, nome, email, senha, administrador, fkEmpresa) VALUES (null, 'Administrador SafeAir', 'safeAir@gmail.com', '123456789', 'Sim', '12.345.678/9012-34'); 
+INSERT INTO usuario (idUsuario, nome, email, senha, administrador, fkEmpresa) VALUES (null, 'Wagner Melo', 'WagnerMelo@gmail.com', 'TesteSenha', 'Sim', '12.345.678/0001-00'); 
+INSERT INTO usuario (idUsuario, nome, email, senha, administrador, fkEmpresa) VALUES (null, 'Bruna Camargo', 'brunaCamargo@gmail.com', 'TesteSenha', 'Não', '12.345.678/0001-00'); 
 
+INSERT INTO endereco VALUES (null, 'Rua das Docas', 20, '09220-780', 'Bairro Bela Vista', 'Torre 2B', 'São Paulo', 'São Paulo', '12.345.678/9012-34');
+INSERT INTO endereco VALUES (null, 'Rua Padre São Bento', 30, '09220-760', 'Bairro Juenopólis', 'Torre 1A', 'Santo André', 'São Paulo', '12.345.678/0001-00');
 
-
-INSERT INTO endereco VALUES (null, 'Rua exemplo', 20, '09220-780', 'Bairro exemplo', 'Complemento exemplo', 'Cidade exemplo', 'Estado exemplo', '12.345.678/9012-34');
-INSERT INTO endereco VALUES (null, 'Rua 2', 30, '09220-760', 'Bairro 2', 'Complemento 2exemplo', 'Santarem', 'São Paulo', '12.345.678/0001-00');
-
-INSERT INTO sala values (NULL,'Salona', 12, 2, '12.345.678/0001-00');
-INSERT INTO sala values (NULL,'Sala do Vasco', 25, 2, '12.345.678/0001-00');
+INSERT INTO sala values (NULL,'Diretória', 12, 2, '12.345.678/0001-00');
+INSERT INTO sala values (NULL,'Recepção', 25, 2, '12.345.678/0001-00');
                   
 insert into sensor values (NULL, 'Completo', 1);    
 insert into sensor values (NULL, 'Completo', 2);
