@@ -104,7 +104,11 @@
 </html>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-var fkEmpresa = sessionStorage.EMPRESA_USUARIO;
+
+// var fkEmpresa = sessionStorage.EMPRESA_USUARIO;
+// var idUsuario = sessionStorage.ID_USUARIO;
+var idUsuarioVar = 8
+
     function registrarFunc() {
 
         var nomeFuncionarioVar = iptNomeFunc.value;
@@ -153,7 +157,44 @@ var fkEmpresa = sessionStorage.EMPRESA_USUARIO;
                 console.log('erro: ', resposta);
             });
         return false;
-
     }
+    
+    function alterarSenha() {
 
+        var novaSenhaVar = iptSenhaNova.value;
+        var confNovaSenhaVar = iptConfSenhaNova.value;
+
+
+        if (confNovaSenhaVar == '' || novaSenhaVar == '') {
+            alert('Favor digitar os campos corretamente.');
+            return false;
+        }else if(confNovaSenhaVar != novaSenhaVar){
+            alert('Favor digitar senhas iguais.');
+            return false;
+        }
+
+        fetch(`/usuarios/alterarSenha`,
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    senhaNovaServer: novaSenhaVar,
+                    teste: confNovaSenhaVar,
+                    idFuncionarioServer: idUsuarioVar
+                })
+            }).then(function (resposta) {
+                console.log('resposta: ', resposta);
+                if (resposta.ok) {
+                    alert('Senha alterada com sucesso!');
+                } else {
+                    console.log(resposta)
+                    alert('Erro ao mudar senha.');
+                }
+            }).catch(function (resposta) {
+                console.log('erro: ', resposta);
+            });
+        return false;
+    }
 </script>
