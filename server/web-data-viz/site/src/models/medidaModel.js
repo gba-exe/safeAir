@@ -6,10 +6,10 @@ function buscarUltimasMedidas(idSensor, limite_linhas) {
 
     if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select temperatura, umidade,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
+                        DATE_FORMAT(dataHr,'%H:%i:%s') as dataHr_grafico, 
                         fkSensor 
                         from dados where fkSensor = ${idSensor} 
-                    order by id desc limit ${limite_linhas}`;
+                    order by idDado desc limit ${limite_linhas}`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -25,10 +25,10 @@ function buscarMedidasEmTempoReal(idSensor) {
 
     if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select temperatura, umidade,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
+                        DATE_FORMAT(dataHr,'%H:%i:%s') as dataHr_grafico, 
                         fkSensor 
                         from dados where fkSensor = ${idSensor} 
-                    order by id desc limit 1`;
+                    order by idDado desc limit 1`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
