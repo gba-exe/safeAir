@@ -26,7 +26,7 @@ select{
 }
 .divSelect{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 .divLogo{
     display: flex;
@@ -48,21 +48,6 @@ select{
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-.divGraficoTeste{
-    display:flex;
-    width:100%;
-    justify-content: center;
-    gap:30px;
-    margin-top: 30px;
-    background-color: #A4B096;
-    padding: 30px;
-    border-radius: 10px;
-}
-.graph{
-    background-color: #e2f0d9;
-    border-radius: 10px;
-    padding: 15px;
 }
 .divTemperatura, .divUmidade{
     background-color: #A4B096;
@@ -96,11 +81,7 @@ select{
     font-weight: 600;
     font-size: 20px;
     flex-direction: column;
-    justify-content: space-around;
-    background-color: #e2f0d9;
-    border-radius: 10px;
-    padding: 15px;
-    width: 20%;
+    justify-content: center;
 }
 .divLegenda img{
     width: 20px;
