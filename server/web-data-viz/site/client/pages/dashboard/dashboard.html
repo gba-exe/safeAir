@@ -21,9 +21,11 @@
 
     <!--FONT AWESOME-->
     <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+
+    <script src="alertas.js"></script>
 </head>
 
-<body onload=" atualizarFeed()">
+<body onload=" atualizarFeed(), validarSessao(), atualizacaoPeriodica()">
     
     <script src="../../assets/components/headerDashboard.js"></script>
 
@@ -110,4 +112,13 @@
             }]
         },
         });
+
+        function atualizacaoPeriodica() {
+        obterdados(1);
+        obterdados(2);
+        obterdados(3);
+        obterdados(4);
+
+        setTimeout(atualizacaoPeriodica, 5000);
+    }
 </script>
