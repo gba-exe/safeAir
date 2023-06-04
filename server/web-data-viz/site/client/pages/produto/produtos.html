@@ -15,7 +15,7 @@
 
 <body>
     <script src="../../assets/components/header.js"></script>
-    <div class="divContainer">
+    <div class="divContainer" id="divContainer">
         <div class="divEsquerda">
             <div class="divContent">
                 <a class="pPequeno" href="../home/home.html">
@@ -44,20 +44,21 @@
                             botões, deixe
                             que nós fazemos isso por você.
                         </p>
-            </div>
-        </div>
-        <div class="divDireita">
-            <div class="divContent">
-                <div class="divSelo"></div>
-                <div class="divProdutos">
-                    <img src="../../assets/boxPng.png" alt="Caixa">
-                    <div class="divTexto">
-                        <h1>15m² R$ 7450,00</h1>
-                        <ul>
-                            <li>2 sensores de arduínos (temperatura e umidade)</li>
-                            <li> 1 mês para análise completa do ambiente</li>
+                        <button onclick="contato()" class="btnAzul">Entre em contato</button>
+                    </div>
+                </div>
+                <div class="divDireita">
+                    <div class="divContent">
+                        <div class="divSelo"></div>
+                        <div class="divProdutos">
+                            <img src="../../assets/boxPng.png" alt="Caixa">
+                            <div class="divTexto">
+                                <h1>15m² R$ 7450,00</h1>
+                                <ul>
+                                    <li>2 sensores de arduínos (temperatura e umidade)</li>
+                                    <li> 1 mês para análise completa do ambiente</li>
                         </ul>
-
+                        
                     </div>
                 </div>
                 <div class="divProdutos">
@@ -68,7 +69,7 @@
                             <li>4 sensores de arduínos (temperatura e umidade)</li>
                             <li> 1 mês para análise completa do ambiente</li>
                         </ul>
-
+                        
                     </div>
                 </div>
                 <div class="divProdutos">
@@ -79,7 +80,7 @@
                             <li>6 sensores de arduínos (temperatura e umidade)</li>
                             <li> 1 mês para análise completa do ambiente</li>
                         </ul>
-
+                        
                     </div>
                 </div>
                 <div class="divProdutos">
@@ -89,13 +90,31 @@
                         <ul>
                             <li>Faça seu orçamento</li>
                         </ul>
-
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="divContato" id="divContato">
+        <a onclick="voltar()" class="pPequeno">< Voltar</a>
+        <p class="pGrande">Email:</p>
+        <p class="pParagrafo">saafeair@gmail.com</p>
+        <p class="pGrande">Telefone:</h2>
+        <p class="pParagrafo">(11) 95324-3892</p>
+
+    </div>
     <script src="../../assets/components/footer.js"></script>
 </body>
+<script>
+function contato(){
+    divContato.style.display = 'block';
+    divContainer.style= 'filter: blur(1.9px);'
+}
+function voltar() {
+    divContato.style.display = 'none';
+    divContainer.style= 'filter: blur(0px);'
+}
+</script>
 
 </html>
