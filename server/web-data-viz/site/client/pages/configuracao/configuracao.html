@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="configuracao.css">
-    <link rel="stylesheet" href="../../style/style.css"/>
+    <link rel="stylesheet" href="../../style/style.css" />
     <link rel="stylesheet" href="../navbarFooter/navbarDashboard.css">
     <title>Configurações</title>
 </head>
@@ -20,7 +19,7 @@
             <div class="divLogo">
                 <img src="../../assets/logos/logoSemFundoMaior.png">
             </div>
-            
+
             <!-- <div class="divPerfis">
                 <div>
                     <img src="../../assets/foto-barbara.png" alt="">
@@ -30,7 +29,7 @@
                         <p class="pLogin">Cliente - Administrador</p>
                     </div>
                 </div> -->
-                <!-- <div>
+            <!-- <div>
                     <img src="../../assets/hp.png" alt="">
                     <div>
                         <p class="pLogin">Empresa:</p>
@@ -39,9 +38,9 @@
                     </div>
                 </div>
             </div> -->
-            
+
             <div class="divEspacamento"></div>
-            
+
             <div class="divVerdes">
                 <div class="divTitulo">
                     <img src="../../assets/admin.png" alt="">
@@ -62,7 +61,8 @@
                             <p class="pLogin">Senha do funcionário:</p>
                             <input class="input" type="password" placeholder="Senha do funcionário" id="iptSenhaFunc">
                             <p class="pLogin">Confirmação de senha:</p>
-                            <input class="input" type="password" placeholder="Confirmar senha do Funcionário" id="iptConfSenha">
+                            <input class="input" type="password" placeholder="Confirmar senha do Funcionário"
+                                id="iptConfSenha">
                         </div>
                     </div>
                     <div class="divInputsInteiro">
@@ -76,7 +76,7 @@
                     <button onclick="registrarFunc()" class="btnAzul">Registrar Novo Funcionário</button>
                 </div>
             </div>
-            
+
             <div class="divVerdes">
                 <div class="divTitulo">
                     <img src="../../assets/ferramenta.png" alt="">
@@ -103,6 +103,57 @@
 
 </html>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="analytics.js"></script>
+<script>
+var fkEmpresa = sessionStorage.EMPRESA_USUARIO;
+    function registrarFunc() {
 
-<script src="../../script/configuracao.js"></script>
+        var nomeFuncionarioVar = iptNomeFunc.value;
+        var emailFuncionarioVar = iptEmailFunc.value;
+        var senhaVar = iptSenhaFunc.value;
+        var confSenhaVar = iptConfSenha.value;
+        var AdmVar = selectAdministrador.value;
+
+
+        if (nomeFuncionarioVar == '' || emailFuncionarioVar == '' || senhaVar == '' || confSenhaVar == '' || AdmVar == '') {
+            alert('Favor digitar os campos corretamente.');
+            return false;
+        } else if (emailFuncionarioVar.indexOf('@') == -1) {
+            alert('Favor digitar o email corretamente.');
+            return false;
+        } else if (senhaVar.length < 8) {
+            alert('Favor digitar uma senha com no mínimo oito caracteres.');
+            return false;
+        }else if(senhaVar != confSenhaVar){
+            alert('Favor digitar senhas iguais.');
+            return false;
+        }
+
+        fetch(`/usuarios/registrarFunc`,
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nomeFuncionarioServer: nomeFuncionarioVar,
+                    emailFuncionarioServer: emailFuncionarioVar,
+                    senhaFuncionarioServer: senhaVar,
+                    administradorFuncionarioServer: AdmVar,
+                    empresaFuncionarioServer: fkEmpresa,
+                })
+            }).then(function (resposta) {
+                console.log('resposta: ', resposta);
+                if (resposta.ok) {
+                    alert('Um novo funcionário foi cadastrado com sucesso!');
+                } else {
+                    console.log(resposta)
+                    alert('Erro ao cadastrar funcionário.');
+                }
+            }).catch(function (resposta) {
+                console.log('erro: ', resposta);
+            });
+        return false;
+
+    }
+
+</script>
