@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
+    <title>Login</title>
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../navbarFooter/navbar.css">
+    <link rel="stylesheet" href="../navbarFooter/footer.css">
+</head>
+
+<body>
+    <script src="../../assets/components/header.js"></script>
+
+    <div class="divContainer">
+        <div class="divEsquerda">
+            <div class="divContent">
+                <a class="pPequeno" href="../home/home.html">
+                    < Voltar a home </a>
+                        <div id="divTexto">
+                            <h1>Entre Agora!</h1>
+                            <div>
+                                <p class="pParagrafo">&emsp;&emsp;Agora que já tem um cadastro faça seu login utilizando
+                                    o e-mail que sua empresa disponibilizou.</p>
+                            </div>
+                        </div>
+            </div>
+        </div>
+
+        <div class="divDireita">
+            <div class="divContent">
+                <p class="pInput">E-mail do usuário</p>
+                <input id="iptUsuario" placeholder="Usuário">
+                <p class="pInput">Senha</p>
+                <input type="password" id="iptSenha" placeholder="Senha">
+                <br>
+                <button onclick="entrar()" class="btnVerde">Entrar</button>
+
+                <div class="divEspacamento"></div>
+
+                <div id="divLoading">
+                    <img src="https://th.bing.com/th/id/R.e4b6323e19e57f6761b1ce47b7d329e0?rik=D4%2b%2fTxSGPiWP2g&pid=ImgRaw&r=0"
+                        alt="loading-gif">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/components/footer.js"></script>
+
+</body>
+<script>
+    function aguardar() {
+        window.setTimeout("document.getElementById('divLoading').style.display='flex';", 1000);
+    }
+
+    function entrar() {
+        var emailVar = iptUsuario.value;
+        var senhaVar = iptSenha.value;
+
+        iptUsuario.style = 'border-color: #072953;';
+        iptSenha.style = 'border-color: #072953;';
+
+        if (emailVar.indexOf('@') == -1) {
+            iptUsuario.style = 'border-color: red;';
+            alert('Insira um e-mail correto');
+            return false;
+        } if (senhaVar == '') {
+            iptSenha.style = 'border-color: red;';
+            alert('Insira uma senha correta');
+            return false;
+        } else {
+            aguardar()
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.ID_USUARIO = json.idusuario;
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.SENHA_USUARIO = json.senha;
+                    sessionStorage.ADM = json.administrador;
+                    sessionStorage.EMPRESA_USUARIO = json.fkEmpresa;
+
+                    if (sessionStorage.EMPRESA_USUARIO != '12.345.678/9012-34') {
+                        setTimeout(function () {
+                            window.alert(`Seja bem-vindo(a), ${sessionStorage.NOME_USUARIO}!`)
+                            window.location = "../dashboard/dashboard.html";
+                        }, 1000);
+                    } else {
+                        setTimeout(function () {
+                            window.alert(`Bem-vindo(a) de volta, ${sessionStorage.NOME_USUARIO}!`)
+                            window.location = "../admSafeAir/admSafeAir.html";
+                        }, 1000);
+                    }
+                });
+
+            } else {
+                alert("Usuário inválido.")
+                console.log("Houve um erro ao tentar realizar o login!");
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+</script>
+
+</html>
