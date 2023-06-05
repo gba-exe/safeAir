@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8" />
@@ -100,7 +100,7 @@
             </div>
 
             <div class="divGraficosGeral">
-                <h1>Desde o começo do nosso processo, a sala Diretória esteve nos seguindes estados:</h1>
+                <div id="h1RelatorioSala"></div>
                 <div class="divTodosGraficos">
                     <div class="divGrafico">
                         <div class="divTemperaturaGrafico">
@@ -109,19 +109,19 @@
                         <div class="divLegenda">
                             <label for="">
                                 <img src="../../assets/bolinhaVerde.png" alt="">
-                                <p>55% Ideal</p>
+                                <div id="pIdealTemp"></div>
                             </label>
                             <label for="">
                                 <img src="../../assets/bolinhaAmarela.png" alt="">
-                                <p>15% Alerta</p>
+                                <div id="pAlertaTemp"></div>
                             </label>
                             <label for="">
                                 <img src="../../assets/bolinhaLaranja.png" alt="">
-                                <p> 15% Emergência</p>
+                                <div id="pEmergenciaTemp"></div>
                             </label>
                             <label for="">
                                 <img src="../../assets/bolinhaVermelha.png" alt="">
-                                <p>15% Crítico</p>
+                                <div id="pCriticoTemp"></div>
                             </label>
                         </div>
                     </div>
@@ -132,19 +132,19 @@
                         <div class="divLegenda">
                             <label for="">
                                 <img src="../../assets/bolinhaVerde.png" alt="">
-                                <p>55% Ideal</p>
+                                <div id="pIdealUmid"></div>
                             </label>
                             <label for="">
                                 <img src="../../assets/bolinhaAmarela.png" alt="">
-                                <p>15% Alerta</p>
+                                <div id="pAlertaUmid"></div>
                             </label>
                             <label for="">
                                 <img src="../../assets/bolinhaLaranja.png" alt="">
-                                <p> 15% Emergência</p>
+                                <div id="pEmergenciaUmid"></div>
                             </label>
                             <label for="">
                                 <img src="../../assets/bolinhaVermelha.png" alt="">
-                                <p>15% Crítico</p>
+                                <div id="pCriticoUmid"></div>
                             </label>
                         </div>
                     </div>
@@ -214,7 +214,6 @@
     });
     // rosquinha1.data.datasets[0].data = [umidadeIdeal, umidadeAlerta, umidadeEmergencia, umidadeCritica];
 
-
     const rosquinha1 = document.getElementById('rosquinhaUmidade');
     const rosquinha2 = new Chart(rosquinha1, {
         type: 'doughnut',
@@ -245,15 +244,7 @@
         }
     });
 
-
-
-
-
-
-
     var fkEmpresa = sessionStorage.EMPRESA_USUARIO;
-
-
 
     var vtCaptura = [];
     var vtSalas = [];
@@ -263,7 +254,7 @@
 
     captarSalas();
     captarEndereco();
-    
+
     function captarSalas() {
         if (fkEmpresaVar == '') {
             alert('Não encontrei esta uma empresa com este id');
@@ -388,27 +379,35 @@
     var temperaturaAlerta = 0;
     var temperaturaEmergencia = 0;
     var temperaturaCritica = 0;
+    var somaQuantidadeTemperatura = 0;
 
     var umidadeIdeal = 0;
     var umidadeAlerta = 0;
     var umidadeEmergencia = 0;
     var umidadeCritica = 0;
+    var somaQuantidadeUmidade = 0;
 
     setTimeout(() => {
         plotarGrafico();
     }, 800)
 
     function plotarGrafico() {
-
+        pIdealTemp.innerHTML = '';
+        pAlertaTemp.innerHTML = '';
+        pEmergenciaTemp.innerHTML = '';
+        pCriticoTemp.innerHTML = '';
+        pIdealUmid.innerHTML = '';
+        pAlertaUmid.innerHTML = '';
+        pEmergenciaUmid.innerHTML = '';
+        pCriticoUmid.innerHTML = '';
         var fkSalaVar = Number(selectSala.value);
         var fkEnderecoVar = Number(selectEndereco.value);
         fkEmpresaVar;
         var data = new Date();
         var mesAtual = String(data.getMonth()).padStart(2, '0');
 
-
-
         var mesAnteriorVar = mesAtual;
+
 
 
         if (fkEnderecoVar == '') {
@@ -470,10 +469,11 @@
                         dataUmi.innerHTML = '<h1>DATA:</h1>'
                         dadoTemp.innerHTML = '<h1>DADOS:</h1>'
                         dadoUmi.innerHTML = '<h1>DADOS:</h1>'
+                        h1RelatorioSala.innerHTML = `<h1>Com base nos registros do último mês, a sala ${vtSalas[fkSalaVar-1]} esteve nos seguintes estados:</h1>`
+
                         if (vtCapturaValores.length == 0) {
                             console.log("Nenhum registro encontrado");
                         }
-
 
                         for (let i = 0; i < vtCapturaValores.length; i++) {
                             let data = vtCapturaValores[i].data;
@@ -492,29 +492,39 @@
 
                             if (temperaturaAtual <= 14 || temperaturaAtual >= 30) {
                                 temperaturaCritica++;
+                                somaQuantidadeTemperatura++;
                             }
                             else if (temperaturaAtual <= 16 || temperaturaAtual >= 27) {
                                 temperaturaEmergencia++;
+                                somaQuantidadeTemperatura++;
                             }
                             else if (temperaturaAtual <= 18 || temperaturaAtual >= 25) {
                                 temperaturaAlerta++;
+                                somaQuantidadeTemperatura++;
                             }
                             else if (temperaturaAtual > 18 || temperaturaAtual < 25) {
                                 temperaturaIdeal++;
+                                somaQuantidadeTemperatura++;
                             }
 
                             if (umidadeAtual <= 25 || umidadeAtual >= 75) {
                                 umidadeCritica++;
+                                somaQuantidadeUmidade++;
                             }
                             else if (umidadeAtual <= 30 || umidadeAtual >= 60) {
                                 umidadeEmergencia++;
+                                somaQuantidadeUmidade++;
                             }
                             else if (umidadeAtual <= 35 || umidadeAtual >= 55) {
                                 umidadeAlerta++;
+                                somaQuantidadeUmidade++;
                             }
                             else if (umidadeAtual > 35 || umidadeAtual < 55) {
                                 umidadeIdeal++;
+                                somaQuantidadeUmidade++;
                             }
+                            porcentagens(); 
+                            
                             rosquinha2.data.datasets[0].data = [umidadeIdeal, umidadeAlerta, umidadeEmergencia, umidadeCritica];
                             rosquinha3.data.datasets[0].data = [temperaturaIdeal, temperaturaAlerta, temperaturaEmergencia, temperaturaCritica];
 
@@ -533,5 +543,39 @@
             })
         }
     }
+
+    function porcentagens() {
+        let porcentagemUmiCritica = (umidadeCritica/somaQuantidadeUmidade) * 100;
+        pCriticoUmid.innerHTML = `${porcentagemUmiCritica.toFixed(1)}% Crítico`
+        
+        let porcentagemUmiEmergencia = (umidadeEmergencia/somaQuantidadeUmidade) * 100;
+        pEmergenciaUmid.innerHTML = `${porcentagemUmiEmergencia.toFixed(1)}% Emergência`
+
+        let porcentagemUmiAlerta = (umidadeAlerta/somaQuantidadeUmidade) * 100;
+        pAlertaUmid.innerHTML = `${porcentagemUmiAlerta.toFixed(1)}% Alerta`
+        
+        let porcentagemUmiIdeal = (umidadeIdeal/somaQuantidadeUmidade) * 100;
+        pIdealUmid.innerHTML = `${porcentagemUmiIdeal.toFixed(1)}% Ideal`
+        
+        let porcentagemTempCritica = (temperaturaCritica/somaQuantidadeTemperatura) * 100;
+        pCriticoTemp.innerHTML = `${porcentagemTempCritica.toFixed(1)}% Crítico`
+        
+        let porcentagemTempEmergencia = (temperaturaEmergencia/somaQuantidadeTemperatura) * 100;
+        pEmergenciaTemp.innerHTML = `${porcentagemTempEmergencia.toFixed(1)}% Emergência`
+        
+        let porcentagemTempAlerta = (temperaturaAlerta/somaQuantidadeTemperatura) * 100;
+        pAlertaTemp.innerHTML = `${porcentagemTempAlerta.toFixed(1)}% Alerta`
+
+        let porcentagemTempIdeal = (temperaturaIdeal/somaQuantidadeTemperatura) * 100;
+        pIdealTemp.innerHTML = `${porcentagemTempIdeal.toFixed(1)}% Ideal`
+
+
+        setTimeout (() => {
+            somaQuantidadeTemperatura = 0;
+            somaQuantidadeUmidade = 0;
+        }, 1000)
+        
+    }
+
 
 </script>
