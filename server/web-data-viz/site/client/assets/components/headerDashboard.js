@@ -36,7 +36,7 @@ if (sessionStorage.ADM == 'Sim') {
                 </a>
             </li>
             <li class='liMenus'>
-                <a href="../Login/Login.HTML">
+                <a href="../Login/Login.html">
                     <img src="../../assets/logoutIcon.png" alt="">
                     <span id="menuLogout" class="spanLink">Log Out</span>
                 </a>
