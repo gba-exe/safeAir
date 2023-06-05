@@ -22,6 +22,7 @@ var mySqlConfig = {
     host: "localhost",
     database: "safeAir",
     user: "root",
+    port: 3307,
     password: "babibanco",
 };
 

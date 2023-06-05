@@ -23,7 +23,7 @@
     <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="obterDadosGrafico()">
 
     <script src="../../assets/components/headerDashboard.js"></script>
 
@@ -44,7 +44,16 @@
                         <select id="selectSala" onchange="obterDadosGrafico()">
                         </select>
                     </div>
-                    <div class="divGraficoTeste">
+                    <div class="divGraficoTeste" style="flex-direction: column;">
+                        <div>
+                            <div>
+
+                                <h1>Temperatura: <div style="width: 30px;height: 30px;background-color: blue;"></div></h1>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: row;justify-content: center;gap:40px">
+
+                        
                         <div class="graph" style="width: 70%;">
                             <canvas id="myChartCanvas1"></canvas>
                         </div>
@@ -67,6 +76,7 @@
                             </label>
                         </div>
                     </div>
+                    </div>
                     <div class="label-captura">
                         <p id="avisoCaptura1" style="font-size:20px"></p>
                     </div>
@@ -82,58 +92,99 @@
 </html>
 <script>
     var textinho = [];
-    var corUmidade = []
-    const myChart = new Chart(document.getElementById(`myChartCanvas1`), {
-        type: 'line',
-        data: {
+    var dados = {
             labels: textinho,
             datasets: [{
-                label: 'Umidade',
                 data: [],
                 fill: false,
                 borderColor: '#36a2eb',
                 borderWidth: 1,
                 tension: 0.1,
+                pointRadius: 3,
                 backgroundColor: corUmidade,
+                pointBorderColor: corUmidade,
+                pointBorderWidth: 3,
             },
             {
-                label: 'Temperatura',
                 data: [],
                 fill: false,
-                borderColor: '#ff6384',
                 tension: 0.1,
+                pointBorderColor: corTemp,
+                pointBorderWidth: 3,
                 borderWidth: 1,
-                backgroundColor: [
-                    '#ff6384'
-                ],
+                borderColor: 'black',
+                backgroundColor: corTemp,
             }]
-        },
+        }
+    
+    var corUmidade = [];
+    var corTemp = [];
+    var myChart = new Chart(document.getElementById(`myChartCanvas1`), {
+        type: 'line',
+        data: dados,
+        options: {
+            plugins:{
+                legend: {
+                    display: false
+                }
+            }
+        }
     });
+    
 
-    var sala = 1;
+    var sala = 0;
 
     function obterDadosGrafico(idAquario) {
         sala = selectSala.value;
+        if(sala == 0){
+            sala = 1;
+        }
         fetch(`/medidas/ultimas/${sala}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    myChart.data.datasets[0].data = []
-                    myChart.data.datasets[1].data = []
-                    textinho.length = 0
-                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    corTemp.length = 0;
+                    corUmidade.length = 0;
+                    dados.datasets[0].data = []
+                    dados.datasets[1].data = []
+                    textinho.length = 0;
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     console.log(resposta)
                     resposta.reverse();
                     for (i = 0; i < resposta.length; i++) {
-                        myChart.data.datasets[0].data.push(resposta[i].umidade);
-                        myChart.data.datasets[1].data.push(resposta[i].temperatura);
+                        dados.datasets[0].data.push(resposta[i].umidade);
+                        dados.datasets[1].data.push(resposta[i].temperatura);
                         textinho.push(resposta[i].dataHr_grafico);
-                        if(resposta[i].umidade > 20 || resposta[i] <10){
-                            corUmidade.push('red')
-                        }else{
+
+                        if(resposta[i].umidade >= 40 && resposta[i].umidade <= 50){
                             corUmidade.push('green')
+                        }else if(resposta[i].umidade >= 35 && resposta[i].umidade <= 55){
+                            corUmidade.push('yelow')
+                        }else if(resposta[i].umidade >= 30 && resposta[i].umidade <= 60){
+                            corUmidade.push('orange')
+                        }else{
+                            corUmidade.push('red')
                         }
+                        
+                        if(resposta[i].temperatura >= 20 && resposta[i].temperatura <= 23){
+                            corTemp.push('green')
+                        }else if(resposta[i].temperatura >= 18 && resposta[i].temperatura <= 25){
+                            corTemp.push('yelow')
+                        }else if(resposta[i].temperatura >= 16 && resposta[i].temperatura <= 27){
+                            corTemp.push('orange')
+                        }else{
+                            corTemp.push('red')
+                        }
+                        // if(resposta[i].temperatura >= 20 && resposta[i].temperatura <= 23){
+                        //     corTemp.push('green')
+                        // }else if(resposta[i].temperatura >= 18 && resposta[i].temperatura <= 25){
+                        //     corTemp.push('yelow')
+                        //     alert("amarelo")
+                        // }else {
+                        //     corTemp.push('orange')
+                        // }
                     }
-                    plotarGrafico()
+                    myChart.update()
+                    setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -145,6 +196,51 @@
     }
 
     obterDadosGrafico();
+
+    /**/
+    function atualizarGrafico(idAquario, dados, myChart) {
+fetch(`/medidas/tempo-real/${sala}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (novoRegistro) {
+
+            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+            console.log(`Dados atuais do gráfico:`);
+            console.log(dados);
+
+
+            if (novoRegistro[0].dataHr_grafico == dados.labels[dados.labels.length - 1]) {
+                console.log("---------------------------------------------------------------")
+                console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                console.log("---------------------------------------------------------------")
+            } else {
+                // tirando e colocando valores no gráfico
+                dados.labels.shift(); // apagar o primeiro
+                dados.labels.push(novoRegistro[0].dataHr_grafico); // incluir um novo momento
+
+                dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+
+                dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+                dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+                myChart.update();
+            }
+
+            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+            proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+}
+/**/
 
     function plotarGrafico() {
         myChart.update();
