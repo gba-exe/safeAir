@@ -119,13 +119,20 @@ h1{
 
     display: flex;
     justify-content: space-around;
-
-    background-color: red;
+    
+    background-color: #C7C6B4;
 }
 
 .divConteudo {
     width: 20%;
-    height: 5vh;
-
-    background-color: blue;
+    height: 10vh;
+    
+    background-color: #A4B096;
+    
+    border-radius: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
