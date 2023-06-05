@@ -105,9 +105,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 
-// var fkEmpresa = sessionStorage.EMPRESA_USUARIO;
-// var idUsuario = sessionStorage.ID_USUARIO;
-var idUsuarioVar = 8
+var fkEmpresa = sessionStorage.EMPRESA_USUARIO;
+var idUsuario = sessionStorage.ID_USUARIO;
 
     function registrarFunc() {
 
@@ -160,7 +159,7 @@ var idUsuarioVar = 8
     }
     
     function alterarSenha() {
-
+        var idUsuarioVar = idUsuario;
         var novaSenhaVar = iptSenhaNova.value;
         var confNovaSenhaVar = iptConfSenhaNova.value;
 

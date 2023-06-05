@@ -14,7 +14,9 @@ function entrar(email, senha) {
     var instrucao = `
         SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}';
     `;
+    // var teste = ``;
     console.log("Executando a instrução SQL: \n" + instrucao);
+    // database.executar(teste);
     return database.executar(instrucao);
 }
 
@@ -97,7 +99,7 @@ function registrarFunc(nomeNovoFuncionario, emailNovoFuncionario, admFuncionario
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO usuario (idusuario, nome, email, senha, administrador, fkEmpresa) VALUES (NULL, '${nomeNovoFuncionario}', '${emailNovoFuncionario}', '${senhaNovoFuncionario}', '${admFuncionario}', ${empresaFuncionario});
+        INSERT INTO usuario (idusuario, nome, email, senha, administrador, fkEmpresa) VALUES (NULL, '${nomeNovoFuncionario}', '${emailNovoFuncionario}', '${senhaNovoFuncionario}', '${admFuncionario}', '${empresaFuncionario}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -154,13 +156,14 @@ function atualizarAnalytics(idEmpresa, idSala, idEndereco, mesAnterior) {
 
 }
 
-function cadastrarSala(cnpjSala, tamanhoSala, nomeSala) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarSala():", cnpjSala, tamanhoSala, nomeSala);
+function cadastrarSala(nomeSala,tamanhoSala, cep, cnpjSala) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarSala():", nomeSala, tamanhoSala, cep, cnpjSala);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
+    
     var inserirSala = `
-        INSERT INTO sala (idSala, nomeSala, tamanhoSala, fkEndereco, fkEmpresa) VALUES (NULL, '${nomeSala}', '${tamanhoSala}', '${cnpjSala}', '${cnpjSala}');
+        INSERT INTO sala (idSala, nomeSala, tamanhoSala, fkEndereco, fkEmpresa) VALUES (NULL, '${nomeSala}', ${tamanhoSala}, '${cep}', '${cnpjSala}');
     `;
     console.log("Executando a instrução SQL: \n" + inserirSala);
     return database.executar(inserirSala);
