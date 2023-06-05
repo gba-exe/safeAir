@@ -25,15 +25,17 @@
                 <div class="divCima">
                     <div class="divCadastroEsq">
                         <h2>Cadastrar nova sala</h2>
+                        <p class="pInput" >Tamanho Salas</p>
+                        <input id="iptCnpj" placeholder="">
                         <p class="pInput">Nome da Sala</p>
                         <input id="iptNomeSala" placeholder="Nome Sala">
-                        <p class="pInput" >CNPJ da empresa</p>
-                        <input id="iptCnpj" placeholder="xxx.xxx.xxx/xxxx-xx">
+                        <p class="pInput">Cep do Endereco</p>
+                        <input type="text" id="iptTamanho" placeholder="Em m²">
+                        <p class="pInput">CNPJ da empresa</p>
+                        <input type="text" id="iptCep" placeholder="xxxx-xxx">
                     </div>
                     <div class="divCadastroDir">
                         <div class="divDentroDir">
-                            <p class="pInput">Tamanho da Sala</p>
-                            <input type="text" id="iptTamanho" placeholder="Em m²">
                         </div>
                     </div>
                     <div class="divFotoCracha"><img src="../../assets/crachazinho.png">
@@ -54,8 +56,9 @@ function cadastrarSala() {
     var nomeSalaVar = iptNomeSala.value;
     var cnpjSalaVar = iptCnpj.value;
     var tamanhoVar = iptTamanho.value;
+    var cepVar = iptCep.value;
 
-    if (nomeSalaVar == '' || cnpjSalaVar == '' || tamanhoVar == '') {
+    if (nomeSalaVar == '' || cnpjSalaVar == '' || tamanhoVar == '' || cepVar == '') {
         alert('Favor digitar os campos corretamente');
         return false;
     }
@@ -69,8 +72,9 @@ function cadastrarSala() {
             },
             body: JSON.stringify({
                 nomeSalaServer: nomeSalaVar,
+                tamanhoSalaServer: tamanhoVar,
+                cepServer: cepVar,
                 cnpjSalaServer: cnpjSalaVar,
-                tamanhoSalaServer: tamanhoVar
             })
         }).then(function (resposta) {
             console.log('resposta: ', resposta);

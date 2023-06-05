@@ -17,6 +17,12 @@ header.innerHTML = `
                 </a>
             </li>
             <li class='liMenus'>
+                <a href="../../pages/admSafeAir/admSalas.html">
+                    <img src="../../assets/sala.png" alt="">
+                    <span id ="menuSalas" class="spanLink">+ Salas</span>
+                </a>
+            </li>        
+            <li class='liMenus'>
                 <a href="../../pages/admSafeAir/admSimulacaoConsumo.html">
                     <img src="../../assets/calculadora 1.png" alt="">
                     <span id ="menuSimulacoes" class="spanLink">Simulação</span>
@@ -56,6 +62,7 @@ var cont = 0 //Variavel para ver condição do menu
             menuHelpDesk.style.display = "none";
             menuSetting.style.display = "none";
             menuSimulacoes.style.display = "none";
+            menuSalas.style.display = "none";
             
             //Mudar tamanho das divs
             navMenu.style.width = "8%";
@@ -69,6 +76,7 @@ var cont = 0 //Variavel para ver condição do menu
             menuHelpDesk.style.display = "block";
             menuSetting.style.display = "block";
             menuSimulacoes.style.display = "block";
+            menuSalas.style.display = "block";
 
             divDashboard.style.width = "80%"
             navMenu.style.width = "20%";

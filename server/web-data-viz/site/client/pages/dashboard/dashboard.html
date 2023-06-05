@@ -9,7 +9,7 @@
     <title>SafeAir Dashboards</title>
 
     <link rel="stylesheet" href="./dashboard.css">
-    <link rel="stylesheet" href="../../style/style.css"/>
+    <link rel="stylesheet" href="../../style/style.css" />
     <link rel="stylesheet" href="../navbarFooter/navbarDashboard.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -23,8 +23,8 @@
     <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 </head>
 
-<body onload=" atualizarFeed()">
-    
+<body>
+
     <script src="../../assets/components/headerDashboard.js"></script>
 
     <div class="janela">
@@ -36,20 +36,12 @@
 
         <div class="dash" style="display: flex;flex-direction: column;align-items: center;">
             <div id="graficos" style="width: 80%;">
-                <div id="grafico1" class="display-block">
+                <div id="grafico1" class="display-block" style="text-align: center;">
+                    <h2 style="font-size: 35px;" class="tituloGraficos">Gráfico Temperatura e Umidade</h2>
                     <div class="divSelect">
-                        <h2 style="font-size: 35px;" class="tituloGraficos">Gráfico Temperatura e Umidade</h2>
-                        <select id="selectSala">
-                            <option value="">Selecionar sala</option>
-                            <option value="">Diretoria</option>
-                            <option value="">Descanso</option>
-                            <option value="">Refeitorio</option>
-                            <option value="">Biblioteca</option>
-                            <option value="">T.I.</option>
-                            <option value="">Reunião</option>
-                            <option value="">Conferencia</option>
-                            <option value="">Hall</option>
-                            <option value="">Secretaria</option>
+                        <select id="selectEndereco" style="width: auto;" onchange="obterDadosGrafico()">
+                        </select>
+                        <select id="selectSala" onchange="obterDadosGrafico()">
                         </select>
                     </div>
                     <div class="divGraficoTeste">
@@ -79,7 +71,7 @@
                         <p id="avisoCaptura1" style="font-size:20px"></p>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -89,25 +81,204 @@
 
 </html>
 <script>
-
-        // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(document.getElementById(`myChartCanvas1`),{
-            type: 'line',
-            data: {
+    var textinho = [];
+    var corUmidade = []
+    const myChart = new Chart(document.getElementById(`myChartCanvas1`), {
+        type: 'line',
+        data: {
+            labels: textinho,
             datasets: [{
                 label: 'Umidade',
                 data: [],
                 fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
+                borderColor: '#36a2eb',
+                borderWidth: 1,
+                tension: 0.1,
+                backgroundColor: corUmidade,
             },
             {
                 label: 'Temperatura',
                 data: [],
                 fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                tension: 0.1
+                borderColor: '#ff6384',
+                tension: 0.1,
+                borderWidth: 1,
+                backgroundColor: [
+                    '#ff6384'
+                ],
             }]
         },
-        });
+    });
+
+    var sala = 1;
+
+    function obterDadosGrafico(idAquario) {
+        sala = selectSala.value;
+        fetch(`/medidas/ultimas/${sala}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    myChart.data.datasets[0].data = []
+                    myChart.data.datasets[1].data = []
+                    textinho.length = 0
+                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log(resposta)
+                    resposta.reverse();
+                    for (i = 0; i < resposta.length; i++) {
+                        myChart.data.datasets[0].data.push(resposta[i].umidade);
+                        myChart.data.datasets[1].data.push(resposta[i].temperatura);
+                        textinho.push(resposta[i].dataHr_grafico);
+                        if(resposta[i].umidade > 20 || resposta[i] <10){
+                            corUmidade.push('red')
+                        }else{
+                            corUmidade.push('green')
+                        }
+                    }
+                    plotarGrafico()
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    obterDadosGrafico();
+
+    function plotarGrafico() {
+        myChart.update();
+    }
+
+    // Adicionando gráfico criado em div na tela
+
+
+    //PEGANDO SALAS ->
+    var fkEmpresa = sessionStorage.EMPRESA_USUARIO;
+    var vtCaptura = [];
+    var vtSalas = [];
+    var vtId = [];
+    var fkEmpresaVar = fkEmpresa;
+
+    captarSalas();
+    captarEndereco();
+
+    function captarSalas() {
+        if (fkEmpresaVar == '') {
+            alert('Não encontrei esta uma empresa com este id');
+            return false;
+        }
+        else {
+            console.log("idEmpresa: ", fkEmpresaVar);
+
+            fetch("/usuarios/captarSalas", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    fkEmpresaServer: fkEmpresaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO captarSalas()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+                        vtCaptura = json;
+                        console.log(vtCaptura.length)
+
+                        for (let i = 0; i < vtCaptura.length; i++) {
+                            let pushNome = vtCaptura[i].nomeSala;
+                            let pushId = vtCaptura[i].idSala;
+                            vtSalas.push(pushNome);
+                            vtId.push(pushId);
+                        }
+                        console.log(vtSalas.length)
+                        for (let i = 0; i < vtSalas.length; i++) {
+                            selectSala.innerHTML += `<option value='${vtId[i]}'>${vtSalas[i]}</option>`
+                        }
+                    });
+
+                } else {
+                    alert("A captura não funcionou")
+                    console.log("Houve um erro ao tentar realizar a captura");
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+        }
+    }
+
+    //PEGANDO ENDEREÇO ->
+    var vtCapturaEndereco = [];
+    var vtEndereco = [];
+    var vtNumeroEndereco = [];
+    var vtIdEndereco = [];
+    var vtEnderecoCidade = [];
+    var vtEnderecoEstado = [];
+
+    function captarEndereco() {
+        if (fkEmpresaVar == '') {
+            alert('Não encontrei esta uma empresa com este id');
+            return false;
+        }
+        else {
+            console.log("idEmpresa: ", fkEmpresaVar);
+
+            fetch("/usuarios/captarEndereco", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    fkEmpresaServer: fkEmpresaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO captarSalas()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+                        vtCapturaEndereco = json;
+                        console.log(vtCapturaEndereco.length)
+
+                        for (let i = 0; i < vtCapturaEndereco.length; i++) {
+                            let pushRua = vtCapturaEndereco[i].rua;
+                            let pushNumero = vtCapturaEndereco[i].numero;
+                            let pushEstado = vtCapturaEndereco[i].estado;
+                            let pushCidade = vtCapturaEndereco[i].cidade;
+                            let pushIdEndereco = vtCapturaEndereco[i].idEndereco;
+                            vtEndereco.push(pushRua);
+                            vtNumeroEndereco.push(pushNumero);
+                            vtEnderecoCidade.push(pushCidade);
+                            vtEnderecoEstado.push(pushEstado);
+                            vtIdEndereco.push(pushIdEndereco);
+
+                        }
+                        console.log(vtEndereco.length)
+                        for (let i = 0; i < vtEndereco.length; i++) {
+                            selectEndereco.innerHTML += `<option value='${vtIdEndereco[i]}'>${vtEnderecoEstado[i]} - ${vtEndereco[i]}, ${vtNumeroEndereco[i]}</option>`
+                        }
+                    });
+
+                } else {
+                    alert("A captura não funcionou")
+                    console.log("Houve um erro ao tentar realizar a captura de endereco");
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+        }
+    }
 </script>
