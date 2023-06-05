@@ -27,7 +27,7 @@ router.post("/registrarFunc", function (req, res) {
     usuarioController.registrarFunc(req, res);
 })
 
-router.put("/alterarSenha", function (req, res) {
+router.post("/alterarSenha", function (req, res) {
     usuarioController.alterarSenha(req, res);
 })
 
