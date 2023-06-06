@@ -81,7 +81,7 @@ function cadastrarEmpresa(nome_Empresa, cnpj, estado, cidade, bairro, rua, numer
         '${email}',
         '${senha}',
         'Sim',
-        (SELECT cnpj FROM empresa AS fk WHERE cnpj = '${cnpj}')
+        '${cnpj}'
         );    
 
     `;

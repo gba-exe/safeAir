@@ -98,16 +98,13 @@
 </html>
 <script>
     function atualizacaoPeriodica() {
+        obterDadosGrafico();
         obterdados(1);
-        obterdados(2);
-        obterdados(3);
-        obterdados(4);
 
-        alertas = [];
-        
         divAlertas.innerHTML = "";
         setTimeout(atualizacaoPeriodica, 5000);
     }
+
     var textinho = [];
     var dados = {
         labels: textinho,
@@ -213,7 +210,7 @@
     }
     
     
-    obterDadosGrafico();
+
     
     /**/
     function atualizarGrafico(idAquario, dados, myChart) {
@@ -224,7 +221,9 @@
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
                     console.log(`Dados atuais do gráfico:`);
                     console.log(dados);
-
+                    
+                    divAlerta.innerHTML = '';
+                    alertar(novoRegistro);
 
                     if (novoRegistro[0].dataHr_grafico == dados.labels[dados.labels.length - 1]) {
                         console.log("---------------------------------------------------------------")

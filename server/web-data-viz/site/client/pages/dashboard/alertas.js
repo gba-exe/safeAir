@@ -1,34 +1,14 @@
-var alertas = [];
+function alertar(novoRegistro) {
 
-function obterdados(idSensor) {
-    fetch(`/medidas/tempo-real/${idSensor}`)
-        .then(resposta => {
 
-            if (resposta.ok) {
-                resposta.json().then(resposta => {
-
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
-                    alertar(resposta, idSensor);
-                });
-            } else {
-
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados da sala p/ gráfico: ${error.message}`);
-        });
-
-}
-
-function alertar(resposta, idSensor) {
-    var temp = Number(resposta[0].temperatura);
-    var umid = Number(resposta[0].umidade);
+    var temp = Number(
+        novoRegistro[0].temperatura);
+    var umid = Number(
+        novoRegistro[0].umidade);
 
 
 
-    console.log(idSensor === resposta[0].fkSensor);
+    console.log(novoRegistro[0]);
 
 
     var limites_temp = {
@@ -66,7 +46,6 @@ function alertar(resposta, idSensor) {
         <div class="divConteudo">
             <h1>Crítico</h1>
             <p style="background-color: red; border-radius: 10px; width: 50%; height: 50%; font-size: 3vh;">${temp} ºC</p>
-            <h1>${idSensor}</h1>
         </div>`;
     } else if (emergenciaQuente) {
         divAlerta.innerHTML += `
@@ -150,7 +129,4 @@ function alertar(resposta, idSensor) {
         </div>`;
     }
 
-    if (alertas.length >= 4){
-        alertas = [];
-    }
 }
