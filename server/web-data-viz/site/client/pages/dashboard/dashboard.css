@@ -32,18 +32,6 @@ select{
     display: flex;
     justify-content: flex-end;
 }
-.divAlertas{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-}
-.divAlertas div{
-    width: 31%;
-    background-color: #A4B096;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-}
 .divGraficos{
     display: flex;
     flex-direction: column;
@@ -123,4 +111,29 @@ h1{
 /*Imagens*/
 .divLogo img{
     width: 120px;
+}
+
+/* Alertas */
+#divAlerta{
+    width: 100%;
+    height: 10vh;
+
+    display: flex;
+    justify-content: space-around;
+    
+    background-color: #C7C6B4;
+}
+
+.divConteudo {
+    width: 20%;
+    height: 10vh;
+    
+    background-color: #A4B096;
+    
+    border-radius: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

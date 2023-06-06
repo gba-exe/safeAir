@@ -9,7 +9,7 @@ header.innerHTML = `
             <li class="liZoom"><a href="../calcPrejuizo/calcPrejuizo.html">Calculadora</a></li>
             <li class="liZoom"><a href="../SobreNós/sobreNos.html">Sobre Nós</a></li>
             <li>|</li>
-            <button class="liZoom btnLoginIn"><a href="../Login/Login.HTML">Login</a></button>
+            <button class="liZoom btnLoginIn"><a href="../Login/Login.html">Login</a></button>
         </ul>
     </header>
     `

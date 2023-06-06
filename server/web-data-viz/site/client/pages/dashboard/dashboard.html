@@ -21,9 +21,11 @@
 
     <!--FONT AWESOME-->
     <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+
+    <script src="alertas.js"></script>
 </head>
 
-<body onload="obterDadosGrafico()">
+<body onload=" /* atualizarFeed(), validarSessao(), */ atualizacaoPeriodica()">
 
     <script src="../../assets/components/headerDashboard.js"></script>
 
@@ -33,10 +35,12 @@
         <div class="divLogo">
             <img src="../../assets/logo.png" style="width: 150px;">
         </div>
-
+        
         <div class="dash" style="display: flex;flex-direction: column;align-items: center;">
             <div id="graficos" style="width: 80%;">
                 <div id="grafico1" class="display-block" style="text-align: center;">
+                    <div id="divAlerta">
+                    </div>
                     <h2 style="font-size: 35px;" class="tituloGraficos">Gráfico Temperatura e Umidade</h2>
                     <div class="divSelect">
                         <select id="selectEndereco" style="width: auto;" onchange="obterDadosGrafico()">
@@ -48,34 +52,35 @@
                         <div>
                             <div>
 
-                                <h1>Temperatura: <div style="width: 30px;height: 30px;background-color: blue;"></div></h1>
+                                <h1>Temperatura: <div style="width: 30px;height: 30px;background-color: blue;"></div>
+                                </h1>
                             </div>
                         </div>
                         <div style="display: flex; flex-direction: row;justify-content: center;gap:40px">
 
-                        
-                        <div class="graph" style="width: 70%;">
-                            <canvas id="myChartCanvas1"></canvas>
+
+                            <div class="graph" style="width: 70%;">
+                                <canvas id="myChartCanvas1"></canvas>
+                            </div>
+                            <div class="divLegenda">
+                                <label for="">
+                                    <img src="../../assets/bolinhaVermelha.png" alt="">
+                                    <p>Emergência</p>
+                                </label>
+                                <label for="">
+                                    <img src="../../assets/bolinhaLaranja.png" alt="">
+                                    <p>Crítico</p>
+                                </label>
+                                <label for="">
+                                    <img src="../../assets/bolinhaAmarela.png" alt="">
+                                    <p>Alerta</p>
+                                </label>
+                                <label for="">
+                                    <img src="../../assets/bolinhaVerde.png" alt="">
+                                    <p>Estável</p>
+                                </label>
+                            </div>
                         </div>
-                        <div class="divLegenda">
-                            <label for="">
-                                <img src="../../assets/bolinhaVermelha.png" alt="">
-                                <p>Emergência</p>
-                            </label>
-                            <label for="">
-                                <img src="../../assets/bolinhaLaranja.png" alt="">
-                                <p>Crítico</p>
-                            </label>
-                            <label for="">
-                                <img src="../../assets/bolinhaAmarela.png" alt="">
-                                <p>Alerta</p>
-                            </label>
-                            <label for="">
-                                <img src="../../assets/bolinhaVerde.png" alt="">
-                                <p>Estável</p>
-                            </label>
-                        </div>
-                    </div>
                     </div>
                     <div class="label-captura">
                         <p id="avisoCaptura1" style="font-size:20px"></p>
@@ -83,6 +88,7 @@
                 </div>
 
             </div>
+
         </div>
     </div>
 
@@ -91,31 +97,39 @@
 
 </html>
 <script>
+    function atualizacaoPeriodica() {
+        obterDadosGrafico();
+        obterdados(1);
+
+        divAlertas.innerHTML = "";
+        setTimeout(atualizacaoPeriodica, 5000);
+    }
+
     var textinho = [];
     var dados = {
-            labels: textinho,
-            datasets: [{
-                data: [],
-                fill: false,
-                borderColor: '#36a2eb',
-                borderWidth: 1,
-                tension: 0.1,
-                pointRadius: 3,
-                backgroundColor: corUmidade,
-                pointBorderColor: corUmidade,
-                pointBorderWidth: 3,
-            },
-            {
-                data: [],
-                fill: false,
-                tension: 0.1,
-                pointBorderColor: corTemp,
-                pointBorderWidth: 3,
-                borderWidth: 1,
-                borderColor: 'black',
-                backgroundColor: corTemp,
-            }]
-        }
+        labels: textinho,
+        datasets: [{
+            data: [],
+            fill: false,
+            borderColor: '#36a2eb',
+            borderWidth: 1,
+            tension: 0.1,
+            pointRadius: 3,
+            backgroundColor: corUmidade,
+            pointBorderColor: corUmidade,
+            pointBorderWidth: 3,
+        },
+        {
+            data: [],
+            fill: false,
+            tension: 0.1,
+            pointBorderColor: corTemp,
+            pointBorderWidth: 3,
+            borderWidth: 1,
+            borderColor: 'black',
+            backgroundColor: corTemp,
+        }]
+    }
     
     var corUmidade = [];
     var corTemp = [];
@@ -123,7 +137,7 @@
         type: 'line',
         data: dados,
         options: {
-            plugins:{
+            plugins: {
                 legend: {
                     display: false
                 }
@@ -131,12 +145,12 @@
         }
     });
     
-
+    
     var sala = 0;
-
+    
     function obterDadosGrafico(idAquario) {
         sala = selectSala.value;
-        if(sala == 0){
+        if (sala == 0) {
             sala = 1;
         }
         fetch(`/medidas/ultimas/${sala}`, { cache: 'no-store' }).then(function (response) {
@@ -154,93 +168,98 @@
                         dados.datasets[0].data.push(resposta[i].umidade);
                         dados.datasets[1].data.push(resposta[i].temperatura);
                         textinho.push(resposta[i].dataHr_grafico);
-
-                        if(resposta[i].umidade >= 40 && resposta[i].umidade <= 50){
+                        
+                        if (resposta[i].umidade >= 40 && resposta[i].umidade <= 50) {
                             corUmidade.push('green')
-                        }else if(resposta[i].umidade >= 35 && resposta[i].umidade <= 55){
+                        } else if (resposta[i].umidade >= 35 && resposta[i].umidade <= 55) {
                             corUmidade.push('yelow')
-                        }else if(resposta[i].umidade >= 30 && resposta[i].umidade <= 60){
+                        } else if (resposta[i].umidade >= 30 && resposta[i].umidade <= 60) {
                             corUmidade.push('orange')
-                        }else{
+                        } else {
                             corUmidade.push('red')
                         }
-                        
-                        if(resposta[i].temperatura >= 20 && resposta[i].temperatura <= 23){
+
+                        if (resposta[i].temperatura >= 20 && resposta[i].temperatura <= 23) {
                             corTemp.push('green')
-                        }else if(resposta[i].temperatura >= 18 && resposta[i].temperatura <= 25){
+                        } else if (resposta[i].temperatura >= 18 && resposta[i].temperatura <= 25) {
                             corTemp.push('yelow')
-                        }else if(resposta[i].temperatura >= 16 && resposta[i].temperatura <= 27){
+                        } else if (resposta[i].temperatura >= 16 && resposta[i].temperatura <= 27) {
                             corTemp.push('orange')
-                        }else{
+                        } else {
                             corTemp.push('red')
                         }
                         // if(resposta[i].temperatura >= 20 && resposta[i].temperatura <= 23){
-                        //     corTemp.push('green')
-                        // }else if(resposta[i].temperatura >= 18 && resposta[i].temperatura <= 25){
-                        //     corTemp.push('yelow')
-                        //     alert("amarelo")
-                        // }else {
-                        //     corTemp.push('orange')
-                        // }
-                    }
-                    myChart.update()
+                            //     corTemp.push('green')
+                            // }else if(resposta[i].temperatura >= 18 && resposta[i].temperatura <= 25){
+                                //     corTemp.push('yelow')
+                                //     alert("amarelo")
+                                // }else {
+                                    //     corTemp.push('orange')
+                                    // }
+                                }
+                                myChart.update()
                     setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
             }
         })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+    }
+    
+    
+
+    
+    /**/
+    function atualizarGrafico(idAquario, dados, myChart) {
+        fetch(`/medidas/tempo-real/${sala}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+                    
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico:`);
+                    console.log(dados);
+                    
+                    divAlerta.innerHTML = '';
+                    alertar(novoRegistro);
+
+                    if (novoRegistro[0].dataHr_grafico == dados.labels[dados.labels.length - 1]) {
+                        console.log("---------------------------------------------------------------")
+                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                        console.log("---------------------------------------------------------------")
+                    } else {
+                        // tirando e colocando valores no gráfico
+                        dados.labels.shift(); // apagar o primeiro
+                        dados.labels.push(novoRegistro[0].dataHr_grafico); // incluir um novo momento
+
+                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                        dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+
+                        dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+                        dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+                        myChart.update();
+                    }
+
+                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+                });
+
+
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+            }
+        })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
+
     }
-
-    obterDadosGrafico();
-
     /**/
-    function atualizarGrafico(idAquario, dados, myChart) {
-fetch(`/medidas/tempo-real/${sala}`, { cache: 'no-store' }).then(function (response) {
-    if (response.ok) {
-        response.json().then(function (novoRegistro) {
-
-            console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-            console.log(`Dados atuais do gráfico:`);
-            console.log(dados);
-
-
-            if (novoRegistro[0].dataHr_grafico == dados.labels[dados.labels.length - 1]) {
-                console.log("---------------------------------------------------------------")
-                console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                console.log("---------------------------------------------------------------")
-            } else {
-                // tirando e colocando valores no gráfico
-                dados.labels.shift(); // apagar o primeiro
-                dados.labels.push(novoRegistro[0].dataHr_grafico); // incluir um novo momento
-
-                dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-
-                dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
-                myChart.update();
-            }
-
-            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-            proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-        });
-    } else {
-        console.error('Nenhum dado encontrado ou erro na API');
-        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-        proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-    }
-})
-    .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
-
-}
-/**/
 
     function plotarGrafico() {
         myChart.update();
