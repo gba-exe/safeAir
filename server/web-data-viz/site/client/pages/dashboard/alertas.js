@@ -23,12 +23,12 @@ function obterdados(idSensor) {
 }
 
 function alertar(resposta, idSensor) {
-    var temp = resposta[0].temperatura;
+    var temp = Number(resposta[0].temperatura);
+    var umid = Number(resposta[0].umidade);
 
 
-    console.log(idSensor === resposta[0].fkSensor)
 
-    var grauDeAviso = '';
+    console.log(idSensor === resposta[0].fkSensor);
 
 
     var limites_temp = {
@@ -53,107 +53,100 @@ function alertar(resposta, idSensor) {
         critico_seco: 25
     }
 
-    var classe_temperatura = 'cor-alerta';
-    /*     var card;
-        card.className = classe_temperatura; */
 
     var criticoQuente = temp >= limites_temp.critico_quente;
     var emergenciaQuente = temp >= limites_temp.emergencia_quente;
     var alertaQuente = temp >= limites_temp.alerta_quente;
-    var idealTemp = temp >= limites_temp.ideal_max && temp <= limites_temp.ideal_min;
     var alertaFrio = temp <= limites_temp.alerta_frio;
     var emergenciaFrio = temp <= limites_temp.emergencia_frio;
     var criticoFrio = temp <= limites_temp.critico_frio;
-        
-    if (criticoQuente) {
-        alert('quente')
-    } else if (emergenciaQuente) {
-        alert('vampeta')
-    } else if (alertaQuente) {
-        alert('santos')
-    }
 
-    if (idealTemp) {
-        alert('tudu serto')
+    if (criticoQuente) {
+        divAlerta.innerHTML += `
+        <div class="divConteudo">
+            <h1>Crítico</h1>
+            <p style="background-color: red; border-radius: 10px; width: 50%; height: 50%; font-size: 3vh;">${temp} ºC</p>
+        </div>`;
+    } else if (emergenciaQuente) {
+        divAlerta.innerHTML += `
+        <div class="divConteudo">
+            <h1>Emergência</h1>
+            <p style="background-color: orange; border-radius: 10px; width: 50%; height: 50%; font-size: 3vh;">${temp} ºC</p>
+        </div>`;
+    } else if (alertaQuente) {
+        divAlerta.innerHTML += `
+        <div class="divConteudo">
+            <h1>Alerta</h1>
+            <p style="background-color: yellow; border-radius: 10px; width: 50%; height: 50%; font-size: 3vh;">${temp} ºC</p>
+        </div>`;
     }
 
     if (criticoFrio) {
-        alert('Frio')
+        divAlerta.innerHTML += `
+        <div class="divConteudo">
+            <h1>Critico</h1>
+            <p style="background-color: red; border-radius: 10px; width: 50%; height: 50%; font-size: 3vh;">${temp} ºC</p>
+        </div>`;
     } else if (emergenciaFrio) {
-        alert('Gelado')
+        divAlerta.innerHTML += `
+        <div class="divConteudo">
+            <h1>Emergência</h1>
+            <p style="background-color: orange; border-radius: 10px; width: 50%; height: 50%; font-size: 3vh;">${temp} ºC</p>
+        </div>`;
     } else if (alertaFrio) {
-        alert('Sampa')
+        divAlerta.innerHTML += `
+        <div class="divConteudo">
+            <h1>Alerta</h1>
+            <p style="background-color: yellow; border-radius: 10px; width: 50%; height: 50%; font-size: 3vh;">${temp} ºC</p>
+        </div>`;
     }
 
-    var criticoUmido = temp >= limites_umid.critico_umido;
-    var emergenciaUmido = temp >= limites_umid.emergencia_umido;
-    var alertaUmido = temp >= limites_umid.alerta_umido;
-    var idealUmid = temp >= limites_umid.ideal_max && temp <= limites_umid.ideal_min;
-    var alertaSeco = temp <= limites_umid.alerta_seco;
-    var emergenciaSeco = temp <= limites_umid.emergencia_seco;
-    var criticoSeco = temp <= limites_umid.critico_seco;
+    var criticoUmido = umid >= limites_umid.critico_umido;
+    var emergenciaUmido = umid >= limites_umid.emergencia_umido;
+    var alertaUmido = umid >= limites_umid.alerta_umido;
+    var alertaSeco = umid <= limites_umid.alerta_seco;
+    var emergenciaSeco = umid <= limites_umid.emergencia_seco;
+    var criticoSeco = umid <= limites_umid.critico_seco;
 
     if (criticoUmido) {
-        alert('Umido')
+        divAlerta.innerHTML += `
+        <div class="divConteudo">
+            <h1>Critico</h1>
+            <p style="background-color: red; border-radius: 10px; width: 50%; height: 50%; font-size: 3vh;">${umid.toFixed()} %</p>
+        </div>`;
     } else if (emergenciaUmido) {
-        alert('moiadu')
+        divAlerta.innerHTML += `
+        <div class="divConteudo">
+            <h1>Emergência</h1>
+            <p style="background-color: orange; border-radius: 10px; width: 50%; height: 50%; font-size: 3vh;">${umid.toFixed()} %</p>
+        </div>`;
     } else if (alertaUmido) {
-        alert('santos')
-    }
-
-    if (idealUmid) {
-        alert('tudu serto')
+        divAlerta.innerHTML += `
+        <div class="divConteudo">
+            <h1>Alerta</h1>
+            <p style="background-color: yellow; border-radius: 10px; width: 50%; height: 50%; font-size: 3vh;">${umid.toFixed()} %</p>
+        </div>`;
     }
 
     if (criticoSeco) {
-        alert('Seco')
-    } else if (emergenciaSeco) {
-        alert('sequinho')
+        divAlerta.innerHTML += `
+        <div class="divConteudo">
+            <h1>Crítico</h1>
+            <p style="background-color: red; border-radius: 10px; width: 50%; height: 50%; font-size: 3vh;">${umid.toFixed()} %</p>
+        </div>`;
+    }
+    else if (emergenciaSeco) {
+        divAlerta.innerHTML += `
+        <div class="divConteudo">
+            <h1>Emergência</h1>
+            <p style="background-color: orange; border-radius: 10px; width: 50%; height: 50%; font-size: 3vh;">${umid.toFixed()} %</p>
+        </div>`;
     } else if (alertaSeco) {
-        alert('Sampa')
+        divAlerta.innerHTML += `
+        <div class="divConteudo">
+            <h1>Alerta</h1>
+            <p style="background-color: yellow; border-radius: 10px; width: 50%; height: 50%; font-size: 3vh;">${umid.toFixed()} %</p>
+        </div>`;
     }
 
-    var classe_umidade = 'cor-alerta';
-    /*     var card;
-        card.className = classe_temperatura; */
-}
-
-function exibirAlerta(temp, idSensor, grauDeAviso, grauDeAvisoCor) {
-    var indice = alertas.findIndex(item => item.idSensor == idSensor);
-
-    if (indice >= 0) {
-        alertas[indice] = { idSensor, temp, grauDeAviso, grauDeAvisoCor }
-    } else {
-        alertas.push({ idSensor, temp, grauDeAviso, grauDeAvisoCor });
-    }
-
-    exibirCards();
-
-    // Dentro da div com classe grauDeAvisoCor há um caractere "invisível", 
-    // que pode ser inserido clicando com o seu teclado em alt+255 ou pelo código adicionado acima.
-}
-
-function removerAlerta(idSensor) {
-    alertas = alertas.filter(item => item.idSensor != idSensor);
-    exibirCards();
-}
-
-function exibirCards() {
-    alerta.innerHTML = '';
-
-    for (var i = 0; i < alertas.length; i++) {
-        var mensagem = alertas[i];
-        alerta.innerHTML += transformarEmDiv(mensagem);
-    }
-}
-
-function transformarEmDiv({ idSensor, temp, grauDeAviso, grauDeAvisoCor }) {
-    return `<div class="mensagem-alarme">
-    <div class="informacao">
-    <div class="${grauDeAvisoCor}">&#12644;</div> 
-     <h3>Aquário ${idSensor} está em estado de ${grauDeAviso}!</h3>
-    <small>Temperatura ${temp}.</small>   
-    </div>
-    <div class="alarme-sino"></div>
-    </div>`;
 }

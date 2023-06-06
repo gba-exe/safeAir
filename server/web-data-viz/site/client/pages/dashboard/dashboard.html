@@ -22,7 +22,7 @@
     <!--FONT AWESOME-->
     <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 
-    <!-- <script src="alertas.js"></script> -->
+    <script src="alertas.js"></script>
 </head>
 
 <body onload=" /* atualizarFeed(), validarSessao(), */ atualizacaoPeriodica()">
@@ -39,23 +39,7 @@
         <div class="dash" style="display: flex;flex-direction: column;align-items: center;">
             <div id="graficos" style="width: 80%;">
                 <div id="grafico1" class="display-block" style="text-align: center;">
-                    <div class="divAlerta">
-                        <div class="divConteudo">
-                            <h1>Crítico</h1>
-                            <p>21ºC</p>
-                        </div>
-                        <div class="divConteudo">
-                            <h1>Crítico</h1>
-                            <p>21ºC</p>
-                        </div>
-                        <div class="divConteudo">
-                            <h1>Crítico</h1>
-                            <p>21ºC</p>
-                        </div>
-                        <div class="divConteudo">
-                            <h1>Crítico</h1>
-                            <p>21ºC</p>
-                        </div>
+                    <div id="divAlerta">
                     </div>
                     <h2 style="font-size: 35px;" class="tituloGraficos">Gráfico Temperatura e Umidade</h2>
                     <div class="divSelect">
@@ -119,6 +103,7 @@
         obterdados(3);
         obterdados(4);
 
+        divAlertas.innerHTML = "";
         setTimeout(atualizacaoPeriodica, 5000);
     }
     var textinho = [];
