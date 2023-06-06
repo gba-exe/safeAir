@@ -163,7 +163,7 @@ function cadastrarSala(nomeSala,tamanhoSala, cep, cnpjSala) {
     //  e na ordem de inserção dos dados.
     
     var inserirSala = `
-        INSERT INTO sala (idSala, nomeSala, tamanhoSala, fkEndereco, fkEmpresa) VALUES (NULL, '${nomeSala}', ${tamanhoSala}, '${cep}', '${cnpjSala}');
+        insert into sala values (NULL, '${nomeSala}', ${tamanhoSala}, (select idEndereco from endereco where cep = '${cep}'), '${cnpjSala}');
     `;
     console.log("Executando a instrução SQL: \n" + inserirSala);
     return database.executar(inserirSala);
