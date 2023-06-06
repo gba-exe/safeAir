@@ -103,6 +103,8 @@
         obterdados(3);
         obterdados(4);
 
+        alertas = [];
+        
         divAlertas.innerHTML = "";
         setTimeout(atualizacaoPeriodica, 5000);
     }
@@ -131,7 +133,7 @@
             backgroundColor: corTemp,
         }]
     }
-
+    
     var corUmidade = [];
     var corTemp = [];
     var myChart = new Chart(document.getElementById(`myChartCanvas1`), {
@@ -145,10 +147,10 @@
             }
         }
     });
-
-
+    
+    
     var sala = 0;
-
+    
     function obterDadosGrafico(idAquario) {
         sala = selectSala.value;
         if (sala == 0) {
@@ -169,7 +171,7 @@
                         dados.datasets[0].data.push(resposta[i].umidade);
                         dados.datasets[1].data.push(resposta[i].temperatura);
                         textinho.push(resposta[i].dataHr_grafico);
-
+                        
                         if (resposta[i].umidade >= 40 && resposta[i].umidade <= 50) {
                             corUmidade.push('green')
                         } else if (resposta[i].umidade >= 35 && resposta[i].umidade <= 55) {
@@ -190,34 +192,35 @@
                             corTemp.push('red')
                         }
                         // if(resposta[i].temperatura >= 20 && resposta[i].temperatura <= 23){
-                        //     corTemp.push('green')
-                        // }else if(resposta[i].temperatura >= 18 && resposta[i].temperatura <= 25){
-                        //     corTemp.push('yelow')
-                        //     alert("amarelo")
-                        // }else {
-                        //     corTemp.push('orange')
-                        // }
-                    }
-                    myChart.update()
+                            //     corTemp.push('green')
+                            // }else if(resposta[i].temperatura >= 18 && resposta[i].temperatura <= 25){
+                                //     corTemp.push('yelow')
+                                //     alert("amarelo")
+                                // }else {
+                                    //     corTemp.push('orange')
+                                    // }
+                                }
+                                myChart.update()
                     setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
             }
         })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
     }
-
+    
+    
     obterDadosGrafico();
-
+    
     /**/
     function atualizarGrafico(idAquario, dados, myChart) {
         fetch(`/medidas/tempo-real/${sala}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
-
+                    
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
                     console.log(`Dados atuais do gráfico:`);
                     console.log(dados);

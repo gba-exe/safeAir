@@ -66,6 +66,7 @@ function alertar(resposta, idSensor) {
         <div class="divConteudo">
             <h1>Crítico</h1>
             <p style="background-color: red; border-radius: 10px; width: 50%; height: 50%; font-size: 3vh;">${temp} ºC</p>
+            <h1>${idSensor}</h1>
         </div>`;
     } else if (emergenciaQuente) {
         divAlerta.innerHTML += `
@@ -149,4 +150,7 @@ function alertar(resposta, idSensor) {
         </div>`;
     }
 
+    if (alertas.length >= 4){
+        alertas = [];
+    }
 }
