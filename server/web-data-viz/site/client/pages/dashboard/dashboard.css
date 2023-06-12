@@ -1,0 +1,139 @@
+body{
+    background-color: #C7C6B4 ;
+    height: 100%;
+}
+
+/*Selects*/
+select{
+    background-color: #A4B096;
+    border-radius: 20px;
+    width: 160px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/*Divs*/
+
+.janela{
+    width: 80%;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+  }
+.divContent{
+    gap: 20px;
+}
+.divSelect{
+    display: flex;
+    justify-content: space-between;
+}
+.divLogo{
+    display: flex;
+    justify-content: flex-end;
+}
+.divGraficos{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.divGraficoTeste{
+    display:flex;
+    width:100%;
+    justify-content: center;
+    gap:30px;
+    margin-top: 30px;
+    background-color: #A4B096;
+    padding: 30px;
+    border-radius: 10px;
+}
+.graph{
+    background-color: #e2f0d9;
+    border-radius: 10px;
+    padding: 15px;
+}
+.divTemperatura, .divUmidade{
+    background-color: #A4B096;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 20px;
+}
+.divGraficoTemperatura, .divGraficoUmidade{
+    background-color: #E2F0D9;
+    border-radius: 10px;
+    width: 70%;
+    padding: 5px;
+}
+.divGraficoLegenda{
+    display: flex;
+    gap: 20px;
+}
+.label-captura{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+.divLegenda{
+    display: flex;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #e2f0d9;
+    border-radius: 10px;
+    padding: 15px;
+    width: 20%;
+}
+.divLegenda img{
+    width: 20px;
+    height: 20px;
+}
+.divLegenda label{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+/*Textos*/
+p,h1{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-size: 18px;
+}
+
+/*Imagens*/
+.divLogo img{
+    width: 120px;
+}
+
+/* Alertas */
+#divAlerta{
+    width: 100%;
+    height: 10vh;
+
+    display: flex;
+    justify-content: space-around;
+    
+    background-color: #C7C6B4;
+}
+
+.divConteudo {
+    width: 20%;
+    height: 10vh;
+    
+    background-color: #A4B096;
+    
+    border-radius: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

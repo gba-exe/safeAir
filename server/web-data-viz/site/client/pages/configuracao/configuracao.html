@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="../../assets/logoClaro.jpeg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="configuracao.css">
+    <link rel="stylesheet" href="../../style/style.css" />
+    <link rel="stylesheet" href="../navbarFooter/navbarDashboard.css">
+    <title>Configurações</title>
+</head>
+
+<body>
+    <script src="../../assets/components/headerDashboard.js"></script>
+    <div id="divDashboard">
+        <div class="divContent">
+            <div class="divLogo">
+                <img src="../../assets/logos/logoSemFundoMaior.png">
+            </div>
+
+            <!-- <div class="divPerfis">
+                <div>
+                    <img src="../../assets/foto-barbara.png" alt="">
+                    <div>
+                        <p class="pLogin">Logado como:</p>
+                        <h1>Bárbara Barbato</h1>
+                        <p class="pLogin">Cliente - Administrador</p>
+                    </div>
+                </div> -->
+            <!-- <div>
+                    <img src="../../assets/hp.png" alt="">
+                    <div>
+                        <p class="pLogin">Empresa:</p>
+                        <h1>HP</h1>
+                        <p class="pLogin">Parceira SafeAir - 2023</p>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="divEspacamento"></div>
+
+            <div class="divVerdes">
+                <div class="divTitulo">
+                    <img src="../../assets/admin.png" alt="">
+                    <div>
+                        <h1>Administrador</h1>
+                        <p class="pLogin">Registrar subordinados:</p>
+                    </div>
+                </div>
+                <div class="divInputs">
+                    <div>
+                        <div class="divInputsMetade">
+                            <p class="pLogin">Email do funcionário:</p>
+                            <input class="input" type="text" placeholder="Email do funcionário" id="iptEmailFunc">
+                            <p class="pLogin">Nome:</p>
+                            <input class="input" type="text" placeholder="Nome do Funcionário" id="iptNomeFunc">
+                        </div>
+                        <div class="divInputsMetade">
+                            <p class="pLogin">Senha do funcionário:</p>
+                            <input class="input" type="password" placeholder="Senha do funcionário" id="iptSenhaFunc">
+                            <p class="pLogin">Confirmação de senha:</p>
+                            <input class="input" type="password" placeholder="Confirmar senha do Funcionário"
+                                id="iptConfSenha">
+                        </div>
+                    </div>
+                    <div class="divInputsInteiro">
+                        <p class="pLogin">Administrador:</p>
+                        <select id="selectAdministrador">
+                            <option value="">Selecione uma opção</option>
+                            <option value="Não">Não</option>
+                            <option value="Sim">Sim</option>
+                        </select>
+                    </div>
+                    <button onclick="registrarFunc()" class="btnAzul">Registrar Novo Funcionário</button>
+                </div>
+            </div>
+
+            <div class="divVerdes">
+                <div class="divTitulo">
+                    <img src="../../assets/ferramenta.png" alt="">
+                    <div>
+                        <h1>Gerenciador:</h1>
+                        <p class="pLogin">Modificar senha padrão:</p>
+                    </div>
+                </div>
+                <div class="divInputs">
+                    <div class="divInputsInteiro">
+                        <p class="pLogin">Senha:</p>
+                        <input type="password" class="input" placeholder="Nova Senha" id="iptSenhaNova">
+                    </div>
+                    <div class="divInputsInteiro">
+                        <p class="pLogin">Confirmação e senha:</p>
+                        <input type="password" class="input" placeholder="Confirmação de senha" id="iptConfSenhaNova">
+                    </div>
+                    <button onclick="alterarSenha()" class="btnAzul">Modificar Senha</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+
+var fkEmpresa = sessionStorage.EMPRESA_USUARIO;
+var idUsuario = sessionStorage.ID_USUARIO;
+
+    function registrarFunc() {
+
+        var nomeFuncionarioVar = iptNomeFunc.value;
+        var emailFuncionarioVar = iptEmailFunc.value;
+        var senhaVar = iptSenhaFunc.value;
+        var confSenhaVar = iptConfSenha.value;
+        var AdmVar = selectAdministrador.value;
+
+
+        if (nomeFuncionarioVar == '' || emailFuncionarioVar == '' || senhaVar == '' || confSenhaVar == '' || AdmVar == '') {
+            alert('Favor digitar os campos corretamente.');
+            return false;
+        } else if (emailFuncionarioVar.indexOf('@') == -1) {
+            alert('Favor digitar o email corretamente.');
+            return false;
+        } else if (senhaVar.length < 8) {
+            alert('Favor digitar uma senha com no mínimo oito caracteres.');
+            return false;
+        }else if(senhaVar != confSenhaVar){
+            alert('Favor digitar senhas iguais.');
+            return false;
+        }
+
+        fetch(`/usuarios/registrarFunc`,
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nomeFuncionarioServer: nomeFuncionarioVar,
+                    emailFuncionarioServer: emailFuncionarioVar,
+                    senhaFuncionarioServer: senhaVar,
+                    administradorFuncionarioServer: AdmVar,
+                    empresaFuncionarioServer: fkEmpresa,
+                })
+            }).then(function (resposta) {
+                console.log('resposta: ', resposta);
+                if (resposta.ok) {
+                    alert('Um novo funcionário foi cadastrado com sucesso!');
+                } else {
+                    console.log(resposta)
+                    alert('Erro ao cadastrar funcionário.');
+                }
+            }).catch(function (resposta) {
+                console.log('erro: ', resposta);
+            });
+        return false;
+    }
+    
+    function alterarSenha() {
+        var idUsuarioVar = idUsuario;
+        var novaSenhaVar = iptSenhaNova.value;
+        var confNovaSenhaVar = iptConfSenhaNova.value;
+
+
+        if (confNovaSenhaVar == '' || novaSenhaVar == '') {
+            alert('Favor digitar os campos corretamente.');
+            return false;
+        }else if(confNovaSenhaVar != novaSenhaVar){
+            alert('Favor digitar senhas iguais.');
+            return false;
+        }
+
+        fetch(`/usuarios/alterarSenha`,
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    senhaNovaServer: novaSenhaVar,
+                    teste: confNovaSenhaVar,
+                    idFuncionarioServer: idUsuarioVar
+                })
+            }).then(function (resposta) {
+                console.log('resposta: ', resposta);
+                if (resposta.ok) {
+                    alert('Senha alterada com sucesso!');
+                } else {
+                    console.log(resposta)
+                    alert('Erro ao mudar senha.');
+                }
+            }).catch(function (resposta) {
+                console.log('erro: ', resposta);
+            });
+        return false;
+    }
+</script>
